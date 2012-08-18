@@ -8,6 +8,11 @@ class App
     # build day tabs
     for dayNode in programXML.find('day')
       dayNode = $(dayNode)
+      date = dayNode.attr('date')
+
+      # 2012-12-27 => 27. Dec
+      dateSplitted = date.split('-')
+      dayNode.dayForUI = parseInt(dateSplitted[2]) + '. ' + helper.i18nDateFormats.monthNames[parseInt(dateSplitted[1]) - 1]
 
       dayTab = $('.tabs li:first').clone()
       dayIndex = dayNode.attr('index')
@@ -17,7 +22,7 @@ class App
 
       a = dayTab.find('a:first')
       a.attr('href', "#schedule##{dayIndex}")
-      a.html(dayNode.attr('date'))
+      a.html(dayNode.dayForUI)
 
       $('.tabs').append($('<div />').append(dayTab.show()).html())
 

@@ -3,7 +3,11 @@ var Helper, helper;
 
 Helper = (function() {
 
-  function Helper() {}
+  Helper.i18nDateFormats;
+
+  function Helper() {
+    this.i18nDateFormats = this._i18nDateFormats();
+  }
 
   Helper.prototype.fetchAndReturnHTTURL = function(url) {
     var response;
@@ -17,6 +21,13 @@ Helper = (function() {
       return response = responseInner;
     });
     return response;
+  };
+
+  Helper.prototype._i18nDateFormats = function() {
+    return {
+      dayNames: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      monthNames: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    };
   };
 
   return Helper;

@@ -10,12 +10,15 @@ App = (function() {
   }
 
   App.prototype.deviceready = function() {
-    var a, dayIndex, dayNode, dayTab, _i, _len, _ref, _results;
+    var a, date, dateSplitted, dayIndex, dayNode, dayTab, _i, _len, _ref, _results;
     _ref = programXML.find('day');
     _results = [];
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       dayNode = _ref[_i];
       dayNode = $(dayNode);
+      date = dayNode.attr('date');
+      dateSplitted = date.split('-');
+      dayNode.dayForUI = parseInt(dateSplitted[2]) + '. ' + helper.i18nDateFormats.monthNames[parseInt(dateSplitted[1]) - 1];
       dayTab = $('.tabs li:first').clone();
       dayIndex = dayNode.attr('index');
       dayTab.attr({
@@ -23,7 +26,7 @@ App = (function() {
       });
       a = dayTab.find('a:first');
       a.attr('href', "#schedule#" + dayIndex);
-      a.html(dayNode.attr('date'));
+      a.html(dayNode.dayForUI);
       _results.push($('.tabs').append($('<div />').append(dayTab.show()).html()));
     }
     return _results;
