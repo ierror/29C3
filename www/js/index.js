@@ -28,6 +28,8 @@ App = (function() {
       a = dayTab.find('a:first');
       a.attr('href', pageHref);
       a.html(dayNode.dayForUI);
+      a.removeClass('ui-btn-active');
+      a.removeClass('ui-state-persist');
       $('.tabs').append($('<div />').append(dayTab.show()).html());
       if (helper.formatDate(new Date(), 'yyyy-mm-dd') === date) {
         _results.push(document.location.href = pageHref);
@@ -51,6 +53,7 @@ programXML = xmlLoader.getXMLTree();
 $(document).bind('pagebeforechange', function(event, data) {
   var dayNode, parsedUrl, _i, _len, _ref, _results;
   if (typeof data.toPage === 'string') {
+    $('li[data-day-index] .link').removeClass('ui-btn-active');
     parsedUrl = $.mobile.path.parseUrl(data.toPage);
     if (parsedUrl.filename === 'index.html' && /^#schedule#/.test(parsedUrl.hash)) {
       _ref = programXML.find('day');

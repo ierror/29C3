@@ -26,13 +26,15 @@ class App
       a = dayTab.find('a:first')
       a.attr('href', pageHref)
       a.html(dayNode.dayForUI)
+      a.removeClass('ui-btn-active')
+      a.removeClass('ui-state-persist')
 
       $('.tabs').append($('<div />').append(dayTab.show()).html())
 
       # set active tab if current day is available event day
       if helper.formatDate(new Date(), 'yyyy-mm-dd') is date
-        document.location.href = pageHref # i don't know why $.mobile.changePage does not work here...
-
+        # i don't know why $.mobile.changePage does not work here...
+        document.location.href = pageHref
 
 
 xmlLoader = new ScheduleXMLLoader()
@@ -41,6 +43,8 @@ programXML = xmlLoader.getXMLTree()
 
 $(document).bind 'pagebeforechange', (event, data) ->
   if typeof data.toPage == 'string'
+    $('li[data-day-index] .link').removeClass('ui-btn-active')
+
     parsedUrl = $.mobile.path.parseUrl(data.toPage)
     if parsedUrl.filename == 'index.html' && /^#schedule#/.test(parsedUrl.hash)
       # determine corresponding dayNode

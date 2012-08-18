@@ -1,5 +1,6 @@
 schedule =
   initialize: (dayNode, options) ->
+    dayIndex = dayNode.attr('index')
     page = $('#schedule')
     theadRow = page.find('thead tr')
 
@@ -33,5 +34,6 @@ schedule =
 
     $.mobile.changePage(page)
 
-
+    # chg tab active state
+    $("li[data-day-index=#{dayIndex}] .link").addClass('ui-btn-active')
 

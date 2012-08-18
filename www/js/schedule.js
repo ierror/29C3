@@ -3,7 +3,8 @@ var schedule;
 
 schedule = {
   initialize: function(dayNode, options) {
-    var duration, durationHours, durationMinutes, durationSplitted, eventNode, name, page, roomNode, rowspan, td, th, theadRow, _i, _j, _len, _len1, _ref, _ref1;
+    var dayIndex, duration, durationHours, durationMinutes, durationSplitted, eventNode, name, page, roomNode, rowspan, td, th, theadRow, _i, _j, _len, _len1, _ref, _ref1;
+    dayIndex = dayNode.attr('index');
     page = $('#schedule');
     theadRow = page.find('thead tr');
     theadRow.find('th[data-is-room-column=1]').remove();
@@ -31,6 +32,7 @@ schedule = {
         $('#timeslot-' + eventNode.find('start:first').text().replace(':', '')).append(td);
       }
     }
-    return $.mobile.changePage(page);
+    $.mobile.changePage(page);
+    return $("li[data-day-index=" + dayIndex + "] .link").addClass('ui-btn-active');
   }
 };

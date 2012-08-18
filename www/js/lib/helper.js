@@ -9,20 +9,6 @@ Helper = (function() {
     this.i18nDateFormats = this._i18nDateFormats();
   }
 
-  Helper.prototype.fetchAndReturnHTTURL = function(url) {
-    var response;
-    response = void 0;
-    $.ajax({
-      url: url,
-      dataType: 'text',
-      async: false,
-      timeout: 2000
-    }).done(function(responseInner) {
-      return response = responseInner;
-    });
-    return response;
-  };
-
   Helper.prototype._i18nDateFormats = function() {
     return {
       dayNames: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
