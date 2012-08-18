@@ -1,8 +1,3 @@
-# TODO: put back to app.xmlLoader?
-xmlLoader = new ScheduleXMLLoader()
-xmlLoader.appStartUpLoad()
-programXML = xmlLoader.getXMLTree()
-
 class App
   @programXML
 
@@ -26,6 +21,10 @@ class App
 
       $('.tabs').append($('<div />').append(dayTab.show()).html())
 
+xmlLoader = new ScheduleXMLLoader()
+xmlLoader.appStartUpLoad()
+programXML = xmlLoader.getXMLTree()
+
 $(document).bind 'pagebeforechange', (event, data) ->
   if typeof data.toPage == 'string'
     parsedUrl = $.mobile.path.parseUrl(data.toPage)
@@ -38,4 +37,4 @@ $(document).bind 'pagebeforechange', (event, data) ->
           event.preventDefault()
           break
 
-app = new App
+app = new App()
