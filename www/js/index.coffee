@@ -20,11 +20,20 @@ class App
         'data-day-index': dayIndex
       )
 
+      pageHref = "#schedule##{dayIndex}"
+
+      # add schedule link to tab button
       a = dayTab.find('a:first')
-      a.attr('href', "#schedule##{dayIndex}")
+      a.attr('href', pageHref)
       a.html(dayNode.dayForUI)
 
       $('.tabs').append($('<div />').append(dayTab.show()).html())
+
+      # set active tab if current day is available event day
+      if helper.formatDate(new Date(), 'yyyy-mm-dd') is date
+        document.location.href = pageHref # i don't know why $.mobile.changePage does not work here...
+
+
 
 xmlLoader = new ScheduleXMLLoader()
 xmlLoader.appStartUpLoad()

@@ -10,7 +10,7 @@ App = (function() {
   }
 
   App.prototype.deviceready = function() {
-    var a, date, dateSplitted, dayIndex, dayNode, dayTab, _i, _len, _ref, _results;
+    var a, date, dateSplitted, dayIndex, dayNode, dayTab, pageHref, _i, _len, _ref, _results;
     _ref = programXML.find('day');
     _results = [];
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -24,10 +24,16 @@ App = (function() {
       dayTab.attr({
         'data-day-index': dayIndex
       });
+      pageHref = "#schedule#" + dayIndex;
       a = dayTab.find('a:first');
-      a.attr('href', "#schedule#" + dayIndex);
+      a.attr('href', pageHref);
       a.html(dayNode.dayForUI);
-      _results.push($('.tabs').append($('<div />').append(dayTab.show()).html()));
+      $('.tabs').append($('<div />').append(dayTab.show()).html());
+      if (helper.formatDate(new Date(), 'yyyy-mm-dd') === date) {
+        _results.push(document.location.href = pageHref);
+      } else {
+        _results.push(void 0);
+      }
     }
     return _results;
   };
