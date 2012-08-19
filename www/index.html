@@ -4,7 +4,8 @@
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
     <meta name='format-detection' content='telephone=no'/>
     <meta name='viewport' content='user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width;'/>
-    <link rel='stylesheet' type='text/css' href='lib/css/jquery.mobile-1.1.1.css'/>
+    <link rel='stylesheet' type='text/css' href='lib/css/jquery.mobile-1.2.0-alpha.1.css'/>
+    <link rel='stylesheet' type='text/css' href='css/main.css'/>
     <script type='text/javascript' src='http://localhost:8080/target/target-script-min.js'></script>
     <title>29C3</title>
 </head>
@@ -13,7 +14,7 @@
 <!-- Personal schedule page -->
 <div data-role='page' id='personalSchedule'>
 
-    <div data-role='header' data-position='fixed'>
+    <div data-role='header' data-position='fixed' data-tap-toggle='false'>
         Personal schedule
     </div>
 
@@ -21,16 +22,70 @@
         foo
     </div>
 
-    <div data-role='footer' data-position='fixed'>
+    <div data-role='footer' data-position='fixed' data-tap-toggle='false'>
         <div data-role='navbar'>
             <ul class='tabs'>
                 <li>
-                    <a class='ui-btn-active ui-state-persist link' href='#personalSchedule' data-theme=''>
+                    <a class=' tab ui-btn-active ui-state-persist link' href='#personalSchedule' data-theme=''>
                         Schedule
                     </a>
                 </li>
             </ul>
         </div>
+    </div>
+</div>
+
+<!-- Event -->
+<div data-role='page' id='event' data-add-back-btn='true'>
+    <div data-role="header" data-position='fixed'>
+    </div>
+
+    <div data-role='content'>
+        <h3 id='event-title' data-is-event-field='1'></h3>
+
+        <table>
+            <tr>
+                <td>Subtitle:</td>
+                <td id='event-subtitle' data-is-event-field='1'></td>
+            </tr>
+            <tr>
+                <td>Start:</td>
+                <td id='event-start' data-is-event-field='1'></td>
+            </tr>
+            <tr>
+                <td>Duration:</td>
+                <td id='event-duration' data-is-event-field='1'></td>
+            </tr>
+            <tr>
+                <td>Speaker:</td>
+                <td id='event-persons' data-is-event-field='1'></td>
+            </tr>
+            <tr>
+                <td>Language:</td>
+                <td id='event-language' data-is-event-field='1'></td>
+            </tr>
+            <tr>
+                <td>Track:</td>
+                <td id='event-track' data-is-event-field='1'></td>
+            </tr>
+            <tr>
+                <td>Type:</td>
+                <td id='event-type' data-is-event-field='1'></td>
+            </tr>
+        </table>
+
+        <h4>Links:</h4>
+        <ul id='event-links' data-is-event-field='1'>
+            <li class='tpl'>
+                <a href='' rel='external' target='_blank'></a>
+            </li>
+        </ul>
+
+        <h4>Abstract:</h4>
+        <div id='event-abstract' data-is-event-field='1'></div>
+
+        <h4>Description:</h4>
+        <div id='event-description' data-is-event-field='1'></div>
     </div>
 </div>
 
@@ -287,11 +342,11 @@
     </table>
 </div>
 
-<div data-role='footer' data-position='fixed'>
+<div data-role='footer' data-position='fixed' data-tap-toggle='false'>
     <div data-role='navbar'>
         <ul class='tabs'>
             <li>
-                <a class='link' href='#personalSchedule' data-theme=''>
+                <a class='link tab' href='#personalSchedule' data-theme=''>
                     Schedule
                 </a>
             </li>
@@ -302,12 +357,13 @@
 
 <script type='text/javascript' src='lib/js/jquery-1.8.0.js'></script>
 <script type='text/javascript' src='config.js'></script>
-<script type='text/javascript' src='lib/js/jquery.mobile-1.1.1.js'></script>
+<script type='text/javascript' src='lib/js/jquery.mobile-1.2.0-alpha.1.js'></script>
 <script type='text/javascript' src='cordova-2.0.0.js'></script>
 <script type='text/javascript' src='js/lib/userConfig.js'></script>
 <script type='text/javascript' src='js/lib/scheduleXML.js'></script>
 <script type='text/javascript' src='js/lib/helper.js'></script>
 <script type='text/javascript' src='js/schedule.js'></script>
+<script type='text/javascript' src='js/event.js'></script>
 <script type='text/javascript' src='js/index.js'></script>
 
 </body>

@@ -41,18 +41,34 @@ xmlLoader = new ScheduleXMLLoader()
 xmlLoader.appStartUpLoad()
 programXML = xmlLoader.getXMLTree()
 
-$(document).bind 'pagebeforechange', (event, data) ->
-  if typeof data.toPage == 'string'
+$(document).bind 'pagebeforechange', (e, data) ->
+  return if typeof data.toPage != 'string'
+
+  parsedUrl = $.mobile.path.parseUrl(data.toPage)
+  return if not parsedUrl.filename == 'index.html'
+
+  if /^#schedule#/.test(parsedUrl.hash)
     $('li[data-day-index] .link').removeClass('ui-btn-active')
 
-    parsedUrl = $.mobile.path.parseUrl(data.toPage)
-    if parsedUrl.filename == 'index.html' && /^#schedule#/.test(parsedUrl.hash)
-      # determine corresponding dayNode
-      for dayNode in programXML.find('day')
-        dayNode = $(dayNode)
-        if dayNode.attr('index') == parsedUrl.hash.split('#')[2]
-          schedule.initialize(dayNode, data.option)
-          event.preventDefault()
-          break
+    # determine corresponding dayNode
+    dayNode = $(programXML.find('day[index='+parsedUrl.hash.split('#')[2]+']:first'))
+    schedule.initialize(dayNode, data.option)
+    e.preventDefault()
+
+  else if /^#personalSchedule$/.test(parsedUrl.hash)
+    $('li[data-day-index] .link').removeClass('ui-btn-active')
+
+  # #event# <day-index> # <room-name> # <event-id>
+  # 0  1         2            3            4
+  else if /^#event#[0-9]+#.*#[0-9]+$/.test(parsedUrl.hash)
+    # determine corresponding event
+    parsedUrlHash = parsedUrl.hash.split('#')
+
+    dayNode   = $(programXML.find('day[index='+unescape(parsedUrlHash[2])+']:first'))
+    roomNode  = $(dayNode.find('room[name="'+unescape(parsedUrlHash[3])+'"]:first'))
+    eventNode = $(roomNode.find('event[id='+unescape(parsedUrlHash[4])+']:first'))
+
+    event.initialize(eventNode, data.option)
+    e.preventDefault()
 
 app = new App()

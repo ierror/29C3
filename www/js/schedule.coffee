@@ -11,14 +11,14 @@ schedule =
     # is the request loading a schedule "day tab"?
     for roomNode in dayNode.find('room')
       roomNode = $(roomNode)
-      name = roomNode.attr('name')
-      continue if not name
+      roomName = roomNode.attr('name')
+      continue if not roomName
 
       # add room to table header
-      th = $("<th style='width=100%'>#{name}</th>").attr('data-is-room-column', 1)
+      th = $("<th style='width=100%'>#{roomName}</th>").attr('data-is-room-column', 1)
       theadRow.append(th)
 
-      # add room clolumn content
+      # add room column content
       for eventNode in roomNode.find('event')
         eventNode = $(eventNode)
 
@@ -28,7 +28,11 @@ schedule =
         durationMinutes = durationSplitted[1]
         rowspan = (durationHours * 4 + durationMinutes / 15)
 
-        td = $("<td style='background-color: #d3d3d3;' rowspan='#{rowspan}'>"+eventNode.find('title:first').text()+'</td>').attr('data-is-event-cell', 1)
+        eventID = eventNode.attr('id')
+        eventHref = '#event#'+escape(dayIndex)+'#'+escape(roomName)+'#'+escape(eventID)
+
+        td = $("<td style='background-color: #d3d3d3;' rowspan='#{rowspan}'><a href='#{eventHref}'> "+
+          eventNode.find('title:first').text()+'</a></td>').attr('data-is-event-cell', 1)
 
         $('#timeslot-'+eventNode.find('start:first').text().replace(':', '')).append(td)
 

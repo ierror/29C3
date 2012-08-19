@@ -50,27 +50,29 @@ xmlLoader.appStartUpLoad();
 
 programXML = xmlLoader.getXMLTree();
 
-$(document).bind('pagebeforechange', function(event, data) {
-  var dayNode, parsedUrl, _i, _len, _ref, _results;
-  if (typeof data.toPage === 'string') {
+$(document).bind('pagebeforechange', function(e, data) {
+  var dayNode, eventNode, parsedUrl, parsedUrlHash, roomNode;
+  if (typeof data.toPage !== 'string') {
+    return;
+  }
+  parsedUrl = $.mobile.path.parseUrl(data.toPage);
+  if (!parsedUrl.filename === 'index.html') {
+    return;
+  }
+  if (/^#schedule#/.test(parsedUrl.hash)) {
     $('li[data-day-index] .link').removeClass('ui-btn-active');
-    parsedUrl = $.mobile.path.parseUrl(data.toPage);
-    if (parsedUrl.filename === 'index.html' && /^#schedule#/.test(parsedUrl.hash)) {
-      _ref = programXML.find('day');
-      _results = [];
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        dayNode = _ref[_i];
-        dayNode = $(dayNode);
-        if (dayNode.attr('index') === parsedUrl.hash.split('#')[2]) {
-          schedule.initialize(dayNode, data.option);
-          event.preventDefault();
-          break;
-        } else {
-          _results.push(void 0);
-        }
-      }
-      return _results;
-    }
+    dayNode = $(programXML.find('day[index=' + parsedUrl.hash.split('#')[2] + ']:first'));
+    schedule.initialize(dayNode, data.option);
+    return e.preventDefault();
+  } else if (/^#personalSchedule$/.test(parsedUrl.hash)) {
+    return $('li[data-day-index] .link').removeClass('ui-btn-active');
+  } else if (/^#event#[0-9]+#.*#[0-9]+$/.test(parsedUrl.hash)) {
+    parsedUrlHash = parsedUrl.hash.split('#');
+    dayNode = $(programXML.find('day[index=' + unescape(parsedUrlHash[2]) + ']:first'));
+    roomNode = $(dayNode.find('room[name="' + unescape(parsedUrlHash[3]) + '"]:first'));
+    eventNode = $(roomNode.find('event[id=' + unescape(parsedUrlHash[4]) + ']:first'));
+    event.initialize(eventNode, data.option);
+    return e.preventDefault();
   }
 });
 

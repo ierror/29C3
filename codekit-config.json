@@ -223,15 +223,6 @@
       "outputAbbreviatedPath" : "\/www\/js\/lib\/scheduleXML-ck.js",
       "fileType" : 5
     },
-    "\/www\/templates\/include\/tpl_schedule_day_page.html" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/templates\/include\/tpl_schedule_day_page.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 8
-    },
     "\/www\/res\/screen\/android_ldpi_portrait.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -547,6 +538,18 @@
       "initialSize" : 2843,
       "fileType" : 10
     },
+    "\/www\/js\/event.coffee" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/www\/js\/event.coffee",
+      "checkOutputStyle" : 0,
+      "minifyOutput" : 0,
+      "outputAbbreviatedPath" : "\/www\/js\/event.js",
+      "outputStyle" : 1,
+      "fileType" : 4
+    },
     "\/www\/res\/screen\/iphone_retina_portrait.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -656,15 +659,6 @@
       "outputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/record_button~ipad.png",
       "initialSize" : 7547,
       "fileType" : 10
-    },
-    "\/www\/templates\/include\/tpl_schedule_header_day.html" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/templates\/include\/tpl_schedule_header_day.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 8
     },
     "\/29C3-iOS\/Resources\/splash\/Default-Landscape@2x~ipad.png" : {
       "ignoreWasSetByUser" : 0,
@@ -833,16 +827,16 @@
       "outputAbbreviatedPath" : "\/www\/spec\/index-ck.js",
       "fileType" : 5
     },
-    "\/29C3-iOS\/Resources\/Capture.bundle\/controls_bg@2x~ipad.png" : {
+    "\/www\/js\/event.js" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
+      "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/controls_bg@2x~ipad.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/controls_bg@2x~ipad.png",
-      "initialSize" : 2858,
-      "fileType" : 10
+      "inputAbbreviatedPath" : "\/www\/js\/event.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/www\/js\/event-ck.js",
+      "fileType" : 5
     },
     "\/29C3-iOS\/Resources\/icons\/icon-72@2x.png" : {
       "ignoreWasSetByUser" : 0,
@@ -853,6 +847,17 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/29C3-iOS\/Resources\/icons\/icon-72@2x.png",
       "initialSize" : 11706,
+      "fileType" : 10
+    },
+    "\/29C3-iOS\/Resources\/Capture.bundle\/controls_bg@2x~ipad.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/controls_bg@2x~ipad.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/controls_bg@2x~ipad.png",
+      "initialSize" : 2858,
       "fileType" : 10
     },
     "\/www\/js\/index.coffee" : {
