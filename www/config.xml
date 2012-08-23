@@ -3,10 +3,10 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "io.cordova.hello-cordova"
         version   = "2.0.0">
-    <name>Hello Cordova</name>
+    <name>29C3</name>
 
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Schedule for the 29C3 (http://events.ccc.de/) Congress
     </description>
 
     <author href="http://cordova.io" email="callback-dev@incubator.apache.org">
