@@ -1,4 +1,4 @@
-schedule =
+scheduleView =
   initialize: (dayNode, options) ->
     dayIndex = dayNode.attr('index')
     page = $('#schedule')
@@ -33,6 +33,10 @@ schedule =
 
         td = $("<td style='background-color: #d3d3d3;' rowspan='#{rowspan}'><a href='#{eventHref}'> "+
           eventNode.find('title:first').text()+'</a></td>').attr('data-is-event-cell', 1)
+
+        # planning to visit this event?
+        if personalSchedule.db.contains(eventID)
+          td.find('a:first').addClass('event-attend')
 
         $('#timeslot-'+eventNode.find('start:first').text().replace(':', '')).append(td)
 

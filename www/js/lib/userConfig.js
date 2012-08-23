@@ -20,8 +20,14 @@ UserConfig = (function() {
     return this._storageHandle.setItem(this._buildKey(key), value);
   };
 
-  UserConfig.prototype.getItem = function(key) {
-    return this._storageHandle.getItem(this._buildKey(key));
+  UserConfig.prototype.getItem = function(key, defaultValue) {
+    var item;
+    item = this._storageHandle.getItem(this._buildKey(key));
+    if (item) {
+      return item;
+    } else if (defaultValue) {
+      return defaultValue;
+    }
   };
 
   return UserConfig;

@@ -62,7 +62,8 @@ $(document).bind('pagebeforechange', function(e, data) {
   if (/^#schedule#/.test(parsedUrl.hash)) {
     $('li[data-day-index] .link').removeClass('ui-btn-active');
     dayNode = $(programXML.find('day[index=' + parsedUrl.hash.split('#')[2] + ']:first'));
-    schedule.initialize(dayNode, data.option);
+    scheduleView.initialize(dayNode, data.option);
+    $('#event-back').attr('href', parsedUrl.href);
     return e.preventDefault();
   } else if (/^#personalSchedule$/.test(parsedUrl.hash)) {
     return $('li[data-day-index] .link').removeClass('ui-btn-active');
@@ -71,7 +72,7 @@ $(document).bind('pagebeforechange', function(e, data) {
     dayNode = $(programXML.find('day[index=' + unescape(parsedUrlHash[2]) + ']:first'));
     roomNode = $(dayNode.find('room[name="' + unescape(parsedUrlHash[3]) + '"]:first'));
     eventNode = $(roomNode.find('event[id=' + unescape(parsedUrlHash[4]) + ']:first'));
-    event.initialize(eventNode, data.option);
+    eventView.initialize(eventNode, data.option);
     return e.preventDefault();
   }
 });

@@ -7,7 +7,7 @@ class Event
   _resetLayout: ->
     # check for tpls within our event elements
     # if there exists a tpl element, don't remove it
-    $('[data-is-event-field=1]', @page).each ->
+    $('[data-is-event-field=true]', @page).each ->
       eventElement = $(@)
       if eventElement.find('.tpl').length
         eventElement.children(':not(.tpl)').remove()
@@ -16,6 +16,8 @@ class Event
         eventElement.html('')
 
   initialize: (eventNode, options) ->
+    event = @
+
     @page = $('#event')
     @_resetLayout()
 
@@ -54,6 +56,27 @@ class Event
 
       @_setField(targetElement, eventText)
 
-    $.mobile.changePage(@page, {transition : 'flow'})
+    attendCheckbox = $('#event-attend-checkbox').checkboxradio()
+    attendCheckbox.attr('data-event-id', eventNode.attr('id'))
 
-event = new Event()
+    attendCheckbox.bind 'change', (event, ui) ->
+      self = $(@)
+      if not self.attr('checked')
+        self.removeAttr('checked').checkboxradio('refresh')
+        self.parent().find('.ui-btn-text:first').html(self.attr('data-event-attend-text'))
+        personalSchedule.db.remove(self.attr('data-event-id'))
+      else
+        self.attr('checked', 'checked').checkboxradio('refresh')
+        self.parent().find('.ui-btn-text:first').html(self.attr('data-event-dontattend-text'))
+        personalSchedule.db.push(self.attr('data-event-id'))
+
+    if personalSchedule.db.contains(eventNode.attr('id'))
+      attendCheckbox.attr('checked', 'checked').checkboxradio('refresh')
+      attendCheckbox.parent().find('.ui-btn-text:first').html(attendCheckbox.attr('data-event-dontattend-text'))
+    else
+      attendCheckbox.removeAttr('checked').checkboxradio('refresh')
+      attendCheckbox.parent().find('.ui-btn-text:first').html(attendCheckbox.attr('data-event-attend-text'))
+
+    $.mobile.changePage(@page)
+
+eventView = new Event()

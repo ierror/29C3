@@ -36,7 +36,6 @@ class App
         # i don't know why $.mobile.changePage does not work here...
         document.location.href = pageHref
 
-
 xmlLoader = new ScheduleXMLLoader()
 xmlLoader.appStartUpLoad()
 programXML = xmlLoader.getXMLTree()
@@ -51,24 +50,28 @@ $(document).bind 'pagebeforechange', (e, data) ->
     $('li[data-day-index] .link').removeClass('ui-btn-active')
 
     # determine corresponding dayNode
-    dayNode = $(programXML.find('day[index='+parsedUrl.hash.split('#')[2]+']:first'))
-    schedule.initialize(dayNode, data.option)
+    dayNode = $(programXML.find('day[index=' + parsedUrl.hash.split('#')[2] + ']:first'))
+    scheduleView.initialize(dayNode, data.option)
+
+    # set back link for event
+    $('#event-back').attr('href', parsedUrl.href)
+
     e.preventDefault()
 
   else if /^#personalSchedule$/.test(parsedUrl.hash)
     $('li[data-day-index] .link').removeClass('ui-btn-active')
 
-  # #event# <day-index> # <room-name> # <event-id>
-  # 0  1         2            3            4
+    # #event# <day-index> # <room-name> # <event-id>
+    # 0  1         2            3            4
   else if /^#event#[0-9]+#.*#[0-9]+$/.test(parsedUrl.hash)
     # determine corresponding event
     parsedUrlHash = parsedUrl.hash.split('#')
 
-    dayNode   = $(programXML.find('day[index='+unescape(parsedUrlHash[2])+']:first'))
-    roomNode  = $(dayNode.find('room[name="'+unescape(parsedUrlHash[3])+'"]:first'))
-    eventNode = $(roomNode.find('event[id='+unescape(parsedUrlHash[4])+']:first'))
+    dayNode   = $(programXML.find('day[index=' + unescape(parsedUrlHash[2]) + ']:first'))
+    roomNode  = $(dayNode.find('room[name="' + unescape(parsedUrlHash[3]) + '"]:first'))
+    eventNode = $(roomNode.find('event[id=' + unescape(parsedUrlHash[4]) + ']:first'))
 
-    event.initialize(eventNode, data.option)
+    eventView.initialize(eventNode, data.option)
     e.preventDefault()
 
 app = new App()

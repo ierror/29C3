@@ -1,3 +1,11 @@
+a {
+    text-decoration: none;
+}
+
 .tpl {
     display: none;
+}
+
+.event-attend{
+    text-decoration: underline;
 }
