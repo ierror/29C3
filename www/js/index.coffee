@@ -61,8 +61,13 @@ $(document).bind 'pagebeforechange', (e, data) ->
   else if /^#personalSchedule$/.test(parsedUrl.hash)
     $('li[data-day-index] .link').removeClass('ui-btn-active')
 
-    # #event# <day-index> # <room-name> # <event-id>
-    # 0  1         2            3            4
+    # set back link for event
+    $('#event-back').attr('href', parsedUrl.href)
+
+    personalScheduleView.initialize()
+
+  # #event# <day-index> # <room-name> # <event-id>
+  # 0  1         2            3            4
   else if /^#event#[0-9]+#.*#[0-9]+$/.test(parsedUrl.hash)
     # determine corresponding event
     parsedUrlHash = parsedUrl.hash.split('#')
@@ -75,3 +80,4 @@ $(document).bind 'pagebeforechange', (e, data) ->
     e.preventDefault()
 
 app = new App()
+document.location.hash = '#personalSchedule'

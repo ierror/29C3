@@ -66,7 +66,9 @@ $(document).bind('pagebeforechange', function(e, data) {
     $('#event-back').attr('href', parsedUrl.href);
     return e.preventDefault();
   } else if (/^#personalSchedule$/.test(parsedUrl.hash)) {
-    return $('li[data-day-index] .link').removeClass('ui-btn-active');
+    $('li[data-day-index] .link').removeClass('ui-btn-active');
+    $('#event-back').attr('href', parsedUrl.href);
+    return personalScheduleView.initialize();
   } else if (/^#event#[0-9]+#.*#[0-9]+$/.test(parsedUrl.hash)) {
     parsedUrlHash = parsedUrl.hash.split('#');
     dayNode = $(programXML.find('day[index=' + unescape(parsedUrlHash[2]) + ']:first'));
@@ -78,3 +80,5 @@ $(document).bind('pagebeforechange', function(e, data) {
 });
 
 app = new App();
+
+document.location.hash = '#personalSchedule';

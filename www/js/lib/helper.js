@@ -106,6 +106,17 @@ Helper = (function() {
     return inner._dateFormat(date, mask, utc);
   };
 
+  Helper.prototype.get_obj_keys = function(obj, keys) {
+    var i;
+    keys = new Array();
+    for (i in obj) {
+      if (obj.hasOwnProperty(i)) {
+        keys.push(i);
+      }
+    }
+    return keys;
+  };
+
   return Helper;
 
 })();

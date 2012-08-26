@@ -103,4 +103,10 @@ class Helper
 
     inner._dateFormat(date, mask, utc)
 
+  get_obj_keys: (obj, keys) ->
+    keys = new Array()
+    for i of obj
+      keys.push i if obj.hasOwnProperty(i)
+    keys
+
 helper = new Helper
