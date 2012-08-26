@@ -27,7 +27,11 @@ PersonalScheduleDB = (function() {
   };
 
   PersonalScheduleDB.prototype.remove = function(eventID) {
-    this.data.splice($.inArray(parseInt(eventID), this.data), 1);
+    var eventIDIndex;
+    eventIDIndex = $.inArray(parseInt(eventID), this.data);
+    if (eventIDIndex >= 0) {
+      this.data.splice(eventIDIndex, 1);
+    }
     return this.save();
   };
 

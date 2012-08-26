@@ -16,7 +16,8 @@ class PersonalScheduleDB
     @save()
 
   remove: (eventID) ->
-    @data.splice($.inArray(parseInt(eventID), @data), 1)
+    eventIDIndex = $.inArray(parseInt(eventID), @data)
+    @data.splice(eventIDIndex, 1) if eventIDIndex >= 0
     @save()
 
   contains: (eventID) ->
