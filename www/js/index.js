@@ -10,9 +10,8 @@ App = (function() {
   }
 
   App.prototype.deviceready = function() {
-    var a, date, dateSplitted, dayIndex, dayNode, dayTab, pageHref, _i, _len, _ref, _results;
+    var a, date, dateSplitted, dayIndex, dayNode, dayTab, pageHref, _i, _len, _ref;
     _ref = programXML.find('day');
-    _results = [];
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       dayNode = _ref[_i];
       dayNode = $(dayNode);
@@ -32,12 +31,10 @@ App = (function() {
       a.removeClass('ui-state-persist');
       $('.tabs').append($('<div />').append(dayTab.show()).html());
       if (helper.formatDate(new Date(), 'yyyy-mm-dd') === date) {
-        _results.push(document.location.href = pageHref);
-      } else {
-        _results.push(void 0);
+        document.location.href = pageHref;
       }
     }
-    return _results;
+    return ChildBrowser.install();
   };
 
   return App;
@@ -79,6 +76,9 @@ $(document).bind('pagebeforechange', function(e, data) {
   }
 });
 
-app = new App();
+$(document).on('click', '.external-link', function() {
+  window.plugins.childBrowser.showWebPage($(this).attr('href'));
+  return false;
+});
 
-document.location.hash = '#personalSchedule';
+app = new App();

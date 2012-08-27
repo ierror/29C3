@@ -36,10 +36,15 @@ class App
         # i don't know why $.mobile.changePage does not work here...
         document.location.href = pageHref
 
+    # init and bind child browser
+    ChildBrowser.install()
+
+# prepare schedule xml
 xmlLoader = new ScheduleXMLLoader()
 xmlLoader.appStartUpLoad()
 programXML = xmlLoader.getXMLTree()
 
+# dynamic page content
 $(document).bind 'pagebeforechange', (e, data) ->
   return if typeof data.toPage != 'string'
 
@@ -79,5 +84,9 @@ $(document).bind 'pagebeforechange', (e, data) ->
     eventView.initialize(eventNode, data.option)
     e.preventDefault()
 
+# open external links in child browser
+$(document).on 'click', '.external-link', ->
+  window.plugins.childBrowser.showWebPage $(@).attr('href')
+  false
+
 app = new App()
-document.location.hash = '#personalSchedule'

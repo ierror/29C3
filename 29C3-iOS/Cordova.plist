@@ -30,26 +30,18 @@
 	<dict>
 		<key>Device</key>
 		<string>CDVDevice</string>
+		<key>ChildBrowserCommand</key>
+		<string>ChildBrowserCommand</string>
 		<key>Logger</key>
 		<string>CDVLogger</string>
-		<key>Compass</key>
-		<string>CDVLocation</string>
-		<key>Accelerometer</key>
-		<string>CDVAccelerometer</string>
-		<key>Camera</key>
-		<string>CDVCamera</string>
 		<key>NetworkStatus</key>
 		<string>CDVConnection</string>
-		<key>Contacts</key>
-		<string>CDVContacts</string>
 		<key>Debug Console</key>
 		<string>CDVDebugConsole</string>
 		<key>File</key>
 		<string>CDVFile</string>
 		<key>FileTransfer</key>
 		<string>CDVFileTransfer</string>
-		<key>Geolocation</key>
-		<string>CDVLocation</string>
 		<key>Notification</key>
 		<string>CDVNotification</string>
 		<key>Media</key>

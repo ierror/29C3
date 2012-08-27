@@ -179,15 +179,15 @@
       "outputAbbreviatedPath" : "\/www\/js\/lib\/userConfig-ck.js",
       "fileType" : 5
     },
-    "\/29C3-iOS\/Resources\/Capture.bundle\/microphone@2x.png" : {
+    "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/compass.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/microphone@2x.png",
+      "inputAbbreviatedPath" : "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/compass.png",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/microphone@2x.png",
-      "initialSize" : 282409,
+      "outputAbbreviatedPath" : "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/compass.png",
+      "initialSize" : 3035,
       "fileType" : 10
     },
     "\/www\/res\/screen\/iphone_portrait.png" : {
@@ -209,6 +209,17 @@
       "inputAbbreviatedPath" : "\/www\/lib\/css\/jquery.mobile-1.2.0-alpha.1.css",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 13
+    },
+    "\/29C3-iOS\/Resources\/Capture.bundle\/microphone@2x.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/microphone@2x.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/microphone@2x.png",
+      "initialSize" : 282409,
+      "fileType" : 10
     },
     "\/www\/js\/lib\/scheduleXML.js" : {
       "ignoreWasSetByUser" : 0,
@@ -254,6 +265,17 @@
       "outputAbbreviatedPath" : "\/www\/config.js",
       "outputStyle" : 1,
       "fileType" : 4
+    },
+    "\/www\/lib\/js\/ChildBrowser.js" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/www\/lib\/js\/ChildBrowser.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/www\/lib\/js\/ChildBrowser-ck.js",
+      "fileType" : 5
     },
     "\/www\/js\/lib\/personalSchedule.coffee" : {
       "ignoreWasSetByUser" : 0,
@@ -322,6 +344,17 @@
       "initialSize" : 7685,
       "fileType" : 10
     },
+    "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/but_refresh.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/but_refresh.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/but_refresh.png",
+      "initialSize" : 3369,
+      "fileType" : 10
+    },
     "\/www\/res\/icon\/cordova_android_72.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -355,16 +388,16 @@
       "initialSize" : 90555,
       "fileType" : 10
     },
-    "\/www\/lib\/js\/jquery-1.8.0.js" : {
+    "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/arrow_left@2x.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/lib\/js\/jquery-1.8.0.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/www\/lib\/js\/jquery-1.8.0-ck.js",
-      "fileType" : 5
+      "inputAbbreviatedPath" : "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/arrow_left@2x.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/arrow_left@2x.png",
+      "initialSize" : 2946,
+      "fileType" : 10
     },
     "\/www\/js\/lib\/personalScheduleDB.coffee" : {
       "ignoreWasSetByUser" : 0,
@@ -377,6 +410,17 @@
       "outputAbbreviatedPath" : "\/www\/js\/lib\/personalScheduleDB.js",
       "outputStyle" : 1,
       "fileType" : 4
+    },
+    "\/www\/lib\/js\/jquery-1.8.0.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/www\/lib\/js\/jquery-1.8.0.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/www\/lib\/js\/jquery-1.8.0-ck.js",
+      "fileType" : 5
     },
     "\/www\/img\/cordova.png" : {
       "ignoreWasSetByUser" : 0,
@@ -486,6 +530,17 @@
       "outputAbbreviatedPath" : "\/www\/lib\/css\/images\/icons-18-white.png",
       "initialSize" : 1806,
       "fileType" : 10
+    },
+    "\/www\/js\/personalSchedule.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/www\/js\/personalSchedule.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/www\/js\/personalSchedule-ck.js",
+      "fileType" : 5
     },
     "\/www\/res\/screen\/android_mdpi_landscape.png" : {
       "ignoreWasSetByUser" : 0,
@@ -692,6 +747,29 @@
       "outputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/record_button~ipad.png",
       "initialSize" : 7547,
       "fileType" : 10
+    },
+    "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/arrow_left.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/arrow_left.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/arrow_left.png",
+      "initialSize" : 2946,
+      "fileType" : 10
+    },
+    "\/www\/js\/personalSchedule.coffee" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/www\/js\/personalSchedule.coffee",
+      "checkOutputStyle" : 0,
+      "minifyOutput" : 0,
+      "outputAbbreviatedPath" : "\/www\/js\/personalSchedule.js",
+      "outputStyle" : 1,
+      "fileType" : 4
     },
     "\/29C3-iOS\/Resources\/splash\/Default-Landscape@2x~ipad.png" : {
       "ignoreWasSetByUser" : 0,
@@ -993,6 +1071,17 @@
       "initialSize" : 407370,
       "fileType" : 10
     },
+    "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/but_refresh@2x.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/but_refresh@2x.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/but_refresh@2x.png",
+      "initialSize" : 3369,
+      "fileType" : 10
+    },
     "\/www\/res\/screen\/iphone_retina_landscape.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1002,6 +1091,28 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/www\/res\/screen\/iphone_retina_landscape.png",
       "initialSize" : 339639,
+      "fileType" : 10
+    },
+    "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/compass@2x.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/compass@2x.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/compass@2x.png",
+      "initialSize" : 3035,
+      "fileType" : 10
+    },
+    "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/arrow_right.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/arrow_right.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/arrow_right.png",
+      "initialSize" : 2946,
       "fileType" : 10
     },
     "\/www\/cordova-2.0.0.js" : {
@@ -1068,6 +1179,17 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/www\/lib\/css\/images\/icons-18-black.png",
       "initialSize" : 1767,
+      "fileType" : 10
+    },
+    "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/arrow_right@2x.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/arrow_right@2x.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/arrow_right@2x.png",
+      "initialSize" : 2946,
       "fileType" : 10
     },
     "\/29C3-iOS\/Resources\/icons\/icon.png" : {
