@@ -44,4 +44,6 @@
     <preference name="orientation"      value="default" />
     <preference name="target-device"    value="universal" />
     <preference name="fullscreen"       value="false" />
+
+    <gap:plugin name="ChildBrowser" />
 </widget>
