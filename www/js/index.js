@@ -10,8 +10,9 @@ App = (function() {
   }
 
   App.prototype.deviceready = function() {
-    var a, date, dateSplitted, dayIndex, dayNode, dayTab, pageHref, _i, _len, _ref;
+    var a, date, dateSplitted, dayIndex, dayNode, dayTab, pageHref, _i, _len, _ref, _results;
     _ref = programXML.find('day');
+    _results = [];
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       dayNode = _ref[_i];
       dayNode = $(dayNode);
@@ -31,10 +32,12 @@ App = (function() {
       a.removeClass('ui-state-persist');
       $('.tabs').append($('<div />').append(dayTab.show()).html());
       if (helper.formatDate(new Date(), 'yyyy-mm-dd') === date) {
-        document.location.href = pageHref;
+        _results.push(document.location.href = pageHref);
+      } else {
+        _results.push(void 0);
       }
     }
-    return ChildBrowser.install();
+    return _results;
   };
 
   return App;

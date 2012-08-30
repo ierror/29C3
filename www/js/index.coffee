@@ -36,9 +36,6 @@ class App
         # i don't know why $.mobile.changePage does not work here...
         document.location.href = pageHref
 
-    # init and bind child browser
-    ChildBrowser.install()
-
 # prepare schedule xml
 xmlLoader = new ScheduleXMLLoader()
 xmlLoader.appStartUpLoad()

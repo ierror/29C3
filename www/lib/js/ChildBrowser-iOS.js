@@ -83,5 +83,4 @@ if (cordovaRef && cordovaRef.addConstructor) {
     return null;
 }
 
-
 })();
