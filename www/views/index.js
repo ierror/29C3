@@ -76,6 +76,14 @@ $(document).bind('pagebeforechange', function(e, data) {
     eventNode = $(roomNode.find('event[id=' + unescape(parsedUrlHash[4]) + ']:first'));
     eventView.initialize(eventNode, data.option);
     return e.preventDefault();
+  } else if (/^#twitter/.test(parsedUrl.hash)) {
+    if (!twitter.is_authenticated()) {
+      alert('do auth');
+      twitter.authenticate();
+    }
+    alert(twitterView);
+    twitterView.initialize();
+    return e.preventDefault();
   }
 });
 

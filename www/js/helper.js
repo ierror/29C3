@@ -117,6 +117,21 @@ Helper = (function() {
     return keys;
   };
 
+  Helper.prototype.get_url_vars_from_string = function(url) {
+    var hash, hashes, i, vars;
+    vars = [];
+    hash = void 0;
+    hashes = url.slice(url.indexOf("?") + 1).split("&");
+    i = 0;
+    while (i < hashes.length) {
+      hash = hashes[i].split("=");
+      vars.push(hash[0]);
+      vars[hash[0]] = hash[1];
+      i++;
+    }
+    return vars;
+  };
+
   return Helper;
 
 })();

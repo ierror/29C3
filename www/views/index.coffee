@@ -81,6 +81,15 @@ $(document).bind 'pagebeforechange', (e, data) ->
     eventView.initialize(eventNode, data.option)
     e.preventDefault()
 
+  else if /^#twitter/.test(parsedUrl.hash)
+    if not twitter.is_authenticated()
+      alert 'do auth'
+      twitter.authenticate()
+
+    alert twitterView
+    twitterView.initialize()
+    e.preventDefault()
+
 # open external links in child browser
 $(document).on 'click', '.external-link', ->
   window.plugins.childBrowser.showWebPage $(@).attr('href')
