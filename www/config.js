@@ -4,8 +4,8 @@ var Config, config;
 Config = function() {
   this.programXMLUrl = 'http://events.ccc.de/congress/2011/Fahrplan/schedule.en.xml';
   this.twitter = {
-    consumerKey: 'NNqPp9BPo4nwqI3rCK7w',
-    consumerSecret: 'KJthyRvzpX12bSrdGItgkISMhehAphRrDThkyu5wNBk',
+    consumerKey: '',
+    consumerSecret: '',
     successCallbackUrl: 'http://events.ccc.de/'
   };
   return this;
