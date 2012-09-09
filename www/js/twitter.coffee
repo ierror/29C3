@@ -1,17 +1,10 @@
 class Twitter
-
-  @consumerKey
-  @consumerSecret
   @callbackURL
-
-  constructor: ->
-    @consumerKey = '2bXDmXDzKf1VuZ4NdPW4qw'
-    @consumerSecret = 'yOlQvWsXAQ9hLT4sskHQC7tloV2RJyKYXwVFlGSnbQ'
 
   authenticate: ->
     accessor =
-      consumerKey: @consumerKey
-      consumerSecret: @consumerSecret
+      consumerKey: config.twitter.consumerKey
+      consumerSecret: config.twitter.consumerSecret
       serviceProvider:
         signatureMethod: 'HMAC-SHA1'
         requestTokenURL: 'http://api.twitter.com/oauth/request_token'
@@ -36,7 +29,7 @@ class Twitter
         authorize_url = 'http://api.twitter.com/oauth/authorize?oauth_token=' + oauth_token
 
         window.plugins.childBrowser.onLocationChange = (loc) ->
-          if loc.indexOf('http://events.ccc.de/') > -1
+          if loc.indexOf(config.twitter.successCallbackUrl) > -1
             window.plugins.childBrowser.close()
             results = OAuth.decodeForm(requestToken.responseText)
             message =
@@ -70,7 +63,6 @@ class Twitter
     requestToken.send requestBody
 
   is_authenticated: ->
-    alert userconfig.getItem('twitter_token') && userconfig.getItem('twitter_secret_token')
     userconfig.getItem('twitter_token') && userconfig.getItem('twitter_secret_token')
 
 twitter = new Twitter()

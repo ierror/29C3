@@ -3,22 +3,15 @@ var Twitter, twitter;
 
 Twitter = (function() {
 
-  Twitter.consumerKey;
-
-  Twitter.consumerSecret;
+  function Twitter() {}
 
   Twitter.callbackURL;
-
-  function Twitter() {
-    this.consumerKey = '2bXDmXDzKf1VuZ4NdPW4qw';
-    this.consumerSecret = 'yOlQvWsXAQ9hLT4sskHQC7tloV2RJyKYXwVFlGSnbQ';
-  }
 
   Twitter.prototype.authenticate = function() {
     var accessor, authorizationHeader, message, receiveRequestToken, requestBody, requestToken;
     accessor = {
-      consumerKey: this.consumerKey,
-      consumerSecret: this.consumerSecret,
+      consumerKey: config.twitter.consumerKey,
+      consumerSecret: config.twitter.consumerSecret,
       serviceProvider: {
         signatureMethod: 'HMAC-SHA1',
         requestTokenURL: 'http://api.twitter.com/oauth/request_token',
@@ -44,7 +37,7 @@ Twitter = (function() {
         authorize_url = 'http://api.twitter.com/oauth/authorize?oauth_token=' + oauth_token;
         window.plugins.childBrowser.onLocationChange = function(loc) {
           var receiveAccessToken, requestAccess;
-          if (loc.indexOf('http://events.ccc.de/') > -1) {
+          if (loc.indexOf(config.twitter.successCallbackUrl) > -1) {
             window.plugins.childBrowser.close();
             results = OAuth.decodeForm(requestToken.responseText);
             message = {
@@ -83,7 +76,6 @@ Twitter = (function() {
   };
 
   Twitter.prototype.is_authenticated = function() {
-    alert(userconfig.getItem('twitter_token') && userconfig.getItem('twitter_secret_token'));
     return userconfig.getItem('twitter_token') && userconfig.getItem('twitter_secret_token');
   };
 

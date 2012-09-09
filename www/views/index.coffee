@@ -82,11 +82,10 @@ $(document).bind 'pagebeforechange', (e, data) ->
     e.preventDefault()
 
   else if /^#twitter/.test(parsedUrl.hash)
+    twitter.authenticate()
     if not twitter.is_authenticated()
-      alert 'do auth'
       twitter.authenticate()
 
-    alert twitterView
     twitterView.initialize()
     e.preventDefault()
 
