@@ -6,7 +6,7 @@ Config = function() {
   this.twitter = {
     consumerKey: '',
     consumerSecret: '',
-    successCallbackUrl: 'http://events.ccc.de/'
+    successCallbackUrl: 'http://127.0.0.1/'
   };
   return this;
 };
