@@ -106,7 +106,7 @@ Helper = (function() {
     return inner._dateFormat(date, mask, utc);
   };
 
-  Helper.prototype.get_obj_keys = function(obj, keys) {
+  Helper.prototype.getObjKeys = function(obj, keys) {
     var i;
     keys = new Array();
     for (i in obj) {
@@ -117,17 +117,45 @@ Helper = (function() {
     return keys;
   };
 
-  Helper.prototype.get_url_vars_from_string = function(url) {
-    var hash, hashes, i, vars;
-    vars = [];
-    hash = void 0;
-    hashes = url.slice(url.indexOf("?") + 1).split("&");
-    i = 0;
-    while (i < hashes.length) {
-      hash = hashes[i].split("=");
-      vars.push(hash[0]);
+  Helper.prototype.clone = function(obj) {
+    var flags, key, newInstance;
+    if (!(obj != null) || typeof obj !== 'object') {
+      return obj;
+    }
+    if (obj instanceof Date) {
+      return new Date(obj.getTime());
+    }
+    if (obj instanceof RegExp) {
+      flags = '';
+      if (obj.global != null) {
+        flags += 'g';
+      }
+      if (obj.ignoreCase != null) {
+        flags += 'i';
+      }
+      if (obj.multiline != null) {
+        flags += 'm';
+      }
+      if (obj.sticky != null) {
+        flags += 'y';
+      }
+      return new RegExp(obj.source, flags);
+    }
+    newInstance = new obj.constructor();
+    for (key in obj) {
+      newInstance[key] = clone(obj[key]);
+    }
+    return newInstance;
+  };
+
+  Helper.prototype.getURLVarsFromString = function(url) {
+    var hash, vars, _i, _len, _ref;
+    vars = {};
+    _ref = url.slice(url.indexOf('?') + 1).split('&');
+    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+      hash = _ref[_i];
+      hash = hash.split('=');
       vars[hash[0]] = hash[1];
-      i++;
     }
     return vars;
   };
@@ -136,4 +164,4 @@ Helper = (function() {
 
 })();
 
-helper = new Helper;
+helper = new Helper();

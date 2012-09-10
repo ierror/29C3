@@ -168,17 +168,6 @@
       "initialSize" : 996,
       "fileType" : 10
     },
-    "\/www\/lib\/js\/jquery-1.8.0.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/lib\/js\/jquery-1.8.0.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/www\/lib\/js\/jquery-1.8.0-ck.js",
-      "fileType" : 5
-    },
     "\/29C3-iOS\/Resources\/Capture.bundle\/stop_button~ipad.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -190,16 +179,16 @@
       "initialSize" : 7119,
       "fileType" : 10
     },
-    "\/29C3-Android\/bin\/res\/drawable-xhdpi\/ic_action_search.png" : {
+    "\/www\/lib\/js\/jquery-1.8.0.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-xhdpi\/ic_action_search.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-xhdpi\/ic_action_search.png",
-      "initialSize" : 491,
-      "fileType" : 10
+      "inputAbbreviatedPath" : "\/www\/lib\/js\/jquery-1.8.0.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/www\/lib\/js\/jquery-1.8.0-ck.js",
+      "fileType" : 5
     },
     "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/arrow_left.png" : {
       "ignoreWasSetByUser" : 0,
@@ -340,6 +329,17 @@
       "initialSize" : 222148,
       "fileType" : 10
     },
+    "\/www\/res\/screen\/android_mdpi_portrait.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/www\/res\/screen\/android_mdpi_portrait.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/www\/res\/screen\/android_mdpi_portrait.png",
+      "initialSize" : 90555,
+      "fileType" : 10
+    },
     "\/29C3-iOS\/Resources\/splash\/Default@2x~iphone.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -371,17 +371,6 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/microphone.png",
       "initialSize" : 72226,
-      "fileType" : 10
-    },
-    "\/www\/res\/screen\/android_mdpi_portrait.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/res\/screen\/android_mdpi_portrait.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/www\/res\/screen\/android_mdpi_portrait.png",
-      "initialSize" : 90555,
       "fileType" : 10
     },
     "\/www\/childbrowser\/icon_close.png" : {
@@ -417,6 +406,17 @@
       "outputAbbreviatedPath" : "\/www\/js\/scheduleXML-ck.js",
       "fileType" : 5
     },
+    "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/but_refresh.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/but_refresh.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/but_refresh.png",
+      "initialSize" : 3369,
+      "fileType" : 10
+    },
     "\/www\/js\/twitter.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -428,15 +428,15 @@
       "outputAbbreviatedPath" : "\/www\/js\/twitter-ck.js",
       "fileType" : 5
     },
-    "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/but_refresh.png" : {
+    "\/29C3-iOS\/Resources\/Capture.bundle\/recording_bg@2x.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/but_refresh.png",
+      "inputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/recording_bg@2x.png",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/but_refresh.png",
-      "initialSize" : 3369,
+      "outputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/recording_bg@2x.png",
+      "initialSize" : 990,
       "fileType" : 10
     },
     "\/www\/res\/icon\/cordova_android_96.png" : {
@@ -450,17 +450,6 @@
       "initialSize" : 7685,
       "fileType" : 10
     },
-    "\/29C3-iOS\/Resources\/Capture.bundle\/recording_bg@2x.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/recording_bg@2x.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/recording_bg@2x.png",
-      "initialSize" : 990,
-      "fileType" : 10
-    },
     "\/29C3-iOS\/Resources\/splash\/Default-Portrait~ipad.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -471,17 +460,6 @@
       "outputAbbreviatedPath" : "\/29C3-iOS\/Resources\/splash\/Default-Portrait~ipad.png",
       "initialSize" : 421667,
       "fileType" : 10
-    },
-    "\/www\/spec\/index.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/spec\/index.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/www\/spec\/index-ck.js",
-      "fileType" : 5
     },
     "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/compass.png" : {
       "ignoreWasSetByUser" : 0,
@@ -637,16 +615,17 @@
       "initialSize" : 504508,
       "fileType" : 10
     },
-    "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/arrow_right@2x.png" : {
+    "\/www\/js\/helper.coffee" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/arrow_right@2x.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/arrow_right@2x.png",
-      "initialSize" : 2946,
-      "fileType" : 10
+      "inputAbbreviatedPath" : "\/www\/js\/helper.coffee",
+      "checkOutputStyle" : 0,
+      "minifyOutput" : 0,
+      "outputAbbreviatedPath" : "\/www\/js\/helper.js",
+      "outputStyle" : 1,
+      "fileType" : 4
     },
     "\/www\/lib\/js\/sha1.js" : {
       "ignoreWasSetByUser" : 0,
@@ -681,17 +660,6 @@
       "outputAbbreviatedPath" : "\/www\/lib\/js\/ChildBrowser-iOS-ck.js",
       "fileType" : 5
     },
-    "\/29C3-Android\/bin\/res\/drawable-hdpi\/ic_action_search.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-hdpi\/ic_action_search.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-hdpi\/ic_action_search.png",
-      "initialSize" : 409,
-      "fileType" : 10
-    },
     "\/www\/index.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -700,6 +668,17 @@
       "inputAbbreviatedPath" : "\/www\/index.html",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 8
+    },
+    "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/arrow_right@2x.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/arrow_right@2x.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/arrow_right@2x.png",
+      "initialSize" : 2946,
+      "fileType" : 10
     },
     "\/www\/lib\/js\/oauth.js" : {
       "ignoreWasSetByUser" : 0,
@@ -732,17 +711,6 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/www\/res\/icon\/cordova_24.png",
       "initialSize" : 2215,
-      "fileType" : 10
-    },
-    "\/29C3-Android\/bin\/res\/drawable-mdpi\/ic_launcher.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-mdpi\/ic_launcher.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-mdpi\/ic_launcher.png",
-      "initialSize" : 2919,
       "fileType" : 10
     },
     "\/www\/js\/platformSpecificStuff.js" : {
@@ -791,7 +759,7 @@
     },
     "\/www\/js\/helper.js" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
+      "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/www\/js\/helper.js",
@@ -822,17 +790,6 @@
       "outputAbbreviatedPath" : "\/www\/views\/schedule.js",
       "outputStyle" : 1,
       "fileType" : 4
-    },
-    "\/29C3-Android\/bin\/res\/drawable-mdpi\/ic_action_search.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-mdpi\/ic_action_search.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-mdpi\/ic_action_search.png",
-      "initialSize" : 311,
-      "fileType" : 10
     },
     "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/compass@2x.png" : {
       "ignoreWasSetByUser" : 0,
@@ -921,7 +878,7 @@
       "checkOutputStyle" : 0,
       "minifyOutput" : 0,
       "outputAbbreviatedPath" : "\/www\/views\/twitter.js",
-      "outputStyle" : 0,
+      "outputStyle" : 1,
       "fileType" : 4
     },
     "\/www\/views\/schedule.js" : {
@@ -981,17 +938,6 @@
       "initialSize" : 955,
       "fileType" : 10
     },
-    "\/www\/res\/screen\/ipad_retina_landscape.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/res\/screen\/ipad_retina_landscape.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/www\/res\/screen\/ipad_retina_landscape.png",
-      "initialSize" : 1534088,
-      "fileType" : 10
-    },
     "\/www\/config.coffee" : {
       "ignoreWasSetByUser" : 1,
       "ignore" : 0,
@@ -1003,6 +949,17 @@
       "outputAbbreviatedPath" : "\/www\/config.js",
       "outputStyle" : 1,
       "fileType" : 4
+    },
+    "\/www\/res\/screen\/ipad_retina_landscape.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/www\/res\/screen\/ipad_retina_landscape.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/www\/res\/screen\/ipad_retina_landscape.png",
+      "initialSize" : 1534088,
+      "fileType" : 10
     },
     "\/www\/res\/icon\/cordova_16.png" : {
       "ignoreWasSetByUser" : 0,
@@ -1071,6 +1028,17 @@
       "initialSize" : 965,
       "fileType" : 10
     },
+    "\/29C3-Android\/res\/drawable-xhdpi\/ic_action_search.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/29C3-Android\/res\/drawable-xhdpi\/ic_action_search.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/29C3-Android\/res\/drawable-xhdpi\/ic_action_search.png",
+      "initialSize" : 3199,
+      "fileType" : 10
+    },
     "\/29C3-iOS\/Resources\/Capture.bundle\/microphone@2x~ipad.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1094,17 +1062,6 @@
       "outputStyle" : 1,
       "fileType" : 4
     },
-    "\/www\/res\/icon\/cordova_bb_80.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/res\/icon\/cordova_bb_80.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/www\/res\/icon\/cordova_bb_80.png",
-      "initialSize" : 7287,
-      "fileType" : 10
-    },
     "\/29C3-iOS\/Resources\/icons\/icon-72@2x.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1127,15 +1084,15 @@
       "outputAbbreviatedPath" : "\/www\/views\/event-ck.js",
       "fileType" : 5
     },
-    "\/29C3-Android\/res\/drawable-xhdpi\/ic_action_search.png" : {
+    "\/www\/res\/icon\/cordova_bb_80.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/29C3-Android\/res\/drawable-xhdpi\/ic_action_search.png",
+      "inputAbbreviatedPath" : "\/www\/res\/icon\/cordova_bb_80.png",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/29C3-Android\/res\/drawable-xhdpi\/ic_action_search.png",
-      "initialSize" : 3199,
+      "outputAbbreviatedPath" : "\/www\/res\/icon\/cordova_bb_80.png",
+      "initialSize" : 7287,
       "fileType" : 10
     },
     "\/www\/res\/icon\/cordova_256.png" : {
@@ -1268,17 +1225,6 @@
       "initialSize" : 1610434,
       "fileType" : 10
     },
-    "\/29C3-Android\/bin\/res\/drawable-hdpi\/ic_launcher.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-hdpi\/ic_launcher.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-hdpi\/ic_launcher.png",
-      "initialSize" : 4660,
-      "fileType" : 10
-    },
     "\/29C3-Android\/res\/drawable-hdpi\/ic_launcher.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1288,17 +1234,6 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/29C3-Android\/res\/drawable-hdpi\/ic_launcher.png",
       "initialSize" : 4996,
-      "fileType" : 10
-    },
-    "\/29C3-Android\/bin\/res\/drawable-xhdpi\/ic_launcher.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-xhdpi\/ic_launcher.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-xhdpi\/ic_launcher.png",
-      "initialSize" : 6194,
       "fileType" : 10
     },
     "\/www\/views\/twitter.js" : {
@@ -1399,7 +1334,7 @@
       "checkOutputStyle" : 0,
       "minifyOutput" : 0,
       "outputAbbreviatedPath" : "\/www\/views\/personalSchedule.js",
-      "outputStyle" : 0,
+      "outputStyle" : 1,
       "fileType" : 4
     },
     "\/www\/res\/icon\/cordova_ios_57.png" : {
@@ -1424,17 +1359,6 @@
       "initialSize" : 11483,
       "fileType" : 9
     },
-    "\/www\/img\/cordova.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/img\/cordova.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/www\/img\/cordova.png",
-      "initialSize" : 19932,
-      "fileType" : 10
-    },
     "\/29C3-iOS\/Resources\/Capture.bundle\/controls_bg@2x~ipad.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1444,6 +1368,17 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/controls_bg@2x~ipad.png",
       "initialSize" : 2858,
+      "fileType" : 10
+    },
+    "\/www\/img\/cordova.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/www\/img\/cordova.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/www\/img\/cordova.png",
+      "initialSize" : 19932,
       "fileType" : 10
     },
     "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/arrow_right.png" : {
@@ -1467,17 +1402,6 @@
       "outputAbbreviatedPath" : "\/29C3-Android\/res\/drawable-mdpi\/ic_action_search.png",
       "initialSize" : 3030,
       "fileType" : 10
-    },
-    "\/www\/spec\/helper.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/spec\/helper.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/www\/spec\/helper-ck.js",
-      "fileType" : 5
     },
     "\/www\/js\/platformSpecificStuff.coffee" : {
       "ignoreWasSetByUser" : 0,

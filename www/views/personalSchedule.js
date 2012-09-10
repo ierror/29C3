@@ -42,7 +42,7 @@ PersonalScheduleView = (function() {
     listViewLiElementTpl = $('.tpl.element:first', contentDiv);
     listViewLiHeaderTpl = $('.tpl.header:first', contentDiv);
     lastHeaderContent = void 0;
-    _ref1 = helper.get_obj_keys(eventsSorted).sort();
+    _ref1 = helper.getObjKeys(eventsSorted).sort();
     for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
       eventDateKey = _ref1[_j];
       event = eventsSorted[eventDateKey];

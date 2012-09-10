@@ -6,6 +6,17 @@ a {
     display: none;
 }
 
-.event-attend{
+.event-attend {
     text-decoration: underline;
+}
+
+.twitter-tweet {
+    white-space: normal;
+    font-size: small
+}
+
+.ui-li-has-thumb .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li-has-thumb {
+    min-height: 48px;
+    padding-left: 60px;
+    padding-top: 0px;
 }

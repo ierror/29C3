@@ -3,50 +3,50 @@ var Twitter, twitter;
 
 Twitter = (function() {
 
-  function Twitter() {}
+  Twitter.accessor;
 
-  Twitter.callbackURL;
-
-  Twitter.prototype.authenticate = function() {
-    var accessor, authorizationHeader, message, receiveRequestToken, requestBody, requestToken;
-    accessor = {
+  function Twitter() {
+    this.accessor = {
       consumerKey: config.twitter.consumerKey,
       consumerSecret: config.twitter.consumerSecret,
       serviceProvider: {
         signatureMethod: 'HMAC-SHA1',
         requestTokenURL: 'http://api.twitter.com/oauth/request_token',
         userAuthorizationURL: 'https://api.twitter.com/oauth/authorize',
-        accessTokenURL: 'https://api.twitter.com/oauth/access_token',
-        echoURL: 'http://localhost/oauth-provider/echo'
+        accessTokenURL: 'https://api.twitter.com/oauth/access_token'
       }
     };
+  }
+
+  Twitter.prototype.authenticate = function(sucessCallback) {
+    var authorizationHeader, message, requestBody, requestToken, self;
+    self = this;
     message = {
       method: 'post',
-      action: accessor.serviceProvider.requestTokenURL,
+      action: self.accessor.serviceProvider.requestTokenURL,
       parameters: [['scope', 'http://www.google.com/m8/feeds/']]
     };
     requestBody = OAuth.formEncode(message.parameters);
-    OAuth.completeRequest(message, accessor);
+    OAuth.completeRequest(message, self.accessor);
     authorizationHeader = OAuth.getAuthorizationHeader('', message.parameters);
     requestToken = new XMLHttpRequest();
-    requestToken.onreadystatechange = receiveRequestToken = function() {
+    requestToken.onreadystatechange = function() {
       var authorize_url, oauth_token, results;
       if (requestToken.readyState === 4) {
         results = OAuth.decodeForm(requestToken.responseText);
         oauth_token = OAuth.getParameter(results, 'oauth_token');
-        authorize_url = 'http://api.twitter.com/oauth/authorize?oauth_token=' + oauth_token;
+        authorize_url = self.accessor.serviceProvider.userAuthorizationURL + '?oauth_token=' + oauth_token;
         window.plugins.childBrowser.onLocationChange = function(loc) {
           var receiveAccessToken, requestAccess;
           if (loc.indexOf(config.twitter.successCallbackUrl) > -1) {
-            window.plugins.childBrowser.close();
             results = OAuth.decodeForm(requestToken.responseText);
             message = {
               method: 'post',
-              action: accessor.serviceProvider.accessTokenURL
+              action: self.accessor.serviceProvider.accessTokenURL
             };
             OAuth.completeRequest(message, {
-              consumerKey: accessor.consumerKey,
-              consumerSecret: accessor.consumerSecret,
+              consumerKey: self.accessor.consumerKey,
+              consumerSecret: self.accessor.consumerSecret,
               token: OAuth.getParameter(results, 'oauth_token'),
               tokenSecret: OAuth.getParameter(results, 'oauth_token_secret')
             });
@@ -54,14 +54,18 @@ Twitter = (function() {
             requestAccess.onreadystatechange = receiveAccessToken = function() {
               var params;
               if (requestAccess.readyState === 4) {
-                params = helper.get_url_vars_from_string(requestAccess.responseText);
+                params = helper.getURLVarsFromString(requestAccess.responseText);
                 userconfig.setItem('twitter_token', params['oauth_token']);
                 userconfig.setItem('twitter_secret_token', params['oauth_token_secret']);
                 userconfig.setItem('twitter_user_name', params['screen_name']);
-                return userconfig.setItem('twitter_user_id', params['user_id']);
+                userconfig.setItem('twitter_user_id', params['user_id']);
+                window.plugins.childBrowser.close();
+                if (sucessCallback) {
+                  return sucessCallback();
+                }
               }
             };
-            requestAccess.open(message.method, message.action, true);
+            requestAccess.open(message.method, message.action, false);
             requestAccess.setRequestHeader('Authorization', OAuth.getAuthorizationHeader('', message.parameters));
             return requestAccess.send();
           }
@@ -69,14 +73,57 @@ Twitter = (function() {
         return window.plugins.childBrowser.showWebPage(authorize_url);
       }
     };
-    requestToken.open(message.method, message.action, true);
+    requestToken.open(message.method, message.action, false);
     requestToken.setRequestHeader('Authorization', authorizationHeader);
     requestToken.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     return requestToken.send(requestBody);
   };
 
-  Twitter.prototype.is_authenticated = function() {
+  Twitter.prototype.isAuthenticated = function() {
     return userconfig.getItem('twitter_token') && userconfig.getItem('twitter_secret_token');
+  };
+
+  Twitter.prototype.getTweets = function(query, count) {
+    var message, requestAccess, self, tweets;
+    self = this;
+    if (!count) {
+      count = 30;
+    }
+    query = escape(query);
+    message = {
+      method: 'get',
+      action: "https://api.twitter.com/1.1/search/tweets.json?q=" + query + "&count=" + count + "&include_entities=1"
+    };
+    OAuth.completeRequest(message, {
+      consumerKey: self.accessor.consumerKey,
+      consumerSecret: self.accessor.consumerSecret,
+      token: userconfig.getItem('twitter_token'),
+      tokenSecret: userconfig.getItem('twitter_secret_token')
+    });
+    requestAccess = new XMLHttpRequest();
+    tweets = [];
+    requestAccess.onreadystatechange = function() {
+      var error, jsonResponse, _i, _len, _ref, _results;
+      if (requestAccess.readyState === 4) {
+        jsonResponse = JSON.parse(requestAccess.responseText);
+        if (jsonResponse.errors) {
+          _ref = jsonResponse.errors;
+          _results = [];
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            error = _ref[_i];
+            alert(error.message);
+            _results.push(tweets = false);
+          }
+          return _results;
+        } else {
+          return tweets = jsonResponse.statuses || [];
+        }
+      }
+    };
+    requestAccess.open(message.method, message.action, false);
+    requestAccess.setRequestHeader('Authorization', OAuth.getAuthorizationHeader('', message.parameters));
+    requestAccess.send();
+    return tweets;
   };
 
   return Twitter;

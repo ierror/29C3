@@ -48,6 +48,8 @@ $(document).bind 'pagebeforechange', (e, data) ->
   parsedUrl = $.mobile.path.parseUrl(data.toPage)
   return if not parsedUrl.filename == 'index.html'
 
+  $('body').addClass('ui-loading')
+
   if /^#schedule#/.test(parsedUrl.hash)
     $('li[data-day-index] .link').removeClass('ui-btn-active')
 
@@ -81,17 +83,28 @@ $(document).bind 'pagebeforechange', (e, data) ->
     eventView.initialize(eventNode, data.option)
     e.preventDefault()
 
-  else if /^#twitter/.test(parsedUrl.hash)
-    twitter.authenticate()
-    if not twitter.is_authenticated()
-      twitter.authenticate()
+  else if /^#twitter#/.test(parsedUrl.hash)
+    # #twitter#<hashtag>
+    hashTag = unescape(parsedUrl.hash.split('#')[2])
 
-    twitterView.initialize()
+    if not twitter.isAuthenticated()
+      twitter.authenticate ->
+        twitterView.initialize(hashTag)
+    else
+      twitterView.initialize(hashTag)
+
     e.preventDefault()
+
+  $('body').removeClass('ui-loading')
 
 # open external links in child browser
 $(document).on 'click', '.external-link', ->
   window.plugins.childBrowser.showWebPage $(@).attr('href')
   false
+
+# fix: https://github.com/jquery/jquery-mobile/issues/3956
+$(window).resize ->
+  $('.ui-header').width $(window).width()
+  $('.ui-footer').width $(window).width()
 
 app = new App()

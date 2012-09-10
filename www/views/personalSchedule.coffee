@@ -36,7 +36,7 @@ class PersonalScheduleView
     listViewLiHeaderTpl = $('.tpl.header:first', contentDiv)
 
     lastHeaderContent = undefined
-    for eventDateKey in helper.get_obj_keys(eventsSorted).sort()
+    for eventDateKey in helper.getObjKeys(eventsSorted).sort()
       event = eventsSorted[eventDateKey]
 
       # header

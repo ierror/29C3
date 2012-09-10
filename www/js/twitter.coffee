@@ -1,8 +1,8 @@
 class Twitter
-  @callbackURL
+  @accessor
 
-  authenticate: ->
-    accessor =
+  constructor: ->
+    @accessor =
       consumerKey: config.twitter.consumerKey
       consumerSecret: config.twitter.consumerSecret
       serviceProvider:
@@ -10,59 +10,96 @@ class Twitter
         requestTokenURL: 'http://api.twitter.com/oauth/request_token'
         userAuthorizationURL: 'https://api.twitter.com/oauth/authorize'
         accessTokenURL: 'https://api.twitter.com/oauth/access_token'
-        echoURL: 'http://localhost/oauth-provider/echo'
+
+  authenticate: (sucessCallback) ->
+    self = @
 
     message =
       method: 'post'
-      action: accessor.serviceProvider.requestTokenURL
+      action: self.accessor.serviceProvider.requestTokenURL
       parameters: [['scope', 'http://www.google.com/m8/feeds/']]
 
     requestBody = OAuth.formEncode(message.parameters)
-    OAuth.completeRequest message, accessor
+    OAuth.completeRequest message, self.accessor
     authorizationHeader = OAuth.getAuthorizationHeader('', message.parameters)
     requestToken = new XMLHttpRequest()
 
-    requestToken.onreadystatechange = receiveRequestToken = ->
+    requestToken.onreadystatechange = ->
       if requestToken.readyState is 4
         results = OAuth.decodeForm(requestToken.responseText)
         oauth_token = OAuth.getParameter(results, 'oauth_token')
-        authorize_url = 'http://api.twitter.com/oauth/authorize?oauth_token=' + oauth_token
+        authorize_url = self.accessor.serviceProvider.userAuthorizationURL + '?oauth_token=' + oauth_token
 
         window.plugins.childBrowser.onLocationChange = (loc) ->
           if loc.indexOf(config.twitter.successCallbackUrl) > -1
-            window.plugins.childBrowser.close()
             results = OAuth.decodeForm(requestToken.responseText)
             message =
               method: 'post'
-              action: accessor.serviceProvider.accessTokenURL
+              action: self.accessor.serviceProvider.accessTokenURL
 
             OAuth.completeRequest message,
-              consumerKey: accessor.consumerKey
-              consumerSecret: accessor.consumerSecret
+              consumerKey: self.accessor.consumerKey
+              consumerSecret: self.accessor.consumerSecret
               token: OAuth.getParameter(results, 'oauth_token')
               tokenSecret: OAuth.getParameter(results, 'oauth_token_secret')
 
             requestAccess = new XMLHttpRequest()
             requestAccess.onreadystatechange = receiveAccessToken = ->
               if requestAccess.readyState is 4
-                params = helper.get_url_vars_from_string requestAccess.responseText
+                params = helper.getURLVarsFromString requestAccess.responseText
                 userconfig.setItem 'twitter_token', params['oauth_token']
                 userconfig.setItem 'twitter_secret_token', params['oauth_token_secret']
                 userconfig.setItem 'twitter_user_name', params['screen_name']
                 userconfig.setItem 'twitter_user_id', params['user_id']
 
-            requestAccess.open message.method, message.action, true
+                window.plugins.childBrowser.close()
+                sucessCallback() if sucessCallback
+
+            requestAccess.open message.method, message.action, false
             requestAccess.setRequestHeader 'Authorization', OAuth.getAuthorizationHeader('', message.parameters)
             requestAccess.send()
 
         window.plugins.childBrowser.showWebPage authorize_url
 
-    requestToken.open message.method, message.action, true
+    requestToken.open message.method, message.action, false
     requestToken.setRequestHeader 'Authorization', authorizationHeader
     requestToken.setRequestHeader 'Content-Type', 'application/x-www-form-urlencoded'
     requestToken.send requestBody
 
-  is_authenticated: ->
+  isAuthenticated: ->
     userconfig.getItem('twitter_token') && userconfig.getItem('twitter_secret_token')
+
+  getTweets: (query, count) ->
+    self = @
+    count = 30 if not count
+    query = escape(query)
+
+    message =
+      method: 'get'
+      action: "https://api.twitter.com/1.1/search/tweets.json?q=#{query}&count=#{count}&include_entities=1"
+
+    OAuth.completeRequest message,
+      consumerKey: self.accessor.consumerKey
+      consumerSecret: self.accessor.consumerSecret
+      token: userconfig.getItem('twitter_token')
+      tokenSecret: userconfig.getItem('twitter_secret_token')
+
+    requestAccess = new XMLHttpRequest()
+    tweets = []
+    requestAccess.onreadystatechange = ->
+      if requestAccess.readyState is 4
+        jsonResponse = JSON.parse requestAccess.responseText
+
+        if jsonResponse.errors
+          for error in jsonResponse.errors
+            alert error.message
+            tweets = false
+        else
+          tweets = jsonResponse.statuses or []
+
+    requestAccess.open message.method, message.action, false
+    requestAccess.setRequestHeader 'Authorization', OAuth.getAuthorizationHeader('', message.parameters)
+    requestAccess.send()
+    return tweets
 
 twitter = new Twitter()
