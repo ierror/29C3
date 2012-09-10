@@ -4,7 +4,7 @@ Config = ->
   @twitter =
     consumerKey: ''
     consumerSecret: ''
-    successCallbackUrl: 'http://127.0.0.1/'
+    successCallbackUrl: 'https://twitter.com/'
   @
 
 config = new Config()
