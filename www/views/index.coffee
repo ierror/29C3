@@ -6,6 +6,7 @@ class App
 
   deviceready: ->
     # build day tabs
+    dayTabLoaded = false
     for dayNode in programXML.find('day')
       dayNode = $(dayNode)
       date = dayNode.attr('date')
@@ -33,8 +34,12 @@ class App
 
       # set active tab if current day is available event day
       if helper.formatDate(new Date(), 'yyyy-mm-dd') is date
+        dayTabLoaded = true
         # i don't know why $.mobile.changePage does not work here...
         document.location.href = pageHref
+
+    $('#event-back').attr('href', '#personalSchedule')
+    personalScheduleView.initialize() if not dayTabLoaded
 
 # prepare schedule xml
 xmlLoader = new ScheduleXMLLoader()
@@ -59,7 +64,6 @@ $(document).bind 'pagebeforechange', (e, data) ->
 
     # set back link for event
     $('#event-back').attr('href', parsedUrl.href)
-
     e.preventDefault()
 
   else if /^#personalSchedule$/.test(parsedUrl.hash)
@@ -67,8 +71,8 @@ $(document).bind 'pagebeforechange', (e, data) ->
 
     # set back link for event
     $('#event-back').attr('href', parsedUrl.href)
-
     personalScheduleView.initialize()
+    e.preventDefault()
 
   # #event# <day-index> # <room-name> # <event-id>
   # 0  1         2            3            4

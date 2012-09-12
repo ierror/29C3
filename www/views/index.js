@@ -10,9 +10,9 @@ App = (function() {
   }
 
   App.prototype.deviceready = function() {
-    var a, date, dateSplitted, dayIndex, dayNode, dayTab, pageHref, _i, _len, _ref, _results;
+    var a, date, dateSplitted, dayIndex, dayNode, dayTab, dayTabLoaded, pageHref, _i, _len, _ref;
+    dayTabLoaded = false;
     _ref = programXML.find('day');
-    _results = [];
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       dayNode = _ref[_i];
       dayNode = $(dayNode);
@@ -32,12 +32,14 @@ App = (function() {
       a.removeClass('ui-state-persist');
       $('.tabs').append($('<div />').append(dayTab.show()).html());
       if (helper.formatDate(new Date(), 'yyyy-mm-dd') === date) {
-        _results.push(document.location.href = pageHref);
-      } else {
-        _results.push(void 0);
+        dayTabLoaded = true;
+        document.location.href = pageHref;
       }
     }
-    return _results;
+    $('#event-back').attr('href', '#personalSchedule');
+    if (!dayTabLoaded) {
+      return personalScheduleView.initialize();
+    }
   };
 
   return App;
@@ -70,6 +72,7 @@ $(document).bind('pagebeforechange', function(e, data) {
     $('li[data-day-index] .link').removeClass('ui-btn-active');
     $('#event-back').attr('href', parsedUrl.href);
     personalScheduleView.initialize();
+    e.preventDefault();
   } else if (/^#event#[0-9]+#.*#[0-9]+$/.test(parsedUrl.hash)) {
     parsedUrlHash = parsedUrl.hash.split('#');
     dayNode = $(programXML.find('day[index=' + unescape(parsedUrlHash[2]) + ']:first'));
