@@ -10,16 +10,17 @@ TwitterView = (function() {
   TwitterView.prototype.initialize = function(hashTag) {
     var contentDiv, liTpl, listView, tweet, tweets, _i, _len, _liTpl;
     this.page = $('#twitter-list-view');
+    contentDiv = $('div[data-role=content]:first', this.page);
+    listView = $('ul[data-role=listview]:first', contentDiv);
+    liTpl = $('li.tpl:first', listView).hide().clone();
+    listView.children(':not(.tpl)').remove();
     tweets = twitter.getTweets(hashTag);
     if (!tweets) {
       $.mobile.changePage(this.page);
     }
-    contentDiv = $('div[data-role=content]:first', this.page);
-    listView = $('ul[data-role=listview]:first', contentDiv);
-    liTpl = $('li.tpl:first', listView);
     for (_i = 0, _len = tweets.length; _i < _len; _i++) {
       tweet = tweets[_i];
-      _liTpl = liTpl.clone();
+      _liTpl = liTpl.clone().show();
       $('.twitter-tweet:first', _liTpl).html(tweet.text);
       $('.twitter-name:first', _liTpl).html(tweet.user.screen_name);
       $('.twitter-screen-name:first', _liTpl).html(tweet.user.name);

@@ -11,7 +11,7 @@ class Event
       eventElement = $(@)
       if eventElement.find('.tpl').length
         eventElement.children(':not(.tpl)').remove()
-      # there is no tpl found, simple set html to ''
+        # there is no tpl found, simple set html to ''
       else
         eventElement.html('')
 
@@ -21,11 +21,13 @@ class Event
     @page = $('#event')
     @_resetLayout()
 
+    eventID = eventNode.attr('id')
+
     for eventField in eventNode.children()
       fieldName = eventField.tagName
       eventField = $(eventField)
 
-      targetElement = $("#event-#{fieldName}")
+      targetElement = $("#event-#{fieldName}", @page)
       eventText = ''
       children = eventField.children()
 
@@ -40,7 +42,7 @@ class Event
         else
           eventText = eventField.text()
 
-      # <links> handling
+        # <links> handling
       else
         # if there is a <ul> element defined within the target element,
         # fill it by li elements
@@ -56,8 +58,17 @@ class Event
 
       @_setField(targetElement, eventText)
 
+    # set hashtag
+    hashTag = "#29C3_#{eventID}"
+    twitterElement = $('#event-twitter', @page)
+    $('.event-twitter-hashtag:first', twitterElement).html(hashTag)
+
+    ulElement = $('ul:first', twitterElement)
+    ulElement.find('.event-twitter-tweet:first').attr('href', 'tweetbot:///post?text=' + escape('  ' + hashTag) + '&callback_url=' + escape('congress2012://'))
+    ulElement.find('.event-twitter-list:first').attr('href', '#twitter#' + escape(hashTag))
+
     attendCheckbox = $('#event-attend-checkbox').checkboxradio()
-    attendCheckbox.attr('data-event-id', eventNode.attr('id'))
+    attendCheckbox.attr('data-event-id', eventID)
 
     attendCheckbox.bind 'change', (event, ui) ->
       self = $(@)
@@ -70,7 +81,7 @@ class Event
         self.parent().find('.ui-btn-text:first').html(self.attr('data-event-dontattend-text'))
         personalSchedule.db.push(self.attr('data-event-id'))
 
-    if personalSchedule.db.contains(eventNode.attr('id'))
+    if personalSchedule.db.contains(eventID)
       attendCheckbox.attr('checked', 'checked').checkboxradio('refresh')
       attendCheckbox.parent().find('.ui-btn-text:first').html(attendCheckbox.attr('data-event-dontattend-text'))
     else

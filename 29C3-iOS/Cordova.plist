@@ -52,6 +52,8 @@
 		<string>CDVSplashScreen</string>
 		<key>Battery</key>
 		<string>CDVBattery</string>
+		<key>CanOpenURL</key>
+		<string>CanOpenURL</string>
 	</dict>
 </dict>
 </plist>

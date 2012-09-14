@@ -1,5 +1,6 @@
 class App
   @programXML
+  @twitter
 
   constructor: ->
     document.addEventListener('deviceready', @deviceready(), false)
@@ -41,10 +42,13 @@ class App
     $('#event-back').attr('href', '#personalSchedule')
     personalScheduleView.initialize() if not dayTabLoaded
 
+
 # prepare schedule xml
 xmlLoader = new ScheduleXMLLoader()
 xmlLoader.appStartUpLoad()
 programXML = xmlLoader.getXMLTree()
+
+twitter = undefined
 
 # dynamic page content
 $(document).bind 'pagebeforechange', (e, data) ->
@@ -88,14 +92,32 @@ $(document).bind 'pagebeforechange', (e, data) ->
     e.preventDefault()
 
   else if /^#twitter#/.test(parsedUrl.hash)
-    # #twitter#<hashtag>
-    hashTag = unescape(parsedUrl.hash.split('#')[2])
+    # sub func helper
+    _load = ->
+      # #twitter#<hashtag>
+      hashTag = unescape(parsedUrl.hash.split('#')[2])
 
-    if not twitter.isAuthenticated()
-      twitter.authenticate ->
-        twitterView.initialize(hashTag)
+      if not twitter.isAuthenticated() or twitter.isAuthenticated() is 'undefined'
+        twitter.authenticate ->
+          twitter.showSearch(hashTag)
+      else
+        twitter.showSearch(hashTag)
+
+    if twitter
+      _load()
+    else if platform.ios
+      window.cordova.exec(
+        ->
+          twitter = new TwitterTweetbot()
+          _load()
+        ->
+          twitter = new TwitterJQMobile()
+          _load()
+        'CanOpenURL', 'check', ['tweetbot://',]
+      )
     else
-      twitterView.initialize(hashTag)
+      twitter = new TwitterJQMobile()
+      _load()
 
     e.preventDefault()
 

@@ -24,16 +24,17 @@ Event = (function() {
   };
 
   Event.prototype.initialize = function(eventNode, options) {
-    var attendCheckbox, childField, childFieldRound, children, event, eventField, eventText, fieldName, liTpl, targetElement, _i, _j, _k, _len, _len1, _len2, _liTpl, _liTplLink, _ref, _ref1, _ref2;
+    var attendCheckbox, childField, childFieldRound, children, event, eventField, eventID, eventText, fieldName, hashTag, liTpl, targetElement, twitterElement, ulElement, _i, _j, _k, _len, _len1, _len2, _liTpl, _liTplLink, _ref, _ref1, _ref2;
     event = this;
     this.page = $('#event');
     this._resetLayout();
+    eventID = eventNode.attr('id');
     _ref = eventNode.children();
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       eventField = _ref[_i];
       fieldName = eventField.tagName;
       eventField = $(eventField);
-      targetElement = $("#event-" + fieldName);
+      targetElement = $("#event-" + fieldName, this.page);
       eventText = '';
       children = eventField.children();
       if (fieldName !== 'links') {
@@ -67,8 +68,14 @@ Event = (function() {
       }
       this._setField(targetElement, eventText);
     }
+    hashTag = "#29C3_" + eventID;
+    twitterElement = $('#event-twitter', this.page);
+    $('.event-twitter-hashtag:first', twitterElement).html(hashTag);
+    ulElement = $('ul:first', twitterElement);
+    ulElement.find('.event-twitter-tweet:first').attr('href', 'tweetbot:///post?text=' + escape('  ' + hashTag) + '&callback_url=' + escape('congress2012://'));
+    ulElement.find('.event-twitter-list:first').attr('href', '#twitter#' + escape(hashTag));
     attendCheckbox = $('#event-attend-checkbox').checkboxradio();
-    attendCheckbox.attr('data-event-id', eventNode.attr('id'));
+    attendCheckbox.attr('data-event-id', eventID);
     attendCheckbox.bind('change', function(event, ui) {
       var self;
       self = $(this);
@@ -82,7 +89,7 @@ Event = (function() {
         return personalSchedule.db.push(self.attr('data-event-id'));
       }
     });
-    if (personalSchedule.db.contains(eventNode.attr('id'))) {
+    if (personalSchedule.db.contains(eventID)) {
       attendCheckbox.attr('checked', 'checked').checkboxradio('refresh');
       attendCheckbox.parent().find('.ui-btn-text:first').html(attendCheckbox.attr('data-event-dontattend-text'));
     } else {

@@ -112,6 +112,18 @@
       "initialSize" : 1806,
       "fileType" : 10
     },
+    "\/www\/js\/twitterJQMobile.coffee" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/www\/js\/twitterJQMobile.coffee",
+      "checkOutputStyle" : 0,
+      "minifyOutput" : 0,
+      "outputAbbreviatedPath" : "\/www\/js\/twitterJQMobile.js",
+      "outputStyle" : 1,
+      "fileType" : 4
+    },
     "\/.metadata\/.plugins\/com.android.ide.eclipse.adt\/palette-preview-r16b-16-apptheme-37inwvganexusone\/TabHost.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -166,6 +178,17 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/recording_bg~ipad.png",
       "initialSize" : 996,
+      "fileType" : 10
+    },
+    "\/29C3-Android\/bin\/res\/drawable-xhdpi\/ic_action_search.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-xhdpi\/ic_action_search.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-xhdpi\/ic_action_search.png",
+      "initialSize" : 491,
       "fileType" : 10
     },
     "\/29C3-iOS\/Resources\/Capture.bundle\/stop_button~ipad.png" : {
@@ -244,6 +267,18 @@
       "outputAbbreviatedPath" : "\/www\/res\/icon\/cordova_64.png",
       "initialSize" : 5463,
       "fileType" : 10
+    },
+    "\/www\/js\/twitterTweetbot.coffee" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/www\/js\/twitterTweetbot.coffee",
+      "checkOutputStyle" : 0,
+      "minifyOutput" : 0,
+      "outputAbbreviatedPath" : "\/www\/js\/twitterTweetbot.js",
+      "outputStyle" : 1,
+      "fileType" : 4
     },
     "\/www\/lib\/css\/jquery.mobile-1.2.0-alpha.1.css" : {
       "ignoreWasSetByUser" : 0,
@@ -329,17 +364,6 @@
       "initialSize" : 222148,
       "fileType" : 10
     },
-    "\/www\/res\/screen\/android_mdpi_portrait.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/res\/screen\/android_mdpi_portrait.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/www\/res\/screen\/android_mdpi_portrait.png",
-      "initialSize" : 90555,
-      "fileType" : 10
-    },
     "\/29C3-iOS\/Resources\/splash\/Default@2x~iphone.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -371,6 +395,17 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/microphone.png",
       "initialSize" : 72226,
+      "fileType" : 10
+    },
+    "\/www\/res\/screen\/android_mdpi_portrait.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/www\/res\/screen\/android_mdpi_portrait.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/www\/res\/screen\/android_mdpi_portrait.png",
+      "initialSize" : 90555,
       "fileType" : 10
     },
     "\/www\/childbrowser\/icon_close.png" : {
@@ -406,6 +441,17 @@
       "outputAbbreviatedPath" : "\/www\/js\/scheduleXML-ck.js",
       "fileType" : 5
     },
+    "\/www\/js\/twitter.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/www\/js\/twitter.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/www\/js\/twitter-ck.js",
+      "fileType" : 5
+    },
     "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/but_refresh.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -416,17 +462,6 @@
       "outputAbbreviatedPath" : "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/but_refresh.png",
       "initialSize" : 3369,
       "fileType" : 10
-    },
-    "\/www\/js\/twitter.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/js\/twitter.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/www\/js\/twitter-ck.js",
-      "fileType" : 5
     },
     "\/29C3-iOS\/Resources\/Capture.bundle\/recording_bg@2x.png" : {
       "ignoreWasSetByUser" : 0,
@@ -582,6 +617,17 @@
       "initialSize" : 7869,
       "fileType" : 10
     },
+    "\/www\/js\/twitterTweetbot.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/www\/js\/twitterTweetbot.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/www\/js\/twitterTweetbot-ck.js",
+      "fileType" : 5
+    },
     "\/29C3-iOS\/Resources\/icons\/icon.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -591,17 +637,6 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/29C3-iOS\/Resources\/icons\/icon.png",
       "initialSize" : 3902,
-      "fileType" : 10
-    },
-    "\/www\/res\/screen\/ipad_portrait.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/res\/screen\/ipad_portrait.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/www\/res\/screen\/ipad_portrait.png",
-      "initialSize" : 422441,
       "fileType" : 10
     },
     "\/www\/res\/screen\/android_xhdpi_portrait.png" : {
@@ -638,15 +673,15 @@
       "outputAbbreviatedPath" : "\/www\/lib\/js\/sha1-ck.js",
       "fileType" : 5
     },
-    "\/www\/res\/screen\/iphone_portrait.png" : {
+    "\/29C3-Android\/bin\/res\/drawable-hdpi\/ic_action_search.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/res\/screen\/iphone_portrait.png",
+      "inputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-hdpi\/ic_action_search.png",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/www\/res\/screen\/iphone_portrait.png",
-      "initialSize" : 93897,
+      "outputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-hdpi\/ic_action_search.png",
+      "initialSize" : 409,
       "fileType" : 10
     },
     "\/www\/lib\/js\/ChildBrowser-iOS.js" : {
@@ -668,6 +703,28 @@
       "inputAbbreviatedPath" : "\/www\/index.html",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 8
+    },
+    "\/www\/res\/screen\/ipad_portrait.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/www\/res\/screen\/ipad_portrait.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/www\/res\/screen\/ipad_portrait.png",
+      "initialSize" : 422441,
+      "fileType" : 10
+    },
+    "\/www\/res\/screen\/iphone_portrait.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/www\/res\/screen\/iphone_portrait.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/www\/res\/screen\/iphone_portrait.png",
+      "initialSize" : 93897,
+      "fileType" : 10
     },
     "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/arrow_right@2x.png" : {
       "ignoreWasSetByUser" : 0,
@@ -713,16 +770,16 @@
       "initialSize" : 2215,
       "fileType" : 10
     },
-    "\/www\/js\/platformSpecificStuff.js" : {
+    "\/29C3-Android\/bin\/res\/drawable-mdpi\/ic_launcher.png" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
+      "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/js\/platformSpecificStuff.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/www\/js\/platformSpecificStuff-ck.js",
-      "fileType" : 5
+      "inputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-mdpi\/ic_launcher.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-mdpi\/ic_launcher.png",
+      "initialSize" : 2919,
+      "fileType" : 10
     },
     "\/www\/childbrowser\/icon_arrow_right.png" : {
       "ignoreWasSetByUser" : 0,
@@ -734,6 +791,17 @@
       "outputAbbreviatedPath" : "\/www\/childbrowser\/icon_arrow_right.png",
       "initialSize" : 384,
       "fileType" : 10
+    },
+    "\/www\/js\/helper.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/www\/js\/helper.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/www\/js\/helper-ck.js",
+      "fileType" : 5
     },
     "\/www\/res\/screen\/iphone_retina_portrait.png" : {
       "ignoreWasSetByUser" : 0,
@@ -757,15 +825,15 @@
       "initialSize" : 3611,
       "fileType" : 10
     },
-    "\/www\/js\/helper.js" : {
+    "\/www\/js\/platformSpecificStuff.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/js\/helper.js",
+      "inputAbbreviatedPath" : "\/www\/js\/platformSpecificStuff.js",
       "outputStyle" : 1,
       "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/www\/js\/helper-ck.js",
+      "outputAbbreviatedPath" : "\/www\/js\/platformSpecificStuff-ck.js",
       "fileType" : 5
     },
     "\/.metadata\/.plugins\/com.android.ide.eclipse.adt\/palette-preview-r16b-16-apptheme-37inwvganexusone\/Switch.png" : {
@@ -788,8 +856,19 @@
       "checkOutputStyle" : 0,
       "minifyOutput" : 0,
       "outputAbbreviatedPath" : "\/www\/views\/schedule.js",
-      "outputStyle" : 1,
+      "outputStyle" : 0,
       "fileType" : 4
+    },
+    "\/29C3-Android\/bin\/res\/drawable-mdpi\/ic_action_search.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-mdpi\/ic_action_search.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-mdpi\/ic_action_search.png",
+      "initialSize" : 311,
+      "fileType" : 10
     },
     "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/compass@2x.png" : {
       "ignoreWasSetByUser" : 0,
@@ -924,7 +1003,7 @@
       "checkOutputStyle" : 0,
       "minifyOutput" : 0,
       "outputAbbreviatedPath" : "\/www\/js\/userConfig.js",
-      "outputStyle" : 1,
+      "outputStyle" : 0,
       "fileType" : 4
     },
     "\/29C3-iOS\/Resources\/Capture.bundle\/controls_bg.png" : {
@@ -1003,7 +1082,7 @@
       "checkOutputStyle" : 0,
       "minifyOutput" : 0,
       "outputAbbreviatedPath" : "\/www\/js\/scheduleXML.js",
-      "outputStyle" : 1,
+      "outputStyle" : 0,
       "fileType" : 4
     },
     "\/www\/res\/screen\/android_ldpi_portrait.png" : {
@@ -1059,7 +1138,7 @@
       "checkOutputStyle" : 0,
       "minifyOutput" : 0,
       "outputAbbreviatedPath" : "\/www\/js\/personalScheduleDB.js",
-      "outputStyle" : 1,
+      "outputStyle" : 0,
       "fileType" : 4
     },
     "\/29C3-iOS\/Resources\/icons\/icon-72@2x.png" : {
@@ -1225,6 +1304,17 @@
       "initialSize" : 1610434,
       "fileType" : 10
     },
+    "\/29C3-Android\/bin\/res\/drawable-hdpi\/ic_launcher.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-hdpi\/ic_launcher.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-hdpi\/ic_launcher.png",
+      "initialSize" : 4660,
+      "fileType" : 10
+    },
     "\/29C3-Android\/res\/drawable-hdpi\/ic_launcher.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1234,6 +1324,28 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/29C3-Android\/res\/drawable-hdpi\/ic_launcher.png",
       "initialSize" : 4996,
+      "fileType" : 10
+    },
+    "\/29C3-Android\/bin\/res\/drawable-xhdpi\/ic_launcher.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-xhdpi\/ic_launcher.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-xhdpi\/ic_launcher.png",
+      "initialSize" : 6194,
+      "fileType" : 10
+    },
+    "\/29C3-iOS\/Resources\/Capture.bundle\/record_button@2x~ipad.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/record_button@2x~ipad.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/record_button@2x~ipad.png",
+      "initialSize" : 15822,
       "fileType" : 10
     },
     "\/www\/views\/twitter.js" : {
@@ -1247,17 +1359,6 @@
       "outputAbbreviatedPath" : "\/www\/views\/twitter-ck.js",
       "fileType" : 5
     },
-    "\/29C3-iOS\/Resources\/Capture.bundle\/record_button@2x~ipad.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/record_button@2x~ipad.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/record_button@2x~ipad.png",
-      "initialSize" : 15822,
-      "fileType" : 10
-    },
     "\/29C3-iOS\/Resources\/splash\/Default-Landscape~ipad.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1268,18 +1369,6 @@
       "outputAbbreviatedPath" : "\/29C3-iOS\/Resources\/splash\/Default-Landscape~ipad.png",
       "initialSize" : 423095,
       "fileType" : 10
-    },
-    "\/www\/js\/twitter.coffee" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/js\/twitter.coffee",
-      "checkOutputStyle" : 0,
-      "minifyOutput" : 0,
-      "outputAbbreviatedPath" : "\/www\/js\/twitter.js",
-      "outputStyle" : 1,
-      "fileType" : 4
     },
     "\/29C3-iOS\/Resources\/splash\/Default~iphone.png" : {
       "ignoreWasSetByUser" : 0,
@@ -1302,6 +1391,17 @@
       "outputAbbreviatedPath" : "\/29C3-Android\/res\/drawable-hdpi\/ic_action_search.png",
       "initialSize" : 3120,
       "fileType" : 10
+    },
+    "\/www\/js\/twitterJQMobile.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/www\/js\/twitterJQMobile.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/www\/js\/twitterJQMobile-ck.js",
+      "fileType" : 5
     },
     "\/www\/js\/personalScheduleDB.js" : {
       "ignoreWasSetByUser" : 0,

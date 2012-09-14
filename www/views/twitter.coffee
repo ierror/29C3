@@ -3,6 +3,10 @@ class TwitterView
 
   initialize: (hashTag) ->
     @page = $('#twitter-list-view')
+    contentDiv = $('div[data-role=content]:first', @page)
+    listView = $('ul[data-role=listview]:first', contentDiv)
+    liTpl = $('li.tpl:first', listView).hide().clone()
+    listView.children(':not(.tpl)').remove()
 
     tweets = twitter.getTweets(hashTag)
 
@@ -10,12 +14,8 @@ class TwitterView
     if not tweets
       $.mobile.changePage(@page)
 
-    contentDiv = $('div[data-role=content]:first', @page)
-    listView = $('ul[data-role=listview]:first', contentDiv)
-    liTpl = $('li.tpl:first', listView)
-
     for tweet in tweets
-      _liTpl = liTpl.clone()
+      _liTpl = liTpl.clone().show()
 
       $('.twitter-tweet:first', _liTpl).html(tweet.text)
       $('.twitter-name:first', _liTpl).html(tweet.user.screen_name)

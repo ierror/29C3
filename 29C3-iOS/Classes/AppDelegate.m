@@ -116,7 +116,7 @@
 // only valid if 29C3-iOS-Info.plist specifies a protocol to handle
 - (BOOL) application:(UIApplication*)application handleOpenURL:(NSURL*)url 
 {
-    if (!url) { 
+    if (!url) {
         return NO; 
     }
     

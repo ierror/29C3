@@ -1,4 +1,4 @@
-class Twitter
+class TwitterJQMobile
   @accessor
 
   constructor: ->
@@ -13,6 +13,9 @@ class Twitter
 
   authenticate: (sucessCallback) ->
     self = @
+
+    userconfig.setItem('twitter_token', undefined)
+    userconfig.setItem('twitter_secret_token', undefined)
 
     message =
       method: 'post'
@@ -100,6 +103,8 @@ class Twitter
     requestAccess.open message.method, message.action, false
     requestAccess.setRequestHeader 'Authorization', OAuth.getAuthorizationHeader('', message.parameters)
     requestAccess.send()
+
     return tweets
 
-twitter = new Twitter()
+  showSearch: (query) ->
+    twitterView.initialize(query)
