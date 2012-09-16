@@ -23,4 +23,4 @@
 
 // Override this to use your project specific CORDOVALIB. 
 // You can base it off the current project path, $(PROJECT_DIR)
-CORDOVALIB = $(CORDOVALIB)
+CORDOVALIB = $(PROJECT_DIR)/29C3-iOS/CordovaLib/
