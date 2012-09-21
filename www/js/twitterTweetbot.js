@@ -5,6 +5,10 @@ TwitterTweetbot = (function() {
 
   function TwitterTweetbot() {}
 
+  TwitterTweetbot.prototype.resetAuthData = function() {
+    return true;
+  };
+
   TwitterTweetbot.prototype.authenticate = function() {
     return true;
   };

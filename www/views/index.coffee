@@ -1,11 +1,16 @@
 class App
-  @programXML
-  @twitter
-
   constructor: ->
     document.addEventListener('deviceready', @deviceready(), false)
 
   deviceready: ->
+    # init info elements
+    if not platform.ios
+      $('#event-use-tweetbot').remove()
+
+    else
+      if userconfig.getItem('use-tweetbot') == false
+        $('#event-use-tweetbot-checkbox').removeAttr('checked').checkboxradio('refresh')
+
     # build day tabs
     dayTabLoaded = false
     for dayNode in programXML.find('day')
@@ -97,15 +102,13 @@ $(document).bind 'pagebeforechange', (e, data) ->
       # #twitter#<hashtag>
       hashTag = unescape(parsedUrl.hash.split('#')[2])
 
-      if not twitter.isAuthenticated() or twitter.isAuthenticated() is 'undefined'
+      if not twitter.isAuthenticated()
         twitter.authenticate ->
           twitter.showSearch(hashTag)
       else
         twitter.showSearch(hashTag)
 
-    if twitter
-      _load()
-    else if platform.ios
+    if platform.ios and userconfig.getItem('use-tweetbot') != false
       window.cordova.exec(
         ->
           twitter = new TwitterTweetbot()

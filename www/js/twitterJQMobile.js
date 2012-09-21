@@ -18,11 +18,15 @@ TwitterJQMobile = (function() {
     };
   }
 
+  TwitterJQMobile.prototype.resetAuthData = function() {
+    userconfig.setItem('twitter_token', null);
+    return userconfig.setItem('twitter_secret_token', null);
+  };
+
   TwitterJQMobile.prototype.authenticate = function(sucessCallback) {
     var authorizationHeader, message, requestBody, requestToken, self;
     self = this;
-    userconfig.setItem('twitter_token', void 0);
-    userconfig.setItem('twitter_secret_token', void 0);
+    this.resetAuthData();
     message = {
       method: 'post',
       action: self.accessor.serviceProvider.requestTokenURL,
@@ -82,7 +86,7 @@ TwitterJQMobile = (function() {
   };
 
   TwitterJQMobile.prototype.isAuthenticated = function() {
-    return userconfig.getItem('twitter_token') && userconfig.getItem('twitter_secret_token');
+    return (userconfig.getItem('twitter_token') != null) && (userconfig.getItem('twitter_secret_token') != null);
   };
 
   TwitterJQMobile.prototype.getTweets = function(query, count) {

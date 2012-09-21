@@ -11,11 +11,14 @@ class TwitterJQMobile
         userAuthorizationURL: 'https://api.twitter.com/oauth/authorize'
         accessTokenURL: 'https://api.twitter.com/oauth/access_token'
 
+  resetAuthData: ->
+    userconfig.setItem('twitter_token', null)
+    userconfig.setItem('twitter_secret_token', null)
+
   authenticate: (sucessCallback) ->
     self = @
 
-    userconfig.setItem('twitter_token', undefined)
-    userconfig.setItem('twitter_secret_token', undefined)
+    @resetAuthData()
 
     message =
       method: 'post'
@@ -70,7 +73,7 @@ class TwitterJQMobile
     requestToken.send requestBody
 
   isAuthenticated: ->
-    userconfig.getItem('twitter_token') && userconfig.getItem('twitter_secret_token')
+    userconfig.getItem('twitter_token')? && userconfig.getItem('twitter_secret_token')?
 
   getTweets: (query, count) ->
     self = @

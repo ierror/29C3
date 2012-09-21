@@ -1,5 +1,8 @@
 class TwitterTweetbot
 
+  resetAuthData: ->
+    true
+
   authenticate: ->
     true
 

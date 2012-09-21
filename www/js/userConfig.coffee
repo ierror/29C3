@@ -10,12 +10,12 @@ class UserConfig
     @_keyPrefix + key
 
   setItem: (key, value) ->
-    @_storageHandle.setItem(@_buildKey(key), value)
+    @_storageHandle.setItem(@_buildKey(key), JSON.stringify(value))
 
   getItem: (key, defaultValue) ->
     item = @_storageHandle.getItem(@_buildKey(key))
-    if item
-      item
+    if item?
+      JSON.parse item
     else if defaultValue
       defaultValue
 

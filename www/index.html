@@ -17,6 +17,7 @@
     <div data-role='header' data-position='fixed' data-tap-toggle='false'>
         <a href='#twitter#%2329C3'>#29C3</a>
         <h1>Personal schedule</h1>
+        <a href='#info' data-icon='info'>info</a>
     </div>
 
     <div data-role='content'>
@@ -355,6 +356,26 @@
     </div>
 </div>
 
+<!-- Info -->
+<div data-role='page' id='info' data-add-back-btn='true'>
+    <div data-role='header' data-position='fixed' data-tap-toggle='false'>
+        <h1></h1>
+    </div>
+
+    <div data-role='content'>
+        <div class='content-primary'>
+            <ul>
+                <li id='info-reset-twitter-auth'><button id='info-reset-twitter-auth-link'>Reset Twitter auth data</button></li>
+                <li id='event-use-tweetbot'>
+                    <input type='checkbox' name='event-use-tweetbot' checked='checked' id='event-use-tweetbot-checkbox' />
+                    <label for='event-use-tweetbot-checkbox'>Use tweetbot integration</label>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
 <script type='text/javascript' src='lib/js/jquery-1.8.0.js'></script>
 <script type='text/javascript' src='config.js'></script>
 <script type='text/javascript' src='js/twitterJQMobile.js'></script>
@@ -372,6 +393,7 @@
 <script type='text/javascript' src='views/twitter.js'></script>
 <script type='text/javascript' src='lib/js/sha1.js'></script>
 <script type='text/javascript' src='lib/js/oauth.js'></script>
+<script type='text/javascript' src='views/info.js'></script>
 <script type='text/javascript' src='views/index.js'></script>
 
 </body>

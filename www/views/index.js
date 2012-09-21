@@ -3,16 +3,19 @@ var App, app, programXML, twitter, xmlLoader;
 
 App = (function() {
 
-  App.programXML;
-
-  App.twitter;
-
   function App() {
     document.addEventListener('deviceready', this.deviceready(), false);
   }
 
   App.prototype.deviceready = function() {
     var a, date, dateSplitted, dayIndex, dayNode, dayTab, dayTabLoaded, pageHref, _i, _len, _ref;
+    if (!platform.ios) {
+      $('#event-use-tweetbot').remove();
+    } else {
+      if (userconfig.getItem('use-tweetbot') === false) {
+        $('#event-use-tweetbot-checkbox').removeAttr('checked').checkboxradio('refresh');
+      }
+    }
     dayTabLoaded = false;
     _ref = programXML.find('day');
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -88,7 +91,7 @@ $(document).bind('pagebeforechange', function(e, data) {
     _load = function() {
       var hashTag;
       hashTag = unescape(parsedUrl.hash.split('#')[2]);
-      if (!twitter.isAuthenticated() || twitter.isAuthenticated() === 'undefined') {
+      if (!twitter.isAuthenticated()) {
         return twitter.authenticate(function() {
           return twitter.showSearch(hashTag);
         });
@@ -96,9 +99,7 @@ $(document).bind('pagebeforechange', function(e, data) {
         return twitter.showSearch(hashTag);
       }
     };
-    if (twitter) {
-      _load();
-    } else if (platform.ios) {
+    if (platform.ios && userconfig.getItem('use-tweetbot') !== false) {
       window.cordova.exec(function() {
         twitter = new TwitterTweetbot();
         return _load();

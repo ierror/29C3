@@ -12,8 +12,7 @@ ScheduleXMLLoader = (function() {
       async: false,
       timeout: 2000
     }).done(function(responseXML) {
-      doneCallback(responseXML);
-      return alert('Successfully updated schedule.xml from ' + programmXMLUrl);
+      return doneCallback(responseXML);
     }).error(function() {
       throw 'Unable to load from server';
     });
@@ -22,13 +21,14 @@ ScheduleXMLLoader = (function() {
   ScheduleXMLLoader.prototype.appStartUpLoad = function() {
     var currentTimestamp, lastUpdateTimestamp;
     currentTimestamp = Math.round((new Date()).getTime() / 1000);
-    lastUpdateTimestamp = userconfig.getItem('schedule_xml_last_update');
+    lastUpdateTimestamp = userconfig.getItem('scheduleXMLLastUpdate');
     if (!lastUpdateTimestamp || (currentTimestamp - lastUpdateTimestamp > 10800)) {
       try {
         return this.loadFromServer(config.programXMLUrl, function(programXML) {
           $($.parseXML(programXML));
           userconfig.setItem('programXML', programXML);
-          return userconfig.setItem('schedule_xml_last_update', currentTimestamp);
+          userconfig.setItem('scheduleXMLLastUpdate', currentTimestamp);
+          return alert('Successfully updated schedule.xml from ' + config.programXMLUrl);
         });
       } catch (e) {
 

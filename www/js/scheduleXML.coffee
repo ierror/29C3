@@ -8,14 +8,13 @@ class ScheduleXMLLoader
     )
     .done (responseXML) ->
       doneCallback(responseXML)
-      alert 'Successfully updated schedule.xml from '+programmXMLUrl
     .error ->
       throw 'Unable to load from server'
 
   appStartUpLoad: ->
     # only update if schedule xml is older than 3 hours
     currentTimestamp = Math.round((new Date()).getTime() / 1000)
-    lastUpdateTimestamp = userconfig.getItem('schedule_xml_last_update')
+    lastUpdateTimestamp = userconfig.getItem('scheduleXMLLastUpdate')
 
     if not lastUpdateTimestamp || (currentTimestamp - lastUpdateTimestamp > 10800)
       try
@@ -23,7 +22,8 @@ class ScheduleXMLLoader
         @loadFromServer config.programXMLUrl, (programXML) ->
           $($.parseXML(programXML))
           userconfig.setItem('programXML', programXML)
-          userconfig.setItem('schedule_xml_last_update', currentTimestamp)
+          userconfig.setItem('scheduleXMLLastUpdate', currentTimestamp)
+          alert 'Successfully updated schedule.xml from '+config.programXMLUrl
       catch e
 
   getXMLTree: ->
@@ -31,10 +31,10 @@ class ScheduleXMLLoader
     programXML = userconfig.getItem 'programXML'
     xmlTree = undefined
     if not programXML
+      # load from bundled schedule.xml
       @loadFromServer 'schedule.xml', (programXML) ->
         xmlTree = $($.parseXML(programXML))
 
-    # load from bundled schedule.xml
     else
       xmlTree = $($.parseXML(programXML))
 

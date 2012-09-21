@@ -17,14 +17,14 @@ UserConfig = (function() {
   };
 
   UserConfig.prototype.setItem = function(key, value) {
-    return this._storageHandle.setItem(this._buildKey(key), value);
+    return this._storageHandle.setItem(this._buildKey(key), JSON.stringify(value));
   };
 
   UserConfig.prototype.getItem = function(key, defaultValue) {
     var item;
     item = this._storageHandle.getItem(this._buildKey(key));
-    if (item) {
-      return item;
+    if (item != null) {
+      return JSON.parse(item);
     } else if (defaultValue) {
       return defaultValue;
     }
