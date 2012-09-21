@@ -52,6 +52,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.webView.frame = CGRectMake ( 0, 20, self.view.frame.size.width, self.view.frame.size.height-20);
 }
 
 - (void) viewDidUnload
@@ -64,7 +65,7 @@
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return [super shouldAutorotateToInterfaceOrientation:interfaceOrientation];
+    return YES;
 }
 
 /* Comment out the block below to over-ride */
