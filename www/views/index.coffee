@@ -128,7 +128,7 @@ $(document).bind 'pagebeforechange', (e, data) ->
 
 # open external links in child browser
 $(document).on 'click', '.external-link', ->
-  window.plugins.childBrowser.showWebPage $(@).attr('href')
+  cordova.exec('ChildBrowserCommand.showWebPage', $(@).attr('href'))
   false
 
 # fix: https://github.com/jquery/jquery-mobile/issues/3956

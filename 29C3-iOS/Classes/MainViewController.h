@@ -19,7 +19,7 @@
 
 //
 //  MainViewController.h
-//  29C3-iOS
+//  foobar
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
 //  Copyright ___ORGANIZATIONNAME___ ___YEAR___. All rights reserved.

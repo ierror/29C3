@@ -17,20 +17,16 @@
  under the License.
  */
 
-#import <Foundation/Foundation.h>
-#import "CDVPlugin.h"
 
+#import "CDVEcho.h"
+#import "CDV.h"
 
-@interface CDVMotion : CDVPlugin {
+@implementation CDVEcho
+
+- (void)echo:(CDVInvokedUrlCommand*)command
+{
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:[command.arguments objectAtIndex:0]];
+    [self success:pluginResult callbackId:command.callbackId];
 }
-
-@property (readonly, getter=isDeviceMotionAvailable) BOOL deviceMotionAvailable;
-@property (readonly, getter=isDeviceOrientationAvailable) BOOL deviceOrientationAvailable;
-
-
-/* Checks whether the DeviceMotionEvent is available in the UIWebView */
-- (BOOL) deviceMotionAvailable; 
-/* Checks whether the DeviceOrientationEvent is available in the UIWebView */
-- (BOOL) deviceOrientationAvailable; 
 
 @end

@@ -18,9 +18,7 @@
  */
 
 
-#import "CDVDevice.h"
-#import "CDVViewController.h"
-#import "UIDevice+Extensions.h"
+#import "CDV.h"
 
 @interface CDVDevice () {
 }
@@ -29,9 +27,9 @@
 
 @implementation CDVDevice
 
-- (void)getDeviceInfo:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options
+- (void)getDeviceInfo:(CDVInvokedUrlCommand*)command
 {
-    NSString* cbId = [arguments objectAtIndex:0];
+    NSString* cbId = command.callbackId;
 	NSDictionary *deviceProperties = [self deviceProperties];
     NSMutableString* result = [[NSMutableString alloc] initWithFormat:@""];
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:deviceProperties];
@@ -44,7 +42,7 @@
     // TODO: turn this into an iOS only plugin
     NSDictionary *temp = [CDVViewController getBundlePlist:@"Settings"];
     if ([temp respondsToSelector:@selector(JSONString)]) {
-        [result appendFormat:@"\nwindow.Settings = %@;", [temp JSONString]];
+        [result appendFormat:@"\nwindow.Settings = %@;", [temp cdvjk_JSONString]];
     }
     
     NSString* jsResult = [self.webView stringByEvaluatingJavaScriptFromString:result];
@@ -52,9 +50,7 @@
     if (jsResult != nil && [jsResult length] > 0) {
         NSLog(@"%@", jsResult);
     }
-    
-    [result release];
-    
+
     [self success:pluginResult callbackId:cbId];
 
 }
@@ -73,30 +69,9 @@
     return devReturn;
 }
 
-/**
- Returns the current version of Cordova as read from the VERSION file
- This only touches the filesystem once and stores the result in the class variable cdvVersion
- */
-static NSString* cdvVersion;
 + (NSString*) cordovaVersion
 {
-#ifdef CDV_VERSION
-    cdvVersion = SYMBOL_TO_NSSTRING(CDV_VERSION);
-#else
-	
-    if (cdvVersion == nil) {
-        NSBundle *mainBundle = [NSBundle mainBundle];
-        NSString *filename = [mainBundle pathForResource:@"VERSION" ofType:nil];
-        // read from the filesystem and save in the variable
-        // first, separate by new line
-        NSString* fileContents = [NSString stringWithContentsOfFile:filename encoding:NSUTF8StringEncoding error:NULL];
-        NSArray* all_lines = [fileContents componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
-        NSString* first_line = [all_lines objectAtIndex:0];        
-        
-        cdvVersion = [first_line retain];
-    }
-#endif
-    return cdvVersion;
+    return CDV_VERSION;
 }
 
 

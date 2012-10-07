@@ -19,7 +19,7 @@
 
 //
 //  MainViewController.h
-//  29C3-iOS
+//  foobar
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
 //  Copyright ___ORGANIZATIONNAME___ ___YEAR___. All rights reserved.
@@ -48,11 +48,19 @@
 
 #pragma mark - View lifecycle
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    // Set the main view to utilize the entire application frame space of the device.
+    // Change this to suit your view's UI footprint needs in your application.
+    self.view.frame = [[UIScreen mainScreen] applicationFrame];
+    
+    [super viewWillAppear:animated];
+}
+
 - (void) viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.webView.frame = CGRectMake ( 0, 20, self.view.frame.size.width, self.view.frame.size.height-20);
 }
 
 - (void) viewDidUnload
@@ -65,7 +73,7 @@
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return YES;
+    return [super shouldAutorotateToInterfaceOrientation:interfaceOrientation];
 }
 
 /* Comment out the block below to over-ride */

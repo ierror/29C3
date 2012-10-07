@@ -117,7 +117,7 @@ $(document).bind('pagebeforechange', function(e, data) {
 });
 
 $(document).on('click', '.external-link', function() {
-  window.plugins.childBrowser.showWebPage($(this).attr('href'));
+  cordova.exec('ChildBrowserCommand.showWebPage', $(this).attr('href'));
   return false;
 });
 

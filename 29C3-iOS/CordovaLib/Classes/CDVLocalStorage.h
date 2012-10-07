@@ -24,19 +24,19 @@
 
 @interface CDVLocalStorage : CDVPlugin < UIWebViewDelegate >
 
-@property (nonatomic, readonly, retain) NSMutableArray* backupInfo;
+@property (nonatomic, readonly, strong) NSMutableArray* backupInfo;
 
 - (BOOL) shouldBackup;
 - (BOOL) shouldRestore;
-- (void) backup:(NSArray*)arguments withDict:(NSMutableDictionary*)options;
-- (void) restore:(NSArray*)arguments withDict:(NSMutableDictionary*)options;
-- (void) verifyAndFixDatabaseLocations:(NSArray*)arguments withDict:(NSMutableDictionary*)options;
+- (void) backup:(CDVInvokedUrlCommand*)command;
+- (void) restore:(CDVInvokedUrlCommand*)command;
 
 + (void) __verifyAndFixDatabaseLocations;
 // Visible for testing.
 + (BOOL) __verifyAndFixDatabaseLocationsWithAppPlistDict:(NSMutableDictionary*)appPlistDict
                                               bundlePath:(NSString*)bundlePath
                                              fileManager:(NSFileManager*)fileManager;
++ (void) __restoreThenRemoveBackupLocations;
 @end
 
 @interface CDVBackupInfo : NSObject

@@ -18,22 +18,21 @@
  */
 
 #import "CDV.h"
+#import <objc/message.h>
 
-#define SYMBOL_TO_NSSTRING_HELPER(x) @#x
-#define SYMBOL_TO_NSSTRING(x) SYMBOL_TO_NSSTRING_HELPER(x)
 #define degreesToRadian(x) (M_PI * (x) / 180.0)
 
 @interface CDVViewController ()
 
-@property (nonatomic, readwrite, retain) NSDictionary* settings;
-@property (nonatomic, readwrite, retain) CDVWhitelist* whitelist; 
-@property (nonatomic, readwrite, retain) NSMutableDictionary* pluginObjects;
-@property (nonatomic, readwrite, retain) NSDictionary* pluginsMap;
-@property (nonatomic, readwrite, retain) NSArray* supportedOrientations;
+@property (nonatomic, readwrite, strong) NSDictionary* settings;
+@property (nonatomic, readwrite, strong) CDVWhitelist* whitelist;
+@property (nonatomic, readwrite, strong) NSMutableDictionary* pluginObjects;
+@property (nonatomic, readwrite, strong) NSDictionary* pluginsMap;
+@property (nonatomic, readwrite, strong) NSArray* supportedOrientations;
 @property (nonatomic, readwrite, assign) BOOL loadFromString;
 
-@property (nonatomic, readwrite, retain) IBOutlet UIActivityIndicatorView* activityView;
-@property (nonatomic, readwrite, retain) UIImageView* imageView;
+@property (nonatomic, readwrite, strong) IBOutlet UIActivityIndicatorView* activityView;
+@property (nonatomic, readwrite, strong) UIImageView* imageView;
 @property (readwrite, assign) BOOL initialized;
 
 @end
@@ -52,9 +51,8 @@
     if (self != nil && !self.initialized) 
     {
         [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedOrientationChange) 
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedOrientationChange)
                                                      name:UIDeviceOrientationDidChangeNotification object:nil];
-        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAppWillTerminate:) 
                                                      name:UIApplicationWillTerminateNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAppWillResignActive:) 
@@ -70,6 +68,10 @@
                                                          name:UIApplicationDidEnterBackgroundNotification object:nil];
         }
         
+        // read from UISupportedInterfaceOrientations (or UISupportedInterfaceOrientations~iPad, if its iPad) from -Info.plist
+        self.supportedOrientations = [self parseInterfaceOrientations:
+									  [[[NSBundle mainBundle] infoDictionary] objectForKey:@"UISupportedInterfaceOrientations"]];
+        
         self.commandDelegate = self;
         self.wwwFolderName = @"www";
         self.startPage = @"index.html";
@@ -78,6 +80,13 @@
         [self printMultitaskingInfo];
         [self printDeprecationNotice];
         self.initialized = YES;
+        
+        // load Cordova.plist settings
+        [self loadSettings];
+        // set the whitelist
+        self.whitelist = [[CDVWhitelist alloc] initWithArray:[self.settings objectForKey:@"ExternalHosts"]];
+        // register this viewcontroller with the NSURLProtocol
+        [CDVURLProtocol registerViewController:self];
     }
     
     return self; 
@@ -136,16 +145,9 @@
     NSLog(@"Multi-tasking -> Device: %@, App: %@", (backgroundSupported? @"YES" : @"NO"), (![exitsOnSuspend intValue])? @"YES" : @"NO");
 }
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void) viewDidLoad 
+- (void) loadSettings
 {
-    [super viewDidLoad];
-	
-    self.pluginObjects = [[[NSMutableDictionary alloc] initWithCapacity:4] autorelease];
-    
-	// read from UISupportedInterfaceOrientations (or UISupportedInterfaceOrientations~iPad, if its iPad) from -Info.plist
-    self.supportedOrientations = [self parseInterfaceOrientations:
-									  [[[NSBundle mainBundle] infoDictionary] objectForKey:@"UISupportedInterfaceOrientations"]];
+    self.pluginObjects = [[NSMutableDictionary alloc] initWithCapacity:4];
     
     // read from Cordova.plist in the app bundle
     NSString* appPlistName = @"Cordova";
@@ -154,7 +156,7 @@
         NSLog(@"WARNING: %@.plist is missing.", appPlistName);
 		return;
     }
-    self.settings = [[[NSDictionary alloc] initWithDictionary:cordovaPlist] autorelease];
+    self.settings = [[NSDictionary alloc] initWithDictionary:cordovaPlist];
 	
     // read from Plugins dict in Cordova.plist in the app bundle
     NSString* pluginsKey = @"Plugins";
@@ -164,12 +166,13 @@
         return;
     }
     
-    // set the whitelist
-    self.whitelist = [[[CDVWhitelist alloc] initWithArray:[self.settings objectForKey:@"ExternalHosts"]] autorelease];
-	
     self.pluginsMap = [pluginsDict dictionaryWithLowercaseKeys];
-    
-    ///////////////////
+}
+
+// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+- (void) viewDidLoad 
+{
+    [super viewDidLoad];
     
 	NSString* startFilePath = [self pathForResource:self.startPage];
 	NSURL* appURL  = nil;
@@ -216,14 +219,22 @@
      */
     
     if ([enableLocation boolValue]) {
-        [[self.commandDelegate getCommandInstance:@"Geolocation"] getLocation:nil withDict:nil];
+        [[self.commandDelegate getCommandInstance:@"Geolocation"] getLocation:nil];
     }
     
     /*
-     * Fire up CDVLocalStorage to work-around iOS 5.1 WebKit storage limitations
+     * Fire up CDVLocalStorage on iOS 5.1 to work-around WebKit storage limitations, or adjust set user defaults on iOS 6.0+
      */
-    if (backupWebStorage) {
-        [self.commandDelegate registerPlugin:[[[CDVLocalStorage alloc] initWithWebView:self.webView] autorelease] withClassName:NSStringFromClass([CDVLocalStorage class])];
+    if (IsAtLeastiOSVersion(@"6.0")) {
+        // We don't manually back anything up in 6.0 and so we should remove any old backups.
+        [CDVLocalStorage __restoreThenRemoveBackupLocations];
+        [[NSUserDefaults standardUserDefaults] setBool:backupWebStorage forKey:@"WebKitStoreWebDataForBackup"];
+    } else {
+        if (backupWebStorage) {
+            [self.commandDelegate registerPlugin:[[CDVLocalStorage alloc] initWithWebView:self.webView] withClassName:NSStringFromClass([CDVLocalStorage class])];
+        } else {
+            [CDVLocalStorage __restoreThenRemoveBackupLocations];
+        }
     }
     
     /*
@@ -265,7 +276,7 @@
 
 - (NSArray*) parseInterfaceOrientations:(NSArray*)orientations
 {
-    NSMutableArray* result = [[[NSMutableArray alloc] init] autorelease];
+    NSMutableArray* result = [[NSMutableArray alloc] init];
 	
     if (orientations != nil) 
     {
@@ -294,58 +305,67 @@
     return result;
 }
 
+- (NSInteger) mapIosOrientationToJsOrientation:(UIInterfaceOrientation)orientation
+{
+    switch (orientation) {
+        case UIInterfaceOrientationPortraitUpsideDown:
+            return 180;
+        case UIInterfaceOrientationLandscapeLeft:
+            return -90;
+        case UIInterfaceOrientationLandscapeRight:
+            return 90;
+        case UIInterfaceOrientationPortrait:
+            return 0;
+        default:
+            return 0;
+    }
+}
+
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
 {
-	// First ask the webview via JS if it wants to support the new orientation -jm
-	int i = 0;
-	
-	switch (interfaceOrientation){
-            
-		case UIInterfaceOrientationPortraitUpsideDown:
-			i = 180;
-			break;
-		case UIInterfaceOrientationLandscapeLeft:
-			i = -90;
-			break;
-		case UIInterfaceOrientationLandscapeRight:
-			i = 90;
-			break;
-		default:
-		case UIInterfaceOrientationPortrait:
-			// noop
-			break;
-	}
-	
+	// First, ask the webview via JS if it supports the new orientation
 	NSString* jsCall = [NSString stringWithFormat:
                         @"(function(){ \
                                 if('shouldRotateToOrientation' in window) { \
                                     return window.shouldRotateToOrientation(%d); \
                                 } \
                             })()"
-                        , i];
+                        , [self mapIosOrientationToJsOrientation:interfaceOrientation]];
 	NSString* res = [webView stringByEvaluatingJavaScriptFromString:jsCall];
 	
-	if([res length] > 0)
-	{
+	if([res length] > 0) {
 		return [res boolValue];
 	}
 	
-	// if js did not handle the new orientation ( no return value ) we will look it up in the plist -jm
-	
-	BOOL autoRotate = [self.supportedOrientations count] > 0; // autorotate if only more than 1 orientation supported
-	if (autoRotate)
-	{
-		if ([self.supportedOrientations containsObject:
-			 [NSNumber numberWithInt:interfaceOrientation]]) {
-			return YES;
-		}
-    }
-	
-	// default return value is NO! -jm
-	
-	return NO;
+	// if js did not handle the new orientation (no return value), use values from the plist (via supportedOrientations)
+	return [self supportsOrientation:interfaceOrientation];
 }
 
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    NSUInteger ret = 0;
+    
+    if ([self shouldAutorotateToInterfaceOrientation:UIInterfaceOrientationPortrait])
+        ret = ret | (1 << UIInterfaceOrientationPortrait);
+    if ([self shouldAutorotateToInterfaceOrientation:UIInterfaceOrientationPortraitUpsideDown])
+        ret = ret | (1 << UIInterfaceOrientationPortraitUpsideDown);
+    if ([self shouldAutorotateToInterfaceOrientation:UIInterfaceOrientationLandscapeRight])
+        ret = ret | (1 << UIInterfaceOrientationLandscapeRight);
+    if ([self shouldAutorotateToInterfaceOrientation:UIInterfaceOrientationLandscapeLeft])
+        ret = ret | (1 << UIInterfaceOrientationLandscapeLeft);
+    
+    return ret;
+}
+
+- (BOOL) supportsOrientation:(UIInterfaceOrientation)orientation
+{
+    return [self.supportedOrientations containsObject:[NSNumber numberWithInt:orientation]];
+}
 
 /**
  Called by UIKit when the device starts to rotate to a new orientation.  This fires the \c setOrientation
@@ -353,28 +373,11 @@
  */
 - (void)didRotateFromInterfaceOrientation: (UIInterfaceOrientation)fromInterfaceOrientation
 {
-	int i = 0;
-	
-	switch (self.interfaceOrientation){
-		case UIInterfaceOrientationPortrait:
-			i = 0;
-			break;
-		case UIInterfaceOrientationPortraitUpsideDown:
-			i = 180;
-			break;
-		case UIInterfaceOrientationLandscapeLeft:
-			i = -90;
-			break;
-		case UIInterfaceOrientationLandscapeRight:
-			i = 90;
-			break;
-	}
-    
     if (!IsAtLeastiOSVersion(@"5.0")) {
         NSString* jsCallback = [NSString stringWithFormat:
                                 @"window.__defineGetter__('orientation',function(){ return %d; }); \
                                   cordova.fireWindowEvent('orientationchange');"
-                                , i];
+                                , [self mapIosOrientationToJsOrientation:fromInterfaceOrientation]];
         [self.webView stringByEvaluatingJavaScriptFromString:jsCallback];    
     }
 }
@@ -391,7 +394,7 @@
 	
     if (!self.webView) 
 	{
-        self.webView = [[self newCordovaViewWithFrame:webViewBounds] autorelease];
+        self.webView = [self newCordovaViewWithFrame:webViewBounds];
 		self.webView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
 		
 		[self.view addSubview:self.webView];
@@ -463,11 +466,10 @@
         self.activityView.hidden = YES;    
         [self.view.superview bringSubviewToFront:self.webView];
     }
-    
     [self didRotateFromInterfaceOrientation:(UIInterfaceOrientation)[[UIDevice currentDevice] orientation]];
     
     // Tell the webview that native is ready.
-    NSString* nativeReady = @"try{cordova.require('cordova/channel').onNativeReady.fire();}catch(e){window._nativeReady = true;}";
+    NSString* nativeReady = [NSString stringWithFormat:@"cordova.iOSVCAddr='%lld';try{cordova.require('cordova/channel').onNativeReady.fire();}catch(e){window._nativeReady = true;}", (long long)self];
     [theWebView stringByEvaluatingJavaScriptFromString:nativeReady];
 }
 
@@ -550,6 +552,13 @@
         return NO;
     }
     /*
+     * all data: scheme urls are handled
+     */
+    else if ([[url scheme] isEqualToString:@"data"])
+    {
+        return YES;
+    }
+    /*
      * We don't have a Cordova or web/local request, load it in the main Safari browser.
      * pass this to the application to handle.  Could be a mailto:dude@duderanch.com or a tel:55555555 or sms:55555555 facetime:55555555
      */
@@ -577,15 +586,6 @@
     [webView stringByEvaluatingJavaScriptFromString:jsString];
 }
 
-+ (BOOL) isIPad 
-{
-#ifdef UI_USER_INTERFACE_IDIOM
-    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
-#else
-    return NO;
-#endif
-}
-
 + (NSString*) resolveImageResource:(NSString*)resource
 {
     NSString* systemVersion = [[UIDevice currentDevice] systemVersion];
@@ -594,7 +594,7 @@
     // the iPad image (nor retina) differentiation code was not in 3.x, and we have to explicitly set the path
     if (isLessThaniOS4)
     {
-        if ([[self class] isIPad]) {
+        if (CDV_IsIPad()) {
             return [NSString stringWithFormat:@"%@~ipad.png", resource];
         } else {
             return [NSString stringWithFormat:@"%@.png", resource];
@@ -641,13 +641,12 @@
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
     CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
     UIInterfaceOrientation statusBarOrientation = [UIApplication sharedApplication].statusBarOrientation;
-    BOOL isIPad = [[self class] isIPad];
     UIImage* launchImage = nil;
     
     // default to center of screen as in the original implementation. This will produce the 20px jump
     CGPoint center = CGPointMake((screenBounds.size.width / 2), (screenBounds.size.height / 2));
-    
-    if (isIPad)
+
+    if (CDV_IsIPad())
     {
         if (!UIDeviceOrientationIsValidInterfaceOrientation(deviceOrientation)) {
             deviceOrientation = (UIDeviceOrientation)statusBarOrientation;
@@ -693,10 +692,10 @@
     
     launchImage = [UIImage imageNamed:[[self class] resolveImageResource:orientedLaunchImageFile]];
     if (launchImage == nil) {
-        NSLog(@"WARNING: Splash-screen image '%@' was not found. Orientation: %d, iPad: %d", orientedLaunchImageFile, deviceOrientation, isIPad);
+        NSLog(@"WARNING: Splash-screen image '%@' was not found. Orientation: %d, iPad: %d", orientedLaunchImageFile, deviceOrientation, CDV_IsIPad());
     }
     
-    self.imageView = [[[UIImageView alloc] initWithImage:launchImage] autorelease];    
+    self.imageView = [[UIImageView alloc] initWithImage:launchImage];
     self.imageView.tag = 1;
     self.imageView.center = center;
     
@@ -724,7 +723,7 @@
         topActivityIndicatorStyle = UIActivityIndicatorViewStyleGray;
     }
     
-    self.activityView = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:topActivityIndicatorStyle] autorelease];
+    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:topActivityIndicatorStyle];
     self.activityView.tag = 2;
     
     id showSplashScreenSpinnerValue = [self.settings objectForKey:@"ShowSplashScreenSpinner"];
@@ -759,29 +758,24 @@ BOOL gSplashScreenShown = NO;
  *
  * Returns the number of executed commands.
  */
-- (int) executeQueuedCommands
+- (int) executeCommandsFromJson:(NSString*)queuedCommandsJSON
 {
-    // Grab all the queued commands from the JS side.
-    NSString* queuedCommandsJSON = [self.webView stringByEvaluatingJavaScriptFromString:
-									@"cordova.require('cordova/plugin/ios/nativecomm')()"];
-	
-	
     // Parse the returned JSON array.
-    NSArray* queuedCommands =
-	[queuedCommandsJSON objectFromJSONString];
+    NSArray* queuedCommands = [queuedCommandsJSON cdvjk_mutableObjectFromJSONString];
 	
     // Iterate over and execute all of the commands.
-    for (NSString* commandJson in queuedCommands) {
-		
-        if(![self.commandDelegate execute:
-		 [CDVInvokedUrlCommand commandFromObject:
-		  [commandJson mutableObjectFromJSONString]]])
-		{
+    for (NSArray* jsonEntry in queuedCommands) {
+        CDVInvokedUrlCommand* command = [CDVInvokedUrlCommand commandFromJson:jsonEntry];
+        if(![self.commandDelegate execute:command]) {
+#ifdef DEBUG
+            NSString* commandJson = [jsonEntry cdvjk_JSONString];
             static NSUInteger maxLogLength = 1024;
             NSString* commandString = ([commandJson length] > maxLogLength) ? 
                 [NSString stringWithFormat:@"%@[...]", [commandJson substringToIndex:maxLogLength]] : 
                 commandJson;
+
 			DLog(@"FAILED pluginJSON = %@", commandString);
+#endif
 		}
     }
 	
@@ -801,7 +795,10 @@ BOOL gSplashScreenShown = NO;
     // commands are executed as well.
     int numExecutedCommands = 0;
     do {
-        numExecutedCommands = [self executeQueuedCommands];
+        // Grab all the queued commands from the JS side.
+        NSString* queuedCommandsJSON = [self.webView stringByEvaluatingJavaScriptFromString:
+                                        @"cordova.require('cordova/plugin/ios/nativecomm')()"];
+        numExecutedCommands = [self executeCommandsFromJson:queuedCommandsJSON];
     } while (numExecutedCommands != 0);
 	
     [self.webView stringByEvaluatingJavaScriptFromString:
@@ -824,16 +821,28 @@ BOOL gSplashScreenShown = NO;
     }
     BOOL retVal = YES;
     
-    // construct the fill method name to ammend the second argument.
-    NSString* fullMethodName = [[NSString alloc] initWithFormat:@"%@:withDict:", command.methodName];
-    if ([obj respondsToSelector:NSSelectorFromString(fullMethodName)]) {
-        [obj performSelector:NSSelectorFromString(fullMethodName) withObject:command.arguments withObject:command.options];
+
+    // Find the proper selector to call.
+    NSString* methodName = [NSString stringWithFormat:@"%@:", command.methodName];
+    NSString* methodNameWithDict = [NSString stringWithFormat:@"%@:withDict:", command.methodName];
+    SEL normalSelector = NSSelectorFromString(methodName);
+    SEL legacySelector = NSSelectorFromString(methodNameWithDict);
+    // Test for the legacy selector first in case they both exist.
+    if ([obj respondsToSelector:legacySelector]) {
+        NSMutableArray* arguments = nil;
+        NSMutableDictionary* dict = nil;
+        [command legacyArguments:&arguments andDict:&dict];
+        //[obj performSelector:legacySelector withObject:arguments withObject:dict];
+        objc_msgSend(obj,legacySelector,arguments,dict);
+    } else if ([obj respondsToSelector:normalSelector]) {
+        //[obj performSelector:normalSelector withObject:command];
+        objc_msgSend(obj,normalSelector,command);
+
     } else {
         // There's no method to call, so throw an error.
-        NSLog(@"ERROR: Method '%@' not defined in Plugin '%@'", fullMethodName, command.className);
+        NSLog(@"ERROR: Method '%@' not defined in Plugin '%@'", methodName, command.className);
         retVal = NO;
     }
-    [fullMethodName release];
     
     return retVal;
 }
@@ -873,9 +882,9 @@ BOOL gSplashScreenShown = NO;
         NSDictionary* classSettings = [self.settings objectForKey:className];
 		
         if (classSettings) {
-            obj = [[[NSClassFromString(className) alloc] initWithWebView:webView settings:classSettings] autorelease];
+            obj = [[NSClassFromString(className) alloc] initWithWebView:webView settings:classSettings];
         } else {
-            obj = [[[NSClassFromString(className) alloc] initWithWebView:webView] autorelease];
+            obj = [[NSClassFromString(className) alloc] initWithWebView:webView];
         }
         
         if (obj != nil && [obj isKindOfClass:[CDVPlugin class]]) {
@@ -913,7 +922,7 @@ BOOL gSplashScreenShown = NO;
  */
 + (NSDictionary*) getBundlePlist:(NSString*)plistName
 {
-    NSString *errorDesc = nil;
+    NSString * errorDesc = nil;
     NSPropertyListFormat format;
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:plistName ofType:@"plist"];
     NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath];
@@ -935,7 +944,7 @@ BOOL gSplashScreenShown = NO;
     
     // empty the tmp directory
     NSFileManager* fileMgr = [[NSFileManager alloc] init];
-    NSError* err = nil;    
+    NSError* __autoreleasing err = nil;
     
     // clear contents of NSTemporaryDirectory 
     NSString* tempDirectoryPath = NSTemporaryDirectory();
@@ -950,7 +959,6 @@ BOOL gSplashScreenShown = NO;
             NSLog(@"Failed to delete: %@ (error: %@)", filePath, err);
         }
     }    
-    [fileMgr release];
 }
 
 /*
@@ -996,13 +1004,12 @@ BOOL gSplashScreenShown = NO;
 
 - (void)dealloc 
 {
+    [CDVURLProtocol unregisterViewController:self];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillTerminateNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillResignActiveNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillEnterForegroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
-    
-    [super dealloc];
 }
 
 @end

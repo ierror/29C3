@@ -282,16 +282,15 @@ char *CDVNewBase64Encode(
 //
 - (NSString *)base64EncodedString
 {
-	size_t outputLength;
+	size_t outputLength = 0;
 	char *outputBuffer =
 		CDVNewBase64Encode([self bytes], [self length], true, &outputLength);
 	
 	NSString *result =
-		[[[NSString alloc]
+		[[NSString alloc]
 			initWithBytes:outputBuffer
 			length:outputLength
-			encoding:NSASCIIStringEncoding]
-		autorelease];
+			encoding:NSASCIIStringEncoding];
 	free(outputBuffer);
 	return result;
 }

@@ -17,7 +17,7 @@
  under the License.
  */
 
-#define __CORDOVA_0_9_6  00906
+#define __CORDOVA_0_9_6    906
 #define __CORDOVA_1_0_0  10000
 #define __CORDOVA_1_1_0  10100
 #define __CORDOVA_1_2_0  10200
@@ -32,6 +32,7 @@
 #define __CORDOVA_1_8_1  10801
 #define __CORDOVA_1_9_0  10900
 #define __CORDOVA_2_0_0  20000
+#define __CORDOVA_2_1_0  20100
 #define __CORDOVA_NA     99999  /* not available */
 
 
@@ -43,7 +44,7 @@
  #endif
  */
 #ifndef CORDOVA_VERSION_MIN_REQUIRED
-    #define CORDOVA_VERSION_MIN_REQUIRED __CORDOVA_2_0_0
+    #define CORDOVA_VERSION_MIN_REQUIRED __CORDOVA_2_1_0
 #endif
 
 /* 
@@ -55,3 +56,10 @@
  */
 #define IsAtLeastiOSVersion(X) ([[[UIDevice currentDevice] systemVersion] compare:X options:NSNumericSearch] != NSOrderedAscending)
 
+#define CDV_IsIPad() ([[UIDevice currentDevice] respondsToSelector:@selector(userInterfaceIdiom)] && ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad))
+
+/* Return the string version of the decimal version */
+#define CDV_VERSION  [NSString stringWithFormat:@"%d.%d.%d", \
+                        (CORDOVA_VERSION_MIN_REQUIRED / 10000), \
+                        (CORDOVA_VERSION_MIN_REQUIRED % 10000) / 100, \
+                        (CORDOVA_VERSION_MIN_REQUIRED % 10000) % 100 ]
