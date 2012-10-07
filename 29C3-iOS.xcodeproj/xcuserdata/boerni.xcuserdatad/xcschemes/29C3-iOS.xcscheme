@@ -40,8 +40,8 @@
       </MacroExpansion>
    </TestAction>
    <LaunchAction
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.GDB"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
+      selectedDebuggerIdentifier = ""
+      selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Debug"
