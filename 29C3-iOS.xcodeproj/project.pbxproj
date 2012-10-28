@@ -48,6 +48,7 @@
 		9898811F15EBF7BF004FACD8 /* ChildBrowserCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 9898811A15EBF7BF004FACD8 /* ChildBrowserCommand.m */; };
 		9898812015EBF7BF004FACD8 /* ChildBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9898811C15EBF7BF004FACD8 /* ChildBrowserViewController.m */; };
 		9898812115EBF7BF004FACD8 /* ChildBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9898811D15EBF7BF004FACD8 /* ChildBrowserViewController.xib */; };
+		AA6060D1163D5F16003A71EB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6060D0163D5F16003A71EB /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,7 @@
 		9898811C15EBF7BF004FACD8 /* ChildBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildBrowserViewController.m; sourceTree = "<group>"; };
 		9898811D15EBF7BF004FACD8 /* ChildBrowserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChildBrowserViewController.xib; sourceTree = "<group>"; };
 		98EEDB8E15D97BFD00B0F8DB /* schedule.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = schedule.xml; path = www/schedule.xml; sourceTree = "<group>"; };
+		AA6060D0163D5F16003A71EB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				AA6060D0163D5F16003A71EB /* Default-568h@2x.png */,
 				98EEDB8E15D97BFD00B0F8DB /* schedule.xml */,
 				301BF56E109A69640062928A /* www */,
 				301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */,
@@ -407,6 +410,7 @@
 				3088BBC2154F3926009F9C59 /* Default~iphone.png in Resources */,
 				9898811E15EBF7BF004FACD8 /* ChildBrowser.bundle in Resources */,
 				9898812115EBF7BF004FACD8 /* ChildBrowserViewController.xib in Resources */,
+				AA6060D1163D5F16003A71EB /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,7 +554,7 @@
 					"\"$(OBJROOT)/UninstalledProducts/include\"",
 					"\"$(BUILT_PRODUCTS_DIR)\"",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					CoreFoundation,
@@ -585,7 +589,7 @@
 					"\"$(OBJROOT)/UninstalledProducts/include\"",
 					"\"$(BUILT_PRODUCTS_DIR)\"",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					CoreFoundation,
