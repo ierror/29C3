@@ -1,5 +1,11 @@
 @import "_base.scss";
 
+body {
+	font-family: $base-font-family;
+	font-size: 12px;
+	line-height: 16px;
+}
+
 a {
     text-decoration: none;
 }

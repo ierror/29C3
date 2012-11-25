@@ -8,4 +8,6 @@ $blue: #56C5D0;
 $violet: #524FA1;
 $white: #FFFFFF;
 
-$base-font-family: "Source Code Pro";
+@import "_fonts.scss";
+
+$base-font-family: "SourceCodePro";
