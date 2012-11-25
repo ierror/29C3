@@ -4,4 +4,3 @@ class PersonalSchedule
   constructor: ->
     @db = new PersonalScheduleDB()
 
-personalSchedule = new PersonalSchedule()

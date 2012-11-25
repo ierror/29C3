@@ -212,7 +212,7 @@ public class ChildBrowser extends Plugin {
         if (options != null) {
             showLocationBar = options.optBoolean("showLocationBar", true);
         }
-
+        
         // Create dialog in new thread
         Runnable runnable = new Runnable() {
             /**

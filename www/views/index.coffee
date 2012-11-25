@@ -3,13 +3,18 @@ class App
     document.addEventListener('deviceready', @deviceready(), false)
 
   deviceready: ->
-    # init info elements
-    if not platform.ios
-      $('#event-use-tweetbot').remove()
+    ua = navigator.userAgent
+    platform =
+      ios: ua.match(/(iPhone|iPod|iPad)/)
+      android: ua.match(/Android/)
 
-    else
-      if userconfig.getItem('use-tweetbot') == false
-        $('#event-use-tweetbot-checkbox').removeAttr('checked').checkboxradio('refresh')
+    if platform.android
+      document.write "<script src=\"lib/js/cordova-2.1.0-Android.js\"></script>"
+      document.write "<script src=\"lib/js/ChildBrowser-Android.js\"></script>"
+    else if platform.ios
+      document.write "<script src=\"lib/js/cordova-2.1.0-iOS.js\"></script>"
+      document.write "<script src=\"lib/js/ChildBrowser-iOS.js\"></script>"
+
 
     # build day tabs
     dayTabLoaded = false
@@ -52,6 +57,8 @@ class App
 xmlLoader = new ScheduleXMLLoader()
 xmlLoader.appStartUpLoad()
 programXML = xmlLoader.getXMLTree()
+
+personalSchedule = new PersonalSchedule()
 
 # dynamic page content
 $(document).bind 'pagebeforechange', (e, data) ->
@@ -98,7 +105,7 @@ $(document).bind 'pagebeforechange', (e, data) ->
 
 # open external links in child browser
 $(document).on 'click', '.external-link', ->
-  cordova.exec('ChildBrowserCommand.showWebPage', $(@).attr('href'))
+  window.plugins.childBrowser.showWebPage $(@).attr('href')
   false
 
 # fix: https://github.com/jquery/jquery-mobile/issues/3956
