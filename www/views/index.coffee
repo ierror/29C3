@@ -53,8 +53,6 @@ xmlLoader = new ScheduleXMLLoader()
 xmlLoader.appStartUpLoad()
 programXML = xmlLoader.getXMLTree()
 
-twitter = undefined
-
 # dynamic page content
 $(document).bind 'pagebeforechange', (e, data) ->
   return if typeof data.toPage != 'string'
@@ -94,34 +92,6 @@ $(document).bind 'pagebeforechange', (e, data) ->
     eventNode = $(roomNode.find('event[id=' + unescape(parsedUrlHash[4]) + ']:first'))
 
     eventView.initialize(eventNode, data.option)
-    e.preventDefault()
-
-  else if /^#twitter#/.test(parsedUrl.hash)
-    # sub func helper
-    _load = ->
-      # #twitter#<hashtag>
-      hashTag = unescape(parsedUrl.hash.split('#')[2])
-
-      if not twitter.isAuthenticated()
-        twitter.authenticate ->
-          twitter.showSearch(hashTag)
-      else
-        twitter.showSearch(hashTag)
-
-    if platform.ios and userconfig.getItem('use-tweetbot') != false
-      window.cordova.exec(
-        ->
-          twitter = new TwitterTweetbot()
-          _load()
-        ->
-          twitter = new TwitterJQMobile()
-          _load()
-        'CanOpenURL', 'check', ['tweetbot://',]
-      )
-    else
-      twitter = new TwitterJQMobile()
-      _load()
-
     e.preventDefault()
 
   $('body').removeClass('ui-loading')
