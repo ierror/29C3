@@ -46,13 +46,14 @@ class App
       # set active tab if current day is available event day
       if helper.formatDate(new Date(), 'yyyy-mm-dd') == date
         dayTab2Load = pageHref
-        $(document).ready ->
-          $('#event-back').attr('href', dayTab2Load)
-          $.mobile.changePage dayTab2Load
 
     if not dayTab2Load
       $('#event-back').attr('href', '#personalSchedule')
       personalScheduleView.initialize()
+    else
+      $(document).ready ->
+        $('#event-back').attr('href', dayTab2Load)
+        $.mobile.changePage dayTab2Load
 
 
 # prepare schedule xml

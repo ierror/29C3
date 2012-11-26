@@ -43,15 +43,16 @@ App = (function() {
       $('.tabs').append($('<div />').append(dayTab.show()).html());
       if (helper.formatDate(new Date(), 'yyyy-mm-dd') === date) {
         dayTab2Load = pageHref;
-        $(document).ready(function() {
-          $('#event-back').attr('href', dayTab2Load);
-          return $.mobile.changePage(dayTab2Load);
-        });
       }
     }
     if (!dayTab2Load) {
       $('#event-back').attr('href', '#personalSchedule');
       return personalScheduleView.initialize();
+    } else {
+      return $(document).ready(function() {
+        $('#event-back').attr('href', dayTab2Load);
+        return $.mobile.changePage(dayTab2Load);
+      });
     }
   };
 
