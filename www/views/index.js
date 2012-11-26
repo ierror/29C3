@@ -69,7 +69,7 @@ programXML = xmlLoader.getXMLTree();
 personalSchedule = new PersonalSchedule();
 
 $(document).bind('pagebeforechange', function(e, data) {
-  var dayNode, eventNode, parsedUrl, parsedUrlHash, roomNode;
+  var dayNode, eventNode, last_active_page, parsedUrl, parsedUrlHash, roomNode;
   if (typeof data.toPage !== 'string') {
     return;
   }
@@ -78,15 +78,15 @@ $(document).bind('pagebeforechange', function(e, data) {
     return;
   }
   $('body').addClass('ui-loading');
+  $('a.tab').removeClass('ui-btn-active');
   if (/^#schedule#/.test(parsedUrl.hash)) {
-    $('li[data-day-index] .link').removeClass('ui-btn-active');
-    dayNode = $(programXML.find('day[index=' + parsedUrl.hash.split('#')[2] + ']:first'));
+    parsedUrlHash = parsedUrl.hash.split('#');
+    dayNode = $(programXML.find('day[index=' + parsedUrlHash[2] + ']:first'));
     scheduleView.initialize(dayNode, data.option);
-    $('#event-back').attr('href', parsedUrl.href);
+    $('body').attr('data-last-active-page', "#schedule#" + parsedUrlHash[2]);
     e.preventDefault();
   } else if (/^#personalSchedule$/.test(parsedUrl.hash)) {
-    $('li[data-day-index] .link').removeClass('ui-btn-active');
-    $('#event-back').attr('href', parsedUrl.href);
+    $('body').attr('data-last-active-page', parsedUrl.hash);
     personalScheduleView.initialize();
     e.preventDefault();
   } else if (/^#event#[0-9]+#.*#[0-9]+$/.test(parsedUrl.hash)) {
@@ -96,6 +96,10 @@ $(document).bind('pagebeforechange', function(e, data) {
     eventNode = $(roomNode.find('event[id=' + unescape(parsedUrlHash[4]) + ']:first'));
     eventView.initialize(eventNode, data.option);
     e.preventDefault();
+  }
+  last_active_page = $('body').attr('data-last-active-page');
+  if (last_active_page) {
+    $("a.tab[href='" + last_active_page + "']").addClass('ui-btn-active');
   }
   return $('body').removeClass('ui-loading');
 });

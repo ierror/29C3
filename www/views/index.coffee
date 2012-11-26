@@ -71,23 +71,19 @@ $(document).bind 'pagebeforechange', (e, data) ->
   return if not parsedUrl.filename == 'index.html'
 
   $('body').addClass('ui-loading')
+  $('a.tab').removeClass('ui-btn-active')
 
   if /^#schedule#/.test(parsedUrl.hash)
-    $('li[data-day-index] .link').removeClass('ui-btn-active')
-
     # determine corresponding dayNode
-    dayNode = $(programXML.find('day[index=' + parsedUrl.hash.split('#')[2] + ']:first'))
+    parsedUrlHash = parsedUrl.hash.split('#')
+    dayNode = $(programXML.find('day[index=' + parsedUrlHash[2] + ']:first'))
     scheduleView.initialize(dayNode, data.option)
+    $('body').attr('data-last-active-page', "#schedule#" + parsedUrlHash[2])
 
-    # set back link for event
-    $('#event-back').attr('href', parsedUrl.href)
     e.preventDefault()
 
   else if /^#personalSchedule$/.test(parsedUrl.hash)
-    $('li[data-day-index] .link').removeClass('ui-btn-active')
-
-    # set back link for event
-    $('#event-back').attr('href', parsedUrl.href)
+    $('body').attr('data-last-active-page', parsedUrl.hash)
     personalScheduleView.initialize()
     e.preventDefault()
 
@@ -103,6 +99,10 @@ $(document).bind 'pagebeforechange', (e, data) ->
 
     eventView.initialize(eventNode, data.option)
     e.preventDefault()
+
+  last_active_page = $('body').attr('data-last-active-page')
+  if last_active_page
+    $("a.tab[href='#{last_active_page}']").addClass('ui-btn-active')
 
   $('body').removeClass('ui-loading')
 

@@ -37,7 +37,6 @@ scheduleView = {
         $('#timeslot-' + eventNode.find('start:first').text().replace(':', '')).append(td);
       }
     }
-    $.mobile.changePage(page);
-    return $("li[data-day-index=" + dayIndex + "] .link").addClass('ui-btn-active');
+    return $.mobile.changePage(page);
   }
 };

@@ -42,6 +42,3 @@ scheduleView =
 
     $.mobile.changePage(page)
 
-    # chg tab active state
-    $("li[data-day-index=#{dayIndex}] .link").addClass('ui-btn-active')
-
