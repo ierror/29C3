@@ -17,7 +17,7 @@ class App
 
 
     # build day tabs
-    dayTabLoaded = false
+    dayTab2Load = undefined
     for dayNode in programXML.find('day')
       dayNode = $(dayNode)
       date = dayNode.attr('date')
@@ -44,13 +44,15 @@ class App
       $('.tabs').append($('<div />').append(dayTab.show()).html())
 
       # set active tab if current day is available event day
-      if helper.formatDate(new Date(), 'yyyy-mm-dd') is date
-        dayTabLoaded = true
-        # i don't know why $.mobile.changePage does not work here...
-        document.location.href = pageHref
+      if helper.formatDate(new Date(), 'yyyy-mm-dd') == date
+        dayTab2Load = pageHref
+        $(document).ready ->
+          $('#event-back').attr('href', dayTab2Load)
+          $.mobile.changePage dayTab2Load
 
-    $('#event-back').attr('href', '#personalSchedule')
-    personalScheduleView.initialize() if not dayTabLoaded
+    if not dayTab2Load
+      $('#event-back').attr('href', '#personalSchedule')
+      personalScheduleView.initialize()
 
 
 # prepare schedule xml

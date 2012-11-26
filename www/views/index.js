@@ -8,7 +8,7 @@ App = (function() {
   }
 
   App.prototype.deviceready = function() {
-    var a, date, dateSplitted, dayIndex, dayNode, dayTab, dayTabLoaded, pageHref, platform, ua, _i, _len, _ref;
+    var a, date, dateSplitted, dayIndex, dayNode, dayTab, dayTab2Load, pageHref, platform, ua, _i, _len, _ref;
     ua = navigator.userAgent;
     platform = {
       ios: ua.match(/(iPhone|iPod|iPad)/),
@@ -21,7 +21,7 @@ App = (function() {
       document.write("<script src=\"lib/js/cordova-2.1.0-iOS.js\"></script>");
       document.write("<script src=\"lib/js/ChildBrowser-iOS.js\"></script>");
     }
-    dayTabLoaded = false;
+    dayTab2Load = void 0;
     _ref = programXML.find('day');
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       dayNode = _ref[_i];
@@ -42,12 +42,15 @@ App = (function() {
       a.removeClass('ui-state-persist');
       $('.tabs').append($('<div />').append(dayTab.show()).html());
       if (helper.formatDate(new Date(), 'yyyy-mm-dd') === date) {
-        dayTabLoaded = true;
-        document.location.href = pageHref;
+        dayTab2Load = pageHref;
+        $(document).ready(function() {
+          $('#event-back').attr('href', dayTab2Load);
+          return $.mobile.changePage(dayTab2Load);
+        });
       }
     }
-    $('#event-back').attr('href', '#personalSchedule');
-    if (!dayTabLoaded) {
+    if (!dayTab2Load) {
+      $('#event-back').attr('href', '#personalSchedule');
       return personalScheduleView.initialize();
     }
   };
