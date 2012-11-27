@@ -58,15 +58,6 @@ class Event
 
       @_setField(targetElement, eventText)
 
-    # set hashtag
-    hashTag = "#29C3_#{eventID}"
-    twitterElement = $('#event-twitter', @page)
-    $('.event-twitter-hashtag:first', twitterElement).html(hashTag)
-
-    ulElement = $('ul:first', twitterElement)
-    ulElement.find('.event-twitter-tweet:first').attr('href', 'tweetbot:///post?text=' + escape('  ' + hashTag) + '&callback_url=' + escape('congress2012://'))
-    ulElement.find('.event-twitter-list:first').attr('href', '#twitter#' + escape(hashTag))
-
     attendCheckbox = $('#event-attend-checkbox').checkboxradio()
     attendCheckbox.attr('data-event-id', eventID)
 

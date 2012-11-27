@@ -123,17 +123,6 @@
       "initialSize" : 1806,
       "fileType" : 8192
     },
-    "\/.metadata\/.plugins\/com.android.ide.eclipse.adt\/palette-preview-r16b-16-apptheme-37inwvganexusone\/TabHost.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/.metadata\/.plugins\/com.android.ide.eclipse.adt\/palette-preview-r16b-16-apptheme-37inwvganexusone\/TabHost.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/.metadata\/.plugins\/com.android.ide.eclipse.adt\/palette-preview-r16b-16-apptheme-37inwvganexusone\/TabHost.png",
-      "initialSize" : 2283,
-      "fileType" : 8192
-    },
     "\/www\/res\/screen\/iphone_retina_landscape.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -143,6 +132,17 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/www\/res\/screen\/iphone_retina_landscape.png",
       "initialSize" : 339639,
+      "fileType" : 8192
+    },
+    "\/.metadata\/.plugins\/com.android.ide.eclipse.adt\/palette-preview-r16b-16-apptheme-37inwvganexusone\/TabHost.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/.metadata\/.plugins\/com.android.ide.eclipse.adt\/palette-preview-r16b-16-apptheme-37inwvganexusone\/TabHost.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/.metadata\/.plugins\/com.android.ide.eclipse.adt\/palette-preview-r16b-16-apptheme-37inwvganexusone\/TabHost.png",
+      "initialSize" : 2283,
       "fileType" : 8192
     },
     "\/www\/res\/screen\/blackberry_transparent_300.png" : {
@@ -278,6 +278,15 @@
       "initialSize" : 5463,
       "fileType" : 8192
     },
+    "\/www\/lib\/css\/jquery.mobile-1.2.0-alpha.1.css" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/www\/lib\/css\/jquery.mobile-1.2.0-alpha.1.css",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 16
+    },
     "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/arrow_left@2x.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -288,15 +297,6 @@
       "outputAbbreviatedPath" : "\/29C3-iOS\/Plugins\/ChildBrowser.bundle\/arrow_left@2x.png",
       "initialSize" : 2946,
       "fileType" : 8192
-    },
-    "\/www\/lib\/css\/jquery.mobile-1.2.0-alpha.1.css" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/lib\/css\/jquery.mobile-1.2.0-alpha.1.css",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 16
     },
     "\/www\/views\/personalSchedule.js" : {
       "ignoreWasSetByUser" : 0,
@@ -395,15 +395,6 @@
       "initialSize" : 3096,
       "fileType" : 8192
     },
-    "\/29C3-iOS\/CordovaLib\/CordovaLibApp\/www\/index.html" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/29C3-iOS\/CordovaLib\/CordovaLibApp\/www\/index.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/29C3-iOS\/Resources\/Capture.bundle\/microphone.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -414,6 +405,15 @@
       "outputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/microphone.png",
       "initialSize" : 72226,
       "fileType" : 8192
+    },
+    "\/29C3-iOS\/CordovaLib\/CordovaLibApp\/www\/index.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/29C3-iOS\/CordovaLib\/CordovaLibApp\/www\/index.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/www\/childbrowser\/icon_close.png" : {
       "ignoreWasSetByUser" : 0,
@@ -470,17 +470,6 @@
       "initialSize" : 3611,
       "fileType" : 8192
     },
-    "\/29C3-iOS\/Resources\/Capture.bundle\/recording_bg@2x.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/recording_bg@2x.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/recording_bg@2x.png",
-      "initialSize" : 990,
-      "fileType" : 8192
-    },
     "\/www\/res\/icon\/cordova_android_96.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -490,6 +479,17 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/www\/res\/icon\/cordova_android_96.png",
       "initialSize" : 7685,
+      "fileType" : 8192
+    },
+    "\/29C3-iOS\/Resources\/Capture.bundle\/recording_bg@2x.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/recording_bg@2x.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/recording_bg@2x.png",
+      "initialSize" : 990,
       "fileType" : 8192
     },
     "\/29C3-iOS\/Resources\/splash\/Default-Portrait~ipad.png" : {
@@ -580,16 +580,16 @@
       "initialSize" : 4944,
       "fileType" : 8192
     },
-    "\/29C3-iOS\/Resources\/Capture.bundle\/record_button~ipad.png" : {
+    "\/www\/js\/userConfig.js" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
+      "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/record_button~ipad.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/record_button~ipad.png",
-      "initialSize" : 7547,
-      "fileType" : 8192
+      "inputAbbreviatedPath" : "\/www\/js\/userConfig.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/www\/js\/userConfig-ck.js",
+      "fileType" : 64
     },
     "\/29C3-iOS\/Resources\/Capture.bundle\/microphone~ipad.png" : {
       "ignoreWasSetByUser" : 0,
@@ -602,26 +602,15 @@
       "initialSize" : 393975,
       "fileType" : 8192
     },
-    "\/www\/js\/userConfig.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/js\/userConfig.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/www\/js\/userConfig-ck.js",
-      "fileType" : 64
-    },
-    "\/www\/res\/icon\/cordova_ios_114.png" : {
+    "\/29C3-iOS\/Resources\/Capture.bundle\/record_button~ipad.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/res\/icon\/cordova_ios_114.png",
+      "inputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/record_button~ipad.png",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/www\/res\/icon\/cordova_ios_114.png",
-      "initialSize" : 7869,
+      "outputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/record_button~ipad.png",
+      "initialSize" : 7547,
       "fileType" : 8192
     },
     "\/29C3-iOS\/Resources\/icons\/icon.png" : {
@@ -633,6 +622,17 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/29C3-iOS\/Resources\/icons\/icon.png",
       "initialSize" : 3902,
+      "fileType" : 8192
+    },
+    "\/www\/res\/icon\/cordova_ios_114.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/www\/res\/icon\/cordova_ios_114.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/www\/res\/icon\/cordova_ios_114.png",
+      "initialSize" : 7869,
       "fileType" : 8192
     },
     "\/www\/res\/screen\/ipad_portrait.png" : {
@@ -767,17 +767,6 @@
       "fileType" : 4,
       "debugStyle" : 0
     },
-    "\/www\/res\/icon\/cordova_24.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/res\/icon\/cordova_24.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/www\/res\/icon\/cordova_24.png",
-      "initialSize" : 2215,
-      "fileType" : 8192
-    },
     "\/29C3-Android\/res\/drawable-xhdpi\/ic_launcher.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -788,6 +777,15 @@
       "outputAbbreviatedPath" : "\/29C3-Android\/res\/drawable-xhdpi\/ic_launcher.png",
       "initialSize" : 6679,
       "fileType" : 8192
+    },
+    "\/www\/css\/s.css" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/www\/css\/s.css",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 16
     },
     "\/29C3-Android\/bin\/res\/drawable-mdpi\/ic_launcher.png" : {
       "ignoreWasSetByUser" : 0,
@@ -844,24 +842,15 @@
       "initialSize" : 3611,
       "fileType" : 8192
     },
-    "\/www\/css\/s.css" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/css\/s.css",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 16
-    },
-    "\/.metadata\/.plugins\/com.android.ide.eclipse.adt\/palette-preview-r16b-16-apptheme-37inwvganexusone\/Switch.png" : {
+    "\/www\/res\/icon\/cordova_24.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/.metadata\/.plugins\/com.android.ide.eclipse.adt\/palette-preview-r16b-16-apptheme-37inwvganexusone\/Switch.png",
+      "inputAbbreviatedPath" : "\/www\/res\/icon\/cordova_24.png",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/.metadata\/.plugins\/com.android.ide.eclipse.adt\/palette-preview-r16b-16-apptheme-37inwvganexusone\/Switch.png",
-      "initialSize" : 832,
+      "outputAbbreviatedPath" : "\/www\/res\/icon\/cordova_24.png",
+      "initialSize" : 2215,
       "fileType" : 8192
     },
     "\/www\/scss\/_fonts.scss" : {
@@ -875,6 +864,17 @@
       "outputAbbreviatedPath" : "\/www\/css\/_fonts.css",
       "fileType" : 4,
       "debugStyle" : 0
+    },
+    "\/.metadata\/.plugins\/com.android.ide.eclipse.adt\/palette-preview-r16b-16-apptheme-37inwvganexusone\/Switch.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/.metadata\/.plugins\/com.android.ide.eclipse.adt\/palette-preview-r16b-16-apptheme-37inwvganexusone\/Switch.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/.metadata\/.plugins\/com.android.ide.eclipse.adt\/palette-preview-r16b-16-apptheme-37inwvganexusone\/Switch.png",
+      "initialSize" : 832,
+      "fileType" : 8192
     },
     "\/www\/views\/schedule.coffee" : {
       "ignoreWasSetByUser" : 0,
@@ -977,15 +977,15 @@
       "initialSize" : 12965,
       "fileType" : 8192
     },
-    "\/www\/views\/twitter.coffee" : {
+    "\/www\/js\/personalSchedule.coffee" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/views\/twitter.coffee",
+      "inputAbbreviatedPath" : "\/www\/js\/personalSchedule.coffee",
       "checkOutputStyle" : 0,
       "minifyOutput" : 0,
-      "outputAbbreviatedPath" : "\/www\/views\/twitter.js",
+      "outputAbbreviatedPath" : "\/www\/js\/personalSchedule.js",
       "outputStyle" : 1,
       "fileType" : 32
     },
@@ -1000,17 +1000,17 @@
       "outputAbbreviatedPath" : "\/www\/views\/schedule-ck.js",
       "fileType" : 64
     },
-    "\/www\/js\/personalSchedule.coffee" : {
+    "\/www\/scss\/s.scss" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/js\/personalSchedule.coffee",
-      "checkOutputStyle" : 0,
-      "minifyOutput" : 0,
-      "outputAbbreviatedPath" : "\/www\/js\/personalSchedule.js",
-      "outputStyle" : 1,
-      "fileType" : 32
+      "inputAbbreviatedPath" : "\/www\/scss\/s.scss",
+      "outputStyle" : 0,
+      "shouldRunBless" : 0,
+      "outputAbbreviatedPath" : "\/www\/css\/s.css",
+      "fileType" : 4,
+      "debugStyle" : 0
     },
     "\/www\/childbrowser\/icon_arrow_left.png" : {
       "ignoreWasSetByUser" : 0,
@@ -1023,17 +1023,17 @@
       "initialSize" : 417,
       "fileType" : 8192
     },
-    "\/www\/scss\/s.scss" : {
+    "\/www\/js\/userConfig.coffee" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/scss\/s.scss",
-      "outputStyle" : 0,
-      "shouldRunBless" : 0,
-      "outputAbbreviatedPath" : "\/www\/css\/s.css",
-      "fileType" : 4,
-      "debugStyle" : 0
+      "inputAbbreviatedPath" : "\/www\/js\/userConfig.coffee",
+      "checkOutputStyle" : 0,
+      "minifyOutput" : 0,
+      "outputAbbreviatedPath" : "\/www\/js\/userConfig.js",
+      "outputStyle" : 1,
+      "fileType" : 32
     },
     "\/29C3-iOS\/Resources\/Capture.bundle\/controls_bg.png" : {
       "ignoreWasSetByUser" : 0,
@@ -1055,18 +1055,6 @@
       "checkOutputStyle" : 0,
       "minifyOutput" : 0,
       "outputAbbreviatedPath" : "\/www\/config.js",
-      "outputStyle" : 1,
-      "fileType" : 32
-    },
-    "\/www\/js\/userConfig.coffee" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/js\/userConfig.coffee",
-      "checkOutputStyle" : 0,
-      "minifyOutput" : 0,
-      "outputAbbreviatedPath" : "\/www\/js\/userConfig.js",
       "outputStyle" : 1,
       "fileType" : 32
     },
@@ -1103,17 +1091,6 @@
       "initialSize" : 2843,
       "fileType" : 8192
     },
-    "\/www\/lib\/js\/cordova-2.1.0-Android.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/lib\/js\/cordova-2.1.0-Android.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/www\/lib\/js\/cordova-2.1.0-Android-ck.js",
-      "fileType" : 64
-    },
     "\/www\/js\/scheduleXML.coffee" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1126,6 +1103,17 @@
       "outputStyle" : 1,
       "fileType" : 32
     },
+    "\/www\/lib\/js\/cordova-2.1.0-Android.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/www\/lib\/js\/cordova-2.1.0-Android.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/www\/lib\/js\/cordova-2.1.0-Android-ck.js",
+      "fileType" : 64
+    },
     "\/www\/res\/screen\/android_ldpi_portrait.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1135,17 +1123,6 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/www\/res\/screen\/android_ldpi_portrait.png",
       "initialSize" : 42034,
-      "fileType" : 8192
-    },
-    "\/.metadata\/.plugins\/com.android.ide.eclipse.adt\/palette-preview-r16b-16-apptheme-37inwvganexusone\/TabWidget.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/.metadata\/.plugins\/com.android.ide.eclipse.adt\/palette-preview-r16b-16-apptheme-37inwvganexusone\/TabWidget.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/.metadata\/.plugins\/com.android.ide.eclipse.adt\/palette-preview-r16b-16-apptheme-37inwvganexusone\/TabWidget.png",
-      "initialSize" : 965,
       "fileType" : 8192
     },
     "\/29C3-Android\/res\/drawable-xhdpi\/ic_action_search.png" : {
@@ -1182,6 +1159,17 @@
       "outputStyle" : 1,
       "fileType" : 32
     },
+    "\/www\/res\/icon\/cordova_bb_80.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/www\/res\/icon\/cordova_bb_80.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/www\/res\/icon\/cordova_bb_80.png",
+      "initialSize" : 7287,
+      "fileType" : 8192
+    },
     "\/www\/views\/info.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -1205,6 +1193,17 @@
       "outputStyle" : 1,
       "fileType" : 32
     },
+    "\/29C3-iOS\/Resources\/icons\/icon-72@2x.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/29C3-iOS\/Resources\/icons\/icon-72@2x.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/29C3-iOS\/Resources\/icons\/icon-72@2x.png",
+      "initialSize" : 11706,
+      "fileType" : 8192
+    },
     "\/www\/views\/event.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -1216,26 +1215,15 @@
       "outputAbbreviatedPath" : "\/www\/views\/event-ck.js",
       "fileType" : 64
     },
-    "\/www\/res\/icon\/cordova_bb_80.png" : {
+    "\/.metadata\/.plugins\/com.android.ide.eclipse.adt\/palette-preview-r16b-16-apptheme-37inwvganexusone\/TabWidget.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/res\/icon\/cordova_bb_80.png",
+      "inputAbbreviatedPath" : "\/.metadata\/.plugins\/com.android.ide.eclipse.adt\/palette-preview-r16b-16-apptheme-37inwvganexusone\/TabWidget.png",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/www\/res\/icon\/cordova_bb_80.png",
-      "initialSize" : 7287,
-      "fileType" : 8192
-    },
-    "\/29C3-iOS\/Resources\/icons\/icon-72@2x.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/29C3-iOS\/Resources\/icons\/icon-72@2x.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/29C3-iOS\/Resources\/icons\/icon-72@2x.png",
-      "initialSize" : 11706,
+      "outputAbbreviatedPath" : "\/.metadata\/.plugins\/com.android.ide.eclipse.adt\/palette-preview-r16b-16-apptheme-37inwvganexusone\/TabWidget.png",
+      "initialSize" : 965,
       "fileType" : 8192
     },
     "\/www\/res\/icon\/cordova_256.png" : {
@@ -1412,16 +1400,16 @@
       "initialSize" : 4996,
       "fileType" : 8192
     },
-    "\/www\/views\/twitter.js" : {
+    "\/29C3-Android\/bin\/res\/drawable-xhdpi\/ic_launcher.png" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
+      "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/www\/views\/twitter.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/www\/views\/twitter-ck.js",
-      "fileType" : 64
+      "inputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-xhdpi\/ic_launcher.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-xhdpi\/ic_launcher.png",
+      "initialSize" : 6194,
+      "fileType" : 8192
     },
     "\/29C3-iOS\/Resources\/Capture.bundle\/record_button@2x~ipad.png" : {
       "ignoreWasSetByUser" : 0,
@@ -1432,17 +1420,6 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/29C3-iOS\/Resources\/Capture.bundle\/record_button@2x~ipad.png",
       "initialSize" : 15822,
-      "fileType" : 8192
-    },
-    "\/29C3-Android\/bin\/res\/drawable-xhdpi\/ic_launcher.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-xhdpi\/ic_launcher.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/29C3-Android\/bin\/res\/drawable-xhdpi\/ic_launcher.png",
-      "initialSize" : 6194,
       "fileType" : 8192
     },
     "\/www\/lib\/js\/cordova-2.1.0-iOS.js" : {

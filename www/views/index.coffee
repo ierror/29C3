@@ -78,13 +78,17 @@ $(document).bind 'pagebeforechange', (e, data) ->
     parsedUrlHash = parsedUrl.hash.split('#')
     dayNode = $(programXML.find('day[index=' + parsedUrlHash[2] + ']:first'))
     scheduleView.initialize(dayNode, data.option)
-    $('body').attr('data-last-active-page', "#schedule#" + parsedUrlHash[2])
+
+    page_link = "#schedule#" + parsedUrlHash[2]
+    $('body').attr('data-last-active-page', page_link)
+    $('#event-back').attr('href', page_link)
 
     e.preventDefault()
 
   else if /^#personalSchedule$/.test(parsedUrl.hash)
     $('body').attr('data-last-active-page', parsedUrl.hash)
     personalScheduleView.initialize()
+    $('#event-back').attr('href', '#personalSchedule')
     e.preventDefault()
 
   # #event# <day-index> # <room-name> # <event-id>
