@@ -79,6 +79,10 @@ $(document).bind 'pagebeforechange', (e, data) ->
     dayNode = $(programXML.find('day[index=' + parsedUrlHash[2] + ']:first'))
     scheduleView.initialize(dayNode, data.option)
 
+    last_scroll_pos = userconfig.getItem('data-last-scroll-pos-schedule-' + parsedUrlHash[2])
+    if last_scroll_pos
+      $(document).scrollTop last_scroll_pos
+
     page_link = "#schedule#" + parsedUrlHash[2]
     $('body').attr('data-last-active-page', page_link)
     $('#event-back').attr('href', page_link)
@@ -88,6 +92,7 @@ $(document).bind 'pagebeforechange', (e, data) ->
   else if /^#personalSchedule$/.test(parsedUrl.hash)
     $('body').attr('data-last-active-page', parsedUrl.hash)
     personalScheduleView.initialize()
+
     $('#event-back').attr('href', '#personalSchedule')
     e.preventDefault()
 
@@ -119,5 +124,14 @@ $(document).on 'click', '.external-link', ->
 $(window).resize ->
   $('.ui-header').width $(window).width()
   $('.ui-footer').width $(window).width()
+
+# remember scroll pos
+$(window).bind 'scrollstop', ->
+  scroll_attr = 'data-last-scroll-pos-' + $.mobile.activePage.attr('id')
+  page_day_index = $.mobile.activePage.attr('data-day-index')
+  if page_day_index
+    scroll_attr = "#{scroll_attr}-#{page_day_index}"
+
+  userconfig.setItem(scroll_attr , $(window).scrollTop())
 
 app = new App()

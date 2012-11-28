@@ -8,6 +8,8 @@ scheduleView =
     theadRow.find('th[data-is-room-column=1]').remove()
     page.find('td[data-is-event-cell=1]').remove()
 
+    page.attr('data-day-index', dayIndex)
+
     # is the request loading a schedule "day tab"?
     for roomNode in dayNode.find('room')
       roomNode = $(roomNode)

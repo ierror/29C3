@@ -14,7 +14,7 @@ PersonalScheduleView = (function() {
   };
 
   PersonalScheduleView.prototype.initialize = function(eventNode, options) {
-    var contentDiv, date, dateSplitted, dayNode, event, eventDateKey, eventID, eventsSorted, headerContent, lastHeaderContent, listView, listViewLiElementTpl, listViewLiHeaderTpl, roomNode, start, _i, _j, _len, _len1, _listViewLiElementTpl, _listViewLiElementTplLink, _listViewLiHeaderTpl, _ref, _ref1;
+    var contentDiv, date, dateSplitted, dayNode, event, eventDateKey, eventID, eventsSorted, headerContent, lastHeaderContent, last_scroll_pos, listView, listViewLiElementTpl, listViewLiHeaderTpl, roomNode, start, _i, _j, _len, _len1, _listViewLiElementTpl, _listViewLiElementTplLink, _listViewLiHeaderTpl, _ref, _ref1;
     this.page = $('#personalSchedule');
     this._resetLayout();
     eventsSorted = {};
@@ -60,7 +60,11 @@ PersonalScheduleView = (function() {
       listView.append(_listViewLiElementTpl);
     }
     listView.listview('refresh');
-    return $.mobile.changePage(this.page);
+    $.mobile.changePage(this.page);
+    last_scroll_pos = userconfig.getItem('data-last-scroll-pos-personalSchedule');
+    if (last_scroll_pos) {
+      return $(document).scrollTop(last_scroll_pos);
+    }
   };
 
   return PersonalScheduleView;

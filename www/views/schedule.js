@@ -9,6 +9,7 @@ scheduleView = {
     theadRow = page.find('thead tr');
     theadRow.find('th[data-is-room-column=1]').remove();
     page.find('td[data-is-event-cell=1]').remove();
+    page.attr('data-day-index', dayIndex);
     _ref = dayNode.find('room');
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       roomNode = _ref[_i];
