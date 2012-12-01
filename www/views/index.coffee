@@ -47,12 +47,12 @@ class App
       if helper.formatDate(new Date(), 'yyyy-mm-dd') == date
         dayTab2Load = pageHref
 
+      scheduleView.initialize(dayNode)
+
     if not dayTab2Load
-      $('#event-back').attr('href', '#personalSchedule')
       personalScheduleView.initialize()
     else
       $(document).ready ->
-        $('#event-back').attr('href', dayTab2Load)
         $.mobile.changePage dayTab2Load
 
 
@@ -77,24 +77,12 @@ $(document).bind 'pagebeforechange', (e, data) ->
     # determine corresponding dayNode
     parsedUrlHash = parsedUrl.hash.split('#')
     dayNode = $(programXML.find('day[index=' + parsedUrlHash[2] + ']:first'))
-    scheduleView.initialize(dayNode, data.option)
-
-    last_scroll_pos = userconfig.getItem('data-last-scroll-pos-schedule-' + parsedUrlHash[2])
-    if last_scroll_pos
-      $(document).scrollTop last_scroll_pos
 
     page_link = "#schedule#" + parsedUrlHash[2]
     $('body').attr('data-last-active-page', page_link)
-    $('#event-back').attr('href', page_link)
-
-    e.preventDefault()
 
   else if /^#personalSchedule$/.test(parsedUrl.hash)
     $('body').attr('data-last-active-page', parsedUrl.hash)
-    personalScheduleView.initialize()
-
-    $('#event-back').attr('href', '#personalSchedule')
-    e.preventDefault()
 
   # #event# <day-index> # <room-name> # <event-id>
   # 0  1         2            3            4
@@ -115,6 +103,12 @@ $(document).bind 'pagebeforechange', (e, data) ->
 
   $('body').removeClass('ui-loading')
 
+$(document).bind 'pagechange', (e, data) ->
+  pageID = data.toPage.attr('data-url')
+  last_scroll_pos = userconfig.getItem("last-scroll-pos-" + pageID)
+  if last_scroll_pos and $(window).scrollTop() != last_scroll_pos
+    $('html, body').scrollTop(last_scroll_pos)
+
 # open external links in child browser
 $(document).on 'click', '.external-link', ->
   window.plugins.childBrowser.showWebPage $(@).attr('href')
@@ -127,11 +121,6 @@ $(window).resize ->
 
 # remember scroll pos
 $(window).bind 'scrollstop', ->
-  scroll_attr = 'data-last-scroll-pos-' + $.mobile.activePage.attr('id')
-  page_day_index = $.mobile.activePage.attr('data-day-index')
-  if page_day_index
-    scroll_attr = "#{scroll_attr}-#{page_day_index}"
-
-  userconfig.setItem(scroll_attr , $(window).scrollTop())
+  userconfig.setItem('last-scroll-pos-' + $.mobile.activePage.attr('id'), $(window).scrollTop())
 
 app = new App()

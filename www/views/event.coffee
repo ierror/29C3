@@ -63,14 +63,19 @@ class Event
 
     attendCheckbox.bind 'change', (event, ui) ->
       self = $(@)
+      eventID = self.attr('data-event-id')
       if not self.attr('checked')
         self.removeAttr('checked').checkboxradio('refresh')
         self.parent().find('.ui-btn-text:first').html(self.attr('data-event-attend-text'))
-        personalSchedule.db.remove(self.attr('data-event-id'))
+        $("#event-#{eventID}").removeClass('event-attend')
+        personalSchedule.db.remove(eventID)
       else
         self.attr('checked', 'checked').checkboxradio('refresh')
         self.parent().find('.ui-btn-text:first').html(self.attr('data-event-dontattend-text'))
-        personalSchedule.db.push(self.attr('data-event-id'))
+        $("#event-#{eventID}").addClass('event-attend')
+        personalSchedule.db.push(eventID)
+
+      personalScheduleView.initialize()
 
     if personalSchedule.db.contains(eventID)
       attendCheckbox.attr('checked', 'checked').checkboxradio('refresh')

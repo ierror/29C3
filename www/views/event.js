@@ -73,15 +73,19 @@ Event = (function() {
     attendCheckbox.bind('change', function(event, ui) {
       var self;
       self = $(this);
+      eventID = self.attr('data-event-id');
       if (!self.attr('checked')) {
         self.removeAttr('checked').checkboxradio('refresh');
         self.parent().find('.ui-btn-text:first').html(self.attr('data-event-attend-text'));
-        return personalSchedule.db.remove(self.attr('data-event-id'));
+        $("#event-" + eventID).removeClass('event-attend');
+        personalSchedule.db.remove(eventID);
       } else {
         self.attr('checked', 'checked').checkboxradio('refresh');
         self.parent().find('.ui-btn-text:first').html(self.attr('data-event-dontattend-text'));
-        return personalSchedule.db.push(self.attr('data-event-id'));
+        $("#event-" + eventID).addClass('event-attend');
+        personalSchedule.db.push(eventID);
       }
+      return personalScheduleView.initialize();
     });
     if (personalSchedule.db.contains(eventID)) {
       attendCheckbox.attr('checked', 'checked').checkboxradio('refresh');

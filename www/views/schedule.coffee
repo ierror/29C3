@@ -1,12 +1,12 @@
 scheduleView =
   initialize: (dayNode, options) ->
     dayIndex = dayNode.attr('index')
-    page = $('#schedule')
-    theadRow = page.find('thead tr')
+    page = $('#schedule').clone()
+    theadRow = page.find('thead tr', page)
 
-    # cleanup prev entries
-    theadRow.find('th[data-is-room-column=1]').remove()
-    page.find('td[data-is-event-cell=1]').remove()
+    page_id = "schedule##{dayIndex}"
+    page.attr('id', page_id)
+    page.attr('data-url', page_id)
 
     page.attr('data-day-index', dayIndex)
 
@@ -33,14 +33,15 @@ scheduleView =
         eventID = eventNode.attr('id')
         eventHref = '#event#'+escape(dayIndex)+'#'+escape(roomName)+'#'+escape(eventID)
 
-        td = $("<td style='background-color: #d3d3d3;' rowspan='#{rowspan}'><a href='#{eventHref}'> "+
+        td = $("<td id='event-#{eventID}' style='background-color: #d3d3d3;' rowspan='#{rowspan}'><a href='#{eventHref}'> "+
           eventNode.find('title:first').text()+'</a></td>').attr('data-is-event-cell', 1)
 
         # planning to visit this event?
         if personalSchedule.db.contains(eventID)
           td.addClass('event-attend')
 
-        $('#timeslot-'+eventNode.find('start:first').text().replace(':', '')).append(td)
+        $('.timeslot-'+eventNode.find('start:first').text().replace(':', ''), page).append(td)
 
-    $.mobile.changePage(page)
+      $('body').append(page)
+
 

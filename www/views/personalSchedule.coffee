@@ -59,11 +59,5 @@ class PersonalScheduleView
 
     listView.listview('refresh')
 
-    $.mobile.changePage(@page)
-
-    last_scroll_pos = userconfig.getItem('data-last-scroll-pos-personalSchedule')
-    if last_scroll_pos
-      $(document).scrollTop last_scroll_pos
-
 
 personalScheduleView = new PersonalScheduleView()
