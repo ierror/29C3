@@ -121,6 +121,8 @@ $(window).resize ->
 
 # remember scroll pos
 $(window).bind 'scrollstop', ->
-  userconfig.setItem('last-scroll-pos-' + $.mobile.activePage.attr('id'), $(window).scrollTop())
+  pageID = $.mobile.activePage.attr('id')
+  if pageID != 'event'
+    userconfig.setItem('last-scroll-pos-' + pageID, $(window).scrollTop())
 
 app = new App()

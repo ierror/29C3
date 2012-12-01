@@ -120,7 +120,11 @@ $(window).resize(function() {
 });
 
 $(window).bind('scrollstop', function() {
-  return userconfig.setItem('last-scroll-pos-' + $.mobile.activePage.attr('id'), $(window).scrollTop());
+  var pageID;
+  pageID = $.mobile.activePage.attr('id');
+  if (pageID !== 'event') {
+    return userconfig.setItem('last-scroll-pos-' + pageID, $(window).scrollTop());
+  }
 });
 
 app = new App();
