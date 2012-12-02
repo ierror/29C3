@@ -36,7 +36,7 @@ scheduleView =
 
         # planning to visit this event?
         if personalSchedule.db.contains(eventID)
-          td.find('a:first').addClass('event-attend')
+          td.addClass('event-attend')
 
         $('#timeslot-'+eventNode.find('start:first').text().replace(':', '')).append(td)
 

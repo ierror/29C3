@@ -1,9 +1,15 @@
 @import "_base.scss";
 
 body {
+    background-color: #000532;
+    color: $yellow;
 	font-family: $base-font-family;
 	font-size: 12px;
 	line-height: 16px;
+}
+
+.ui-page {
+    background-color: $black;
 }
 
 a {

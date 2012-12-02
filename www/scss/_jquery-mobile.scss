@@ -249,9 +249,9 @@
 }
 .ui-body-c,
 .ui-overlay-c {
-	border: 1px solid 		#aaa /*{c-body-border}*/;
-	color: 					#333 /*{c-body-color}*/;
-	background: 			#f9f9f9 /*{c-body-background-color}*/;
+	border: 1px solid 		darken($black, 10%) /*{c-body-border}*/;
+	color: 					$yellow /*{c-body-color}*/;
+	background: 			$black /*{c-body-background-color}*/;
 }
 .ui-overlay-c {
 	background-image: none;

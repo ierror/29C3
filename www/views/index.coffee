@@ -3,16 +3,21 @@ class App
     document.addEventListener('deviceready', @deviceready(), false)
 
   deviceready: ->
-    # init info elements
-    if not platform.ios
-      $('#event-use-tweetbot').remove()
+    ua = navigator.userAgent
+    platform =
+      ios: ua.match(/(iPhone|iPod|iPad)/)
+      android: ua.match(/Android/)
 
-    else
-      if userconfig.getItem('use-tweetbot') == false
-        $('#event-use-tweetbot-checkbox').removeAttr('checked').checkboxradio('refresh')
+    if platform.android
+      document.write "<script src=\"lib/js/cordova-2.1.0-Android.js\"></script>"
+      document.write "<script src=\"lib/js/ChildBrowser-Android.js\"></script>"
+    else if platform.ios
+      document.write "<script src=\"lib/js/cordova-2.1.0-iOS.js\"></script>"
+      document.write "<script src=\"lib/js/ChildBrowser-iOS.js\"></script>"
+
 
     # build day tabs
-    dayTabLoaded = false
+    dayTab2Load = undefined
     for dayNode in programXML.find('day')
       dayNode = $(dayNode)
       date = dayNode.attr('date')
@@ -39,19 +44,23 @@ class App
       $('.tabs').append($('<div />').append(dayTab.show()).html())
 
       # set active tab if current day is available event day
-      if helper.formatDate(new Date(), 'yyyy-mm-dd') is date
-        dayTabLoaded = true
-        # i don't know why $.mobile.changePage does not work here...
-        document.location.href = pageHref
+      if helper.formatDate(new Date(), 'yyyy-mm-dd') == date
+        dayTab2Load = pageHref
+        $(document).ready ->
+          $('#event-back').attr('href', dayTab2Load)
+          $.mobile.changePage dayTab2Load
 
-    $('#event-back').attr('href', '#personalSchedule')
-    personalScheduleView.initialize() if not dayTabLoaded
+    if not dayTab2Load
+      $('#event-back').attr('href', '#personalSchedule')
+      personalScheduleView.initialize()
 
 
 # prepare schedule xml
 xmlLoader = new ScheduleXMLLoader()
 xmlLoader.appStartUpLoad()
 programXML = xmlLoader.getXMLTree()
+
+personalSchedule = new PersonalSchedule()
 
 # dynamic page content
 $(document).bind 'pagebeforechange', (e, data) ->
@@ -98,7 +107,7 @@ $(document).bind 'pagebeforechange', (e, data) ->
 
 # open external links in child browser
 $(document).on 'click', '.external-link', ->
-  cordova.exec('ChildBrowserCommand.showWebPage', $(@).attr('href'))
+  window.plugins.childBrowser.showWebPage $(@).attr('href')
   false
 
 # fix: https://github.com/jquery/jquery-mobile/issues/3956

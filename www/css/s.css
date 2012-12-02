@@ -6,7 +6,9 @@
 
 @font-face { font-family: 'SourceCodePro'; src: url("../font/SourceCodePro-Bold-webfont.eot"); src: url("../font/SourceCodePro-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("../font/SourceCodePro-Bold-webfont.woff") format("woff"), url("../font/SourceCodePro-Bold-webfont.ttf") format("truetype"); font-weight: bolder; font-style: normal; }
 
-body { font-family: "SourceCodePro"; font-size: 12px; line-height: 16px; }
+body { background-color: #000532; color: #f79433; font-family: "SourceCodePro"; font-size: 12px; line-height: 16px; }
+
+.ui-page { background-color: #000532; }
 
 a { text-decoration: none; }
 
@@ -126,7 +128,7 @@ a { text-decoration: none; }
 
 .ui-bar-c a.ui-link:active { color: #2489ce; }
 
-.ui-body-c, .ui-overlay-c { border: 1px solid #aaaaaa; color: #333333; background: #f9f9f9; }
+.ui-body-c, .ui-overlay-c { border: 1px solid black; color: #f79433; background: #000532; }
 
 .ui-overlay-c { background-image: none; border-width: 0; }
 

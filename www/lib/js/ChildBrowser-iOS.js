@@ -75,5 +75,6 @@
         return null;
     }
 
+    ChildBrowser.install();
 
 })(); 
