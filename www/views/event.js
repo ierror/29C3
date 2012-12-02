@@ -24,7 +24,7 @@ Event = (function() {
   };
 
   Event.prototype.initialize = function(eventNode, options) {
-    var attendCheckbox, childField, childFieldRound, children, configKey, event, eventField, eventID, eventText, fieldName, liTpl, notesElm, targetElement, _i, _j, _k, _len, _len1, _len2, _liTpl, _liTplLink, _ref, _ref1, _ref2;
+    var attendCheckbox, attendStatusChanged, childField, childFieldRound, children, configKey, event, eventField, eventID, eventText, fieldName, liTpl, notesElm, targetElement, _i, _j, _k, _len, _len1, _len2, _liTpl, _liTplLink, _ref, _ref1, _ref2;
     event = this;
     this.page = $('#event');
     this._resetLayout();
@@ -70,22 +70,25 @@ Event = (function() {
     }
     attendCheckbox = $('#event-attend-checkbox').checkboxradio();
     attendCheckbox.attr('data-event-id', eventID);
+    attendStatusChanged = false;
     attendCheckbox.bind('change', function(event, ui) {
       var self;
       self = $(this);
+      attendStatusChanged = true;
       eventID = self.attr('data-event-id');
       if (!self.attr('checked')) {
         self.removeAttr('checked').checkboxradio('refresh');
         self.parent().find('.ui-btn-text:first').html(self.attr('data-event-attend-text'));
         $("#event-" + eventID).removeClass('event-attend');
         personalSchedule.db.remove(eventID);
+        return personalScheduleView.initialize();
       } else {
         self.attr('checked', 'checked').checkboxradio('refresh');
         self.parent().find('.ui-btn-text:first').html(self.attr('data-event-dontattend-text'));
         $("#event-" + eventID).addClass('event-attend');
         personalSchedule.db.push(eventID);
+        return personalScheduleView.initialize();
       }
-      return personalScheduleView.initialize();
     });
     if (personalSchedule.db.contains(eventID)) {
       attendCheckbox.attr('checked', 'checked').checkboxradio('refresh');
