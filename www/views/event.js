@@ -101,6 +101,9 @@ Event = (function() {
     notesElm.keydown(function() {
       return userconfig.setItem(configKey, $(this).val());
     });
+    notesElm.blur(function() {
+      return userconfig.setItem(configKey, $(this).val());
+    });
     return $.mobile.changePage(this.page);
   };
 

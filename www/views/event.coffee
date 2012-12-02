@@ -91,6 +91,8 @@ class Event
     notesElm.val(userconfig.getItem(configKey, ''))
     notesElm.keydown ->
       userconfig.setItem(configKey, $(@).val())
+    notesElm.blur ->
+      userconfig.setItem(configKey, $(@).val())
 
     $.mobile.changePage(@page)
 
