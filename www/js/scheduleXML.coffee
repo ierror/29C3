@@ -20,24 +20,20 @@ class ScheduleXMLLoader
       try
       # try to load current XML from server
         @loadFromServer config.programXMLUrl, (programXML) ->
-          $($.parseXML(programXML))
           userconfig.setItem('programXML', programXML)
           userconfig.setItem('scheduleXMLLastUpdate', currentTimestamp)
           alert 'Successfully updated schedule.xml from '+config.programXMLUrl
       catch e
 
   getXMLTree: ->
-    # try to load a saved version
-    programXML = userconfig.getItem 'programXML'
     xmlTree = undefined
-    if not programXML
+    try
+      # try to load a saved version
+      xmlTree = $($.parseXML(userconfig.getItem('programXML', 'invalid')))
+    catch e
       # load from bundled schedule.xml
       @loadFromServer 'schedule.xml', (programXML) ->
         xmlTree = $($.parseXML(programXML))
-
-    else
-      xmlTree = $($.parseXML(programXML))
-
     xmlTree
 
 
