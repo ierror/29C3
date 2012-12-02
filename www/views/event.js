@@ -24,7 +24,7 @@ Event = (function() {
   };
 
   Event.prototype.initialize = function(eventNode, options) {
-    var attendCheckbox, childField, childFieldRound, children, event, eventField, eventID, eventText, fieldName, liTpl, targetElement, _i, _j, _k, _len, _len1, _len2, _liTpl, _liTplLink, _ref, _ref1, _ref2;
+    var attendCheckbox, childField, childFieldRound, children, configKey, event, eventField, eventID, eventText, fieldName, liTpl, notesElm, targetElement, _i, _j, _k, _len, _len1, _len2, _liTpl, _liTplLink, _ref, _ref1, _ref2;
     event = this;
     this.page = $('#event');
     this._resetLayout();
@@ -94,6 +94,16 @@ Event = (function() {
       attendCheckbox.removeAttr('checked').checkboxradio('refresh');
       attendCheckbox.parent().find('.ui-btn-text:first').html(attendCheckbox.attr('data-event-attend-text'));
     }
+    configKey = "notes-event-" + eventID;
+    notesElm = $('.notes:first', this.page);
+    notesElm.attr('data-event-id', eventID);
+    notesElm.val(userconfig.getItem(configKey, ''));
+    notesElm.keydown(function() {
+      return userconfig.setItem(configKey, $(this).val());
+    });
+    notesElm.blur(function() {
+      return userconfig.setItem(configKey, $(this).val());
+    });
     return $.mobile.changePage(this.page);
   };
 
