@@ -84,6 +84,14 @@ class Event
       attendCheckbox.removeAttr('checked').checkboxradio('refresh')
       attendCheckbox.parent().find('.ui-btn-text:first').html(attendCheckbox.attr('data-event-attend-text'))
 
+    # notes field
+    configKey = "notes-event-#{eventID}"
+    notesElm = $('.notes:first', @page)
+    notesElm.attr('data-event-id', eventID)
+    notesElm.val(userconfig.getItem(configKey, ''))
+    notesElm.keydown ->
+      userconfig.setItem(configKey, $(@).val())
+
     $.mobile.changePage(@page)
 
 eventView = new Event()
