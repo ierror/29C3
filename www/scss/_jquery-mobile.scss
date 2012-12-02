@@ -13,9 +13,9 @@
 /* A
 -----------------------------------------------------------------------------------------------------------*/
 .ui-bar-a {
-	border: 1px solid 		#333 /*{a-bar-border}*/;
-	background: 			#111 /*{a-bar-background-color}*/;
-	color: 					#fff /*{a-bar-color}*/;
+	border: 1px solid 		darken($yellow, 10%);
+	background: 			$yellow;
+	color: 					$black;
 	font-weight: bold;
 }
 .ui-bar-a,
@@ -26,7 +26,7 @@
 	// font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 }
 .ui-bar-a .ui-link-inherit {
-	color: #fff /*{a-bar-color}*/;
+	color: $magenta /*{a-bar-color}*/;
 }
 .ui-bar-a a.ui-link {
 	color: #7cc4e7 /*{a-bar-link-color}*/;
@@ -51,13 +51,6 @@
 .ui-overlay-a {
 	background-image: none;
 	border-width: 0;
-}
-.ui-body-a,
-.ui-body-a input,
-.ui-body-a select,
-.ui-body-a textarea,
-.ui-body-a button {
-	// font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 }
 .ui-body-a .ui-link-inherit {
 	color: 	#fff /*{a-body-color}*/;
@@ -116,20 +109,13 @@
 /* B
 -----------------------------------------------------------------------------------------------------------*/
 .ui-bar-b {
-	border: 1px solid 		#456f9a /*{b-bar-border}*/;
-	background: 			#5e87b0 /*{b-bar-background-color}*/;
-	color: 					#fff /*{b-bar-color}*/;
+	border: 1px solid 		lighten($black, 1%);
+	background: 			darken($black, 3%);
+	color: 					$yellow;
 	font-weight: bold;
 }
-.ui-bar-b,
-.ui-bar-b input,
-.ui-bar-b select,
-.ui-bar-b textarea,
-.ui-bar-b button {
-	// font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
-}
 .ui-bar-b .ui-link-inherit {
-	color: 	#fff /*{b-bar-color}*/;
+	color: 	$yellow;
 }
 .ui-bar-b a.ui-link {
 	color: #ddf0f8 /*{b-bar-link-color}*/;
@@ -146,21 +132,14 @@
 }
 .ui-body-b,
 .ui-overlay-b {
-	border: 1px solid 		#999 /*{b-body-border}*/;
-	background: 			#f3f3f3 /*{b-body-background-color}*/;
-	color: 					#222 /*{b-body-color}*/;
+	border: 1px solid 		$black;
+	background: 			$black;
+	color: 					$yellow;
 	font-weight: normal;
 }
 .ui-overlay-b {
 	background-image: none;
 	border-width: 0;
-}
-.ui-body-b,
-.ui-body-b input,
-.ui-body-b select,
-.ui-body-b textarea,
-.ui-body-b button {
-	// font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 }
 .ui-body-b .ui-link-inherit {
 	color: 	#333 /*{b-body-color}*/;
@@ -219,13 +198,13 @@
 /* C
 -----------------------------------------------------------------------------------------------------------*/
 .ui-bar-c {
-	border: 1px solid 		#b3b3b3 /*{c-bar-border}*/;
-	background: 			#eee /*{c-bar-background-color}*/;
-	color: 					#3e3e3e /*{c-bar-color}*/;
+	border: 1px dashed 		$yellow;
+	background: 			$black;
+	color: 					$yellow;
 	font-weight: bold;
 }
 .ui-bar-c .ui-link-inherit {
-	color: 	#3e3e3e /*{c-bar-color}*/;
+	color: 	$yellow;
 }
 .ui-bar-c a.ui-link {
 	color: #7cc4e7 /*{c-bar-link-color}*/;
@@ -240,18 +219,12 @@
 .ui-bar-c a.ui-link:active {
 	color: #2489ce /*{c-bar-link-active}*/;
 }
-.ui-bar-c,
-.ui-bar-c input,
-.ui-bar-c select,
-.ui-bar-c textarea,
-.ui-bar-c button {
-	// font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
-}
+
 .ui-body-c,
 .ui-overlay-c {
-	border: 1px solid 		#aaa /*{c-body-border}*/;
-	color: 					#333 /*{c-body-color}*/;
-	background: 			#f9f9f9 /*{c-body-background-color}*/;
+	border: 1px dashed 		$yellow;
+	color: 					$yellow;
+	background: 			$black;
 }
 .ui-overlay-c {
 	background-image: none;
@@ -281,20 +254,19 @@
 	color: #2489ce /*{c-body-link-active}*/;
 }
 .ui-btn-up-c {
-	border: 1px solid 		#ccc /*{c-bup-border}*/;
-	background: 			#eee /*{c-bup-background-color}*/;
-	font-weight: bold;
-	color: 					#222 /*{c-bup-color}*/;
+	background: 			$black;
+	font-weight: normal;
+	color: 					$yellow;
 }
 .ui-btn-up-c:visited,
 .ui-btn-up-c a.ui-link-inherit {
-	color: 					#2f3e46 /*{c-bup-color}*/;
+	color: 					$yellow;
 }
 .ui-btn-hover-c {
-	border: 1px solid 		#bbb /*{c-bhover-border}*/;
-	background: 			#dfdfdf /*{c-bhover-background-color}*/;
-	font-weight: bold;
-	color: 					#222 /*{c-bhover-color}*/;
+	border: 1px solid 		$black;
+	background: 			lighten($black, 10%);
+	font-weight: normal;
+	color: 					darken($yellow, 10%);
 }
 .ui-btn-hover-c:visited,
 .ui-btn-hover-c:hover,
@@ -537,15 +509,7 @@ a.ui-link-inherit {
 	font-weight: bold;
 	color: 					#fff /*{global-active-color}*/;
 	cursor: pointer;
-	text-shadow: 0 /*{global-active-shadow-x}*/ 1px /*{global-active-shadow-y}*/ 1px /*{global-active-shadow-radius}*/ #3373a5 /*{global-active-shadow-color}*/;
 	text-decoration: none;
-	background-image: -webkit-gradient(linear, left top, left bottom, from( #5393c5 /*{global-active-background-start}*/), to( #6facd5 /*{global-active-background-end}*/)); /* Saf4+, Chrome */
-	background-image: -webkit-linear-gradient( #5393c5 /*{global-active-background-start}*/, #6facd5 /*{global-active-background-end}*/); /* Chrome 10+, Saf5.1+ */
-	background-image:    -moz-linear-gradient( #5393c5 /*{global-active-background-start}*/, #6facd5 /*{global-active-background-end}*/); /* FF3.6 */
-	background-image:     -ms-linear-gradient( #5393c5 /*{global-active-background-start}*/, #6facd5 /*{global-active-background-end}*/); /* IE10 */
-	background-image:      -o-linear-gradient( #5393c5 /*{global-active-background-start}*/, #6facd5 /*{global-active-background-end}*/); /* Opera 11.10+ */
-	background-image:         linear-gradient( #5393c5 /*{global-active-background-start}*/, #6facd5 /*{global-active-background-end}*/);
-	// font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 }
 .ui-btn-active:visited,
 .ui-btn-active:hover,
@@ -555,8 +519,7 @@ a.ui-link-inherit {
 /* button inner top highlight
 -----------------------------------------------------------------------------------------------------------*/
 .ui-btn-inner {
-	border-top: 1px solid 	#fff;
-	border-color: 			rgba(255,255,255,.3);
+	border-top: 1px dashed	$yellow;
 }
 /* corner rounding classes
 -----------------------------------------------------------------------------------------------------------*/
@@ -646,13 +609,10 @@ a.ui-link-inherit {
 -----------------------------------------------------------------------------------------------------------*/
 .ui-icon,
 .ui-icon-searchfield:after {
-	background: 						#666 /*{global-icon-color}*/;
-	background: 						rgba(0,0,0,.4) /*{global-icon-disc}*/;
+	// background: 						#666 /*{global-icon-color}*/;
+	// background: 						rgba(0,0,0,.1) /*{global-icon-disc}*/;
 	background-image: url(../img/icons-18-white.png) /*{global-icon-set}*/;
 	background-repeat: no-repeat;
-	-moz-border-radius: 				9px;
-	-webkit-border-radius: 				9px;
-	border-radius: 						9px;
 }
 /* Alt icon color
 -----------------------------------------------------------------------------------------------------------*/
@@ -879,19 +839,19 @@ a.ui-link-inherit {
 .ui-bar-a .ui-shadow,
 .ui-bar-b .ui-shadow ,
 .ui-bar-c .ui-shadow  {
-	-moz-box-shadow: 0px 1px 0 				rgba(255,255,255,.3);
-	-webkit-box-shadow: 0px 1px 0 			rgba(255,255,255,.3);
-	box-shadow: 0px 1px 0 					rgba(255,255,255,.3);
+	-moz-box-shadow: 0px 1px 0 				rgba(255,255,255,.1);
+	-webkit-box-shadow: 0px 1px 0 			rgba(255,255,255,.1);
+	box-shadow: 0px 1px 0 					rgba(255,255,255,.1);
 }
 .ui-shadow-inset {
-	-moz-box-shadow: inset 0px 1px 4px 		rgba(0,0,0,.2);
-	-webkit-box-shadow: inset 0px 1px 4px 	rgba(0,0,0,.2);
-	box-shadow: inset 0px 1px 4px 			rgba(0,0,0,.2);
+	-moz-box-shadow: inset 0px 1px 4px 		rgba(0,0,0,.1);
+	-webkit-box-shadow: inset 0px 1px 4px 	rgba(0,0,0,.1);
+	box-shadow: inset 0px 1px 4px 			rgba(0,0,0,.1);
 }
 .ui-icon-shadow {
-	-moz-box-shadow: 0px 1px 0 				rgba(255,255,255,.4) /*{global-icon-shadow}*/;
-	-webkit-box-shadow: 0px 1px 0 			rgba(255,255,255,.4) /*{global-icon-shadow}*/;
-	box-shadow: 0px 1px 0 					rgba(255,255,255,.4) /*{global-icon-shadow}*/;
+	// -moz-box-shadow: 0px 1px 0 				rgba(255,255,255,.1) /*{global-icon-shadow}*/;
+	// -webkit-box-shadow: 0px 1px 0 			rgba(255,255,255,.1) /*{global-icon-shadow}*/;
+	// box-shadow: 0px 1px 0 					rgba(255,255,255,.1) /*{global-icon-shadow}*/;
 }
 /* Focus state - set here for specificity (note: these classes are added by JavaScript)
 -----------------------------------------------------------------------------------------------------------*/
@@ -903,15 +863,15 @@ a.ui-link-inherit {
 }
 .ui-focus,
 .ui-btn:focus {
-	-moz-box-shadow: inset 0px 0px 3px 		#387bbe /*{global-active-background-color}*/, 0px 0px 9px 		#387bbe /*{global-active-background-color}*/;
-	-webkit-box-shadow: inset 0px 0px 3px 	#387bbe /*{global-active-background-color}*/, 0px 0px 9px 		#387bbe /*{global-active-background-color}*/;
-	box-shadow: inset 0px 0px 3px 			#387bbe /*{global-active-background-color}*/, 0px 0px 9px 		#387bbe /*{global-active-background-color}*/;
+	//-moz-box-shadow: inset 0px 0px 3px 		#387bbe /*{global-active-background-color}*/, 0px 0px 9px 		#387bbe /*{global-active-background-color}*/;
+	//-webkit-box-shadow: inset 0px 0px 3px 	#387bbe /*{global-active-background-color}*/, 0px 0px 9px 		#387bbe /*{global-active-background-color}*/;
+	// box-shadow: inset 0px 0px 3px 			#387bbe /*{global-active-background-color}*/, 0px 0px 9px 		#387bbe /*{global-active-background-color}*/;
 }
 .ui-input-text.ui-focus,
 .ui-input-search.ui-focus {
-	-moz-box-shadow: 0px 0px 12px 			#387bbe /*{global-active-background-color}*/;
-	-webkit-box-shadow: 0px 0px 12px 		#387bbe /*{global-active-background-color}*/;
-	box-shadow: 0px 0px 12px 					#387bbe /*{global-active-background-color}*/;	
+	//-moz-box-shadow: 0px 0px 12px 			#387bbe /*{global-active-background-color}*/;
+	//-webkit-box-shadow: 0px 0px 12px 		#387bbe /*{global-active-background-color}*/;
+	//box-shadow: 0px 0px 12px 					#387bbe /*{global-active-background-color}*/;	
 }
 /* unset box shadow in browsers that don't do it right
 -----------------------------------------------------------------------------------------------------------*/
@@ -1650,7 +1610,7 @@ div.ui-mobile-viewport { overflow-x: hidden; }
 .ui-btn-icon-notext { width: 24px; height: 24px; }
 .ui-btn-icon-notext .ui-btn-inner { padding: 0; height: 100%; }
 .ui-btn-icon-notext .ui-btn-inner .ui-icon { margin: 2px 1px 2px 3px; float: left; }
-.ui-btn-text { position: relative; z-index: 1; width: 100%; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; }
+.ui-btn-text { position: relative; z-index: 1; width: 100%; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; text-overflow: ellipsis; }
 .ui-btn-icon-notext .ui-btn-text { position: absolute; left: -9999px; }
 .ui-btn-icon-left .ui-btn-inner { padding-left: 40px; }
 .ui-btn-icon-right .ui-btn-inner { padding-right: 40px; }

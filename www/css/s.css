@@ -6,7 +6,7 @@
 
 @font-face { font-family: 'SourceCodePro'; src: url("../font/SourceCodePro-Bold-webfont.eot"); src: url("../font/SourceCodePro-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("../font/SourceCodePro-Bold-webfont.woff") format("woff"), url("../font/SourceCodePro-Bold-webfont.ttf") format("truetype"); font-weight: bolder; font-style: normal; }
 
-body { font-family: "SourceCodePro"; font-size: 12px; line-height: 16px; }
+body { font-family: "SourceCodePro"; font-weight: normal; font-size: 12px; line-height: 16px; }
 
 a { text-decoration: none; }
 
@@ -30,9 +30,9 @@ a { text-decoration: none; }
 /* Swatches */
 /* A
 -----------------------------------------------------------------------------------------------------------*/
-.ui-bar-a { border: 1px solid #333333; background: #111111; color: white; font-weight: bold; }
+.ui-bar-a { border: 1px solid #ee7a09; background: #f79433; color: #000532; font-weight: bold; }
 
-.ui-bar-a .ui-link-inherit { color: white; }
+.ui-bar-a .ui-link-inherit { color: #ed1a3b; }
 
 .ui-bar-a a.ui-link { color: #7cc4e7; }
 
@@ -72,9 +72,9 @@ a { text-decoration: none; }
 
 /* B
 -----------------------------------------------------------------------------------------------------------*/
-.ui-bar-b { border: 1px solid #456f9a; background: #5e87b0; color: white; font-weight: bold; }
+.ui-bar-b { border: 1px solid #000637; background: #000323; color: #f79433; font-weight: bold; }
 
-.ui-bar-b .ui-link-inherit { color: white; }
+.ui-bar-b .ui-link-inherit { color: #f79433; }
 
 .ui-bar-b a.ui-link { color: #ddf0f8; font-weight: bold; }
 
@@ -84,7 +84,7 @@ a { text-decoration: none; }
 
 .ui-bar-b a.ui-link:active { color: #ddf0f8; }
 
-.ui-body-b, .ui-overlay-b { border: 1px solid #999999; background: #f3f3f3; color: #222222; font-weight: normal; }
+.ui-body-b, .ui-overlay-b { border: 1px solid #000532; background: #000532; color: #f79433; font-weight: normal; }
 
 .ui-overlay-b { background-image: none; border-width: 0; }
 
@@ -114,9 +114,9 @@ a { text-decoration: none; }
 
 /* C
 -----------------------------------------------------------------------------------------------------------*/
-.ui-bar-c { border: 1px solid #b3b3b3; background: #eeeeee; color: #3e3e3e; font-weight: bold; }
+.ui-bar-c { border: 1px dashed #f79433; background: #000532; color: #f79433; font-weight: bold; }
 
-.ui-bar-c .ui-link-inherit { color: #3e3e3e; }
+.ui-bar-c .ui-link-inherit { color: #f79433; }
 
 .ui-bar-c a.ui-link { color: #7cc4e7; font-weight: bold; }
 
@@ -126,7 +126,7 @@ a { text-decoration: none; }
 
 .ui-bar-c a.ui-link:active { color: #2489ce; }
 
-.ui-body-c, .ui-overlay-c { border: 1px solid #aaaaaa; color: #333333; background: #f9f9f9; }
+.ui-body-c, .ui-overlay-c { border: 1px dashed #f79433; color: #f79433; background: #000532; }
 
 .ui-overlay-c { background-image: none; border-width: 0; }
 
@@ -140,11 +140,11 @@ a { text-decoration: none; }
 
 .ui-body-c .ui-link:active { color: #2489ce; }
 
-.ui-btn-up-c { border: 1px solid #cccccc; background: #eeeeee; font-weight: bold; color: #222222; }
+.ui-btn-up-c { background: #000532; font-weight: normal; color: #f79433; }
 
-.ui-btn-up-c:visited, .ui-btn-up-c a.ui-link-inherit { color: #2f3e46; }
+.ui-btn-up-c:visited, .ui-btn-up-c a.ui-link-inherit { color: #f79433; }
 
-.ui-btn-hover-c { border: 1px solid #bbbbbb; background: #dfdfdf; font-weight: bold; color: #222222; }
+.ui-btn-hover-c { border: 1px solid #000532; background: #000a65; font-weight: normal; color: #ee7a09; }
 
 .ui-btn-hover-c:visited, .ui-btn-hover-c:hover, .ui-btn-hover-c a.ui-link-inherit { color: #2f3e46; }
 
@@ -245,13 +245,13 @@ a.ui-link-inherit { text-decoration: none !important; }
 
 /* Active class used as the "on" state across all themes
 -----------------------------------------------------------------------------------------------------------*/
-.ui-btn-active { border: 1px solid #2373a5; background: #5393c5; font-weight: bold; color: white; cursor: pointer; text-shadow: 0 1px 1px #3373a5; text-decoration: none; background-image: -webkit-gradient(linear, left top, left bottom, from(#5393c5), to(#6facd5)); /* Saf4+, Chrome */ background-image: -webkit-linear-gradient(#5393c5, #6facd5); /* Chrome 10+, Saf5.1+ */ background-image: -moz-linear-gradient(#5393c5, #6facd5); /* FF3.6 */ background-image: -ms-linear-gradient(#5393c5, #6facd5); /* IE10 */ background-image: -o-linear-gradient(#5393c5, #6facd5); /* Opera 11.10+ */ background-image: linear-gradient(#5393c5, #6facd5); }
+.ui-btn-active { border: 1px solid #2373a5; background: #5393c5; font-weight: bold; color: white; cursor: pointer; text-decoration: none; }
 
 .ui-btn-active:visited, .ui-btn-active:hover, .ui-btn-active a.ui-link-inherit { color: white; }
 
 /* button inner top highlight
 -----------------------------------------------------------------------------------------------------------*/
-.ui-btn-inner { border-top: 1px solid 	#fff; border-color: rgba(255, 255, 255, 0.3); }
+.ui-btn-inner { border-top: 1px dashed #f79433; }
 
 /* corner rounding classes
 -----------------------------------------------------------------------------------------------------------*/
@@ -287,7 +287,7 @@ a.ui-link-inherit { text-decoration: none !important; }
 
 /* Icons
 -----------------------------------------------------------------------------------------------------------*/
-.ui-icon, .ui-icon-searchfield:after { background: #666666; background: rgba(0, 0, 0, 0.4); background-image: url(../img/icons-18-white.png); background-repeat: no-repeat; -moz-border-radius: 9px; -webkit-border-radius: 9px; border-radius: 9px; }
+.ui-icon, .ui-icon-searchfield:after { background-image: url(../img/icons-18-white.png); background-repeat: no-repeat; }
 
 /* Alt icon color
 -----------------------------------------------------------------------------------------------------------*/
@@ -386,21 +386,15 @@ a.ui-link-inherit { text-decoration: none !important; }
 
 .ui-shadow { -moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3); -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3); box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3); }
 
-.ui-bar-a .ui-shadow, .ui-bar-b .ui-shadow, .ui-bar-c .ui-shadow { -moz-box-shadow: 0px 1px 0 rgba(255, 255, 255, 0.3); -webkit-box-shadow: 0px 1px 0 rgba(255, 255, 255, 0.3); box-shadow: 0px 1px 0 rgba(255, 255, 255, 0.3); }
+.ui-bar-a .ui-shadow, .ui-bar-b .ui-shadow, .ui-bar-c .ui-shadow { -moz-box-shadow: 0px 1px 0 rgba(255, 255, 255, 0.1); -webkit-box-shadow: 0px 1px 0 rgba(255, 255, 255, 0.1); box-shadow: 0px 1px 0 rgba(255, 255, 255, 0.1); }
 
-.ui-shadow-inset { -moz-box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.2); -webkit-box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.2); box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.2); }
-
-.ui-icon-shadow { -moz-box-shadow: 0px 1px 0 rgba(255, 255, 255, 0.4); -webkit-box-shadow: 0px 1px 0 rgba(255, 255, 255, 0.4); box-shadow: 0px 1px 0 rgba(255, 255, 255, 0.4); }
+.ui-shadow-inset { -moz-box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.1); -webkit-box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.1); box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.1); }
 
 /* Focus state - set here for specificity (note: these classes are added by JavaScript)
 -----------------------------------------------------------------------------------------------------------*/
 .ui-btn:focus, .ui-link-inherit:focus { outline: 0; }
 
 .ui-btn.ui-focus { z-index: 1; }
-
-.ui-focus, .ui-btn:focus { -moz-box-shadow: inset 0px 0px 3px #387bbe, 0px 0px 9px #387bbe; -webkit-box-shadow: inset 0px 0px 3px #387bbe, 0px 0px 9px #387bbe; box-shadow: inset 0px 0px 3px #387bbe, 0px 0px 9px #387bbe; }
-
-.ui-input-text.ui-focus, .ui-input-search.ui-focus { -moz-box-shadow: 0px 0px 12px #387bbe; -webkit-box-shadow: 0px 0px 12px #387bbe; box-shadow: 0px 0px 12px #387bbe; }
 
 /* unset box shadow in browsers that don't do it right
 -----------------------------------------------------------------------------------------------------------*/
@@ -862,7 +856,7 @@ body.ui-mobile-viewport, div.ui-mobile-viewport { overflow-x: hidden; }
 
 .ui-btn-icon-notext .ui-btn-inner .ui-icon { margin: 2px 1px 2px 3px; float: left; }
 
-.ui-btn-text { position: relative; z-index: 1; width: 100%; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; }
+.ui-btn-text { position: relative; z-index: 1; width: 100%; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; text-overflow: ellipsis; }
 
 .ui-btn-icon-notext .ui-btn-text { position: absolute; left: -9999px; }
 
