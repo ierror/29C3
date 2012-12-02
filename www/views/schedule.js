@@ -3,13 +3,16 @@ var scheduleView;
 
 scheduleView = {
   initialize: function(dayNode, options) {
-    var dayIndex, duration, durationHours, durationMinutes, durationSplitted, eventHref, eventID, eventNode, page, roomName, roomNode, rowspan, td, th, theadRow, _i, _j, _len, _len1, _ref, _ref1;
+    var dayIndex, duration, durationHours, durationMinutes, durationSplitted, eventHref, eventID, eventNode, page, page_id, roomName, roomNode, rowspan, td, th, theadRow, _i, _j, _len, _len1, _ref, _ref1, _results;
     dayIndex = dayNode.attr('index');
-    page = $('#schedule');
-    theadRow = page.find('thead tr');
-    theadRow.find('th[data-is-room-column=1]').remove();
-    page.find('td[data-is-event-cell=1]').remove();
+    page = $('#schedule').clone();
+    theadRow = page.find('thead tr', page);
+    page_id = "schedule#" + dayIndex;
+    page.attr('id', page_id);
+    page.attr('data-url', page_id);
+    page.attr('data-day-index', dayIndex);
     _ref = dayNode.find('room');
+    _results = [];
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       roomNode = _ref[_i];
       roomNode = $(roomNode);
@@ -30,14 +33,14 @@ scheduleView = {
         rowspan = durationHours * 4 + durationMinutes / 15;
         eventID = eventNode.attr('id');
         eventHref = '#event#' + escape(dayIndex) + '#' + escape(roomName) + '#' + escape(eventID);
-        td = $(("<td style='background-color: #d3d3d3;' rowspan='" + rowspan + "'><a href='" + eventHref + "'> ") + eventNode.find('title:first').text() + '</a></td>').attr('data-is-event-cell', 1);
+        td = $(("<td id='event-" + eventID + "' style='background-color: #d3d3d3;' rowspan='" + rowspan + "'><a href='" + eventHref + "'> ") + eventNode.find('title:first').text() + '</a></td>').attr('data-is-event-cell', 1);
         if (personalSchedule.db.contains(eventID)) {
           td.addClass('event-attend');
         }
-        $('#timeslot-' + eventNode.find('start:first').text().replace(':', '')).append(td);
+        $('.timeslot-' + eventNode.find('start:first').text().replace(':', ''), page).append(td);
       }
+      _results.push($('body').append(page));
     }
-    $.mobile.changePage(page);
-    return $("li[data-day-index=" + dayIndex + "] .link").addClass('ui-btn-active');
+    return _results;
   }
 };

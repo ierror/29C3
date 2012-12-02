@@ -59,8 +59,7 @@ PersonalScheduleView = (function() {
       _listViewLiElementTplLink.html(event.start + ': ' + event.title);
       listView.append(_listViewLiElementTpl);
     }
-    listView.listview('refresh');
-    return $.mobile.changePage(this.page);
+    return listView.listview('refresh');
   };
 
   return PersonalScheduleView;

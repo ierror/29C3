@@ -58,28 +58,26 @@ class Event
 
       @_setField(targetElement, eventText)
 
-    # set hashtag
-    hashTag = "#29C3_#{eventID}"
-    twitterElement = $('#event-twitter', @page)
-    $('.event-twitter-hashtag:first', twitterElement).html(hashTag)
-
-    ulElement = $('ul:first', twitterElement)
-    ulElement.find('.event-twitter-tweet:first').attr('href', 'tweetbot:///post?text=' + escape('  ' + hashTag) + '&callback_url=' + escape('congress2012://'))
-    ulElement.find('.event-twitter-list:first').attr('href', '#twitter#' + escape(hashTag))
-
     attendCheckbox = $('#event-attend-checkbox').checkboxradio()
     attendCheckbox.attr('data-event-id', eventID)
 
+    attendStatusChanged = false
     attendCheckbox.bind 'change', (event, ui) ->
       self = $(@)
+      attendStatusChanged = true
+      eventID = self.attr('data-event-id')
       if not self.attr('checked')
         self.removeAttr('checked').checkboxradio('refresh')
         self.parent().find('.ui-btn-text:first').html(self.attr('data-event-attend-text'))
-        personalSchedule.db.remove(self.attr('data-event-id'))
+        $("#event-#{eventID}").removeClass('event-attend')
+        personalSchedule.db.remove(eventID)
+        personalScheduleView.initialize()
       else
         self.attr('checked', 'checked').checkboxradio('refresh')
         self.parent().find('.ui-btn-text:first').html(self.attr('data-event-dontattend-text'))
-        personalSchedule.db.push(self.attr('data-event-id'))
+        $("#event-#{eventID}").addClass('event-attend')
+        personalSchedule.db.push(eventID)
+        personalScheduleView.initialize()
 
     if personalSchedule.db.contains(eventID)
       attendCheckbox.attr('checked', 'checked').checkboxradio('refresh')
@@ -87,6 +85,16 @@ class Event
     else
       attendCheckbox.removeAttr('checked').checkboxradio('refresh')
       attendCheckbox.parent().find('.ui-btn-text:first').html(attendCheckbox.attr('data-event-attend-text'))
+
+    # notes field
+    configKey = "notes-event-#{eventID}"
+    notesElm = $('.notes:first', @page)
+    notesElm.attr('data-event-id', eventID)
+    notesElm.val(userconfig.getItem(configKey, ''))
+    notesElm.keydown ->
+      userconfig.setItem(configKey, $(@).val())
+    notesElm.blur ->
+      userconfig.setItem(configKey, $(@).val())
 
     $.mobile.changePage(@page)
 

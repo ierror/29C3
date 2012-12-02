@@ -43,15 +43,15 @@ App = (function() {
       $('.tabs').append($('<div />').append(dayTab.show()).html());
       if (helper.formatDate(new Date(), 'yyyy-mm-dd') === date) {
         dayTab2Load = pageHref;
-        $(document).ready(function() {
-          $('#event-back').attr('href', dayTab2Load);
-          return $.mobile.changePage(dayTab2Load);
-        });
       }
+      scheduleView.initialize(dayNode);
     }
     if (!dayTab2Load) {
-      $('#event-back').attr('href', '#personalSchedule');
       return personalScheduleView.initialize();
+    } else {
+      return $(document).ready(function() {
+        return $.mobile.changePage(dayTab2Load);
+      });
     }
   };
 
@@ -68,7 +68,7 @@ programXML = xmlLoader.getXMLTree();
 personalSchedule = new PersonalSchedule();
 
 $(document).bind('pagebeforechange', function(e, data) {
-  var dayNode, eventNode, parsedUrl, parsedUrlHash, roomNode;
+  var dayNode, eventNode, last_active_page, page_link, parsedUrl, parsedUrlHash, roomNode;
   if (typeof data.toPage !== 'string') {
     return;
   }
@@ -77,17 +77,14 @@ $(document).bind('pagebeforechange', function(e, data) {
     return;
   }
   $('body').addClass('ui-loading');
+  $('a.tab').removeClass('ui-btn-active');
   if (/^#schedule#/.test(parsedUrl.hash)) {
-    $('li[data-day-index] .link').removeClass('ui-btn-active');
-    dayNode = $(programXML.find('day[index=' + parsedUrl.hash.split('#')[2] + ']:first'));
-    scheduleView.initialize(dayNode, data.option);
-    $('#event-back').attr('href', parsedUrl.href);
-    e.preventDefault();
+    parsedUrlHash = parsedUrl.hash.split('#');
+    dayNode = $(programXML.find('day[index=' + parsedUrlHash[2] + ']:first'));
+    page_link = "#schedule#" + parsedUrlHash[2];
+    $('body').attr('data-last-active-page', page_link);
   } else if (/^#personalSchedule$/.test(parsedUrl.hash)) {
-    $('li[data-day-index] .link').removeClass('ui-btn-active');
-    $('#event-back').attr('href', parsedUrl.href);
-    personalScheduleView.initialize();
-    e.preventDefault();
+    $('body').attr('data-last-active-page', parsedUrl.hash);
   } else if (/^#event#[0-9]+#.*#[0-9]+$/.test(parsedUrl.hash)) {
     parsedUrlHash = parsedUrl.hash.split('#');
     dayNode = $(programXML.find('day[index=' + unescape(parsedUrlHash[2]) + ']:first'));
@@ -96,7 +93,20 @@ $(document).bind('pagebeforechange', function(e, data) {
     eventView.initialize(eventNode, data.option);
     e.preventDefault();
   }
+  last_active_page = $('body').attr('data-last-active-page');
+  if (last_active_page) {
+    $("a.tab[href='" + last_active_page + "']").addClass('ui-btn-active');
+  }
   return $('body').removeClass('ui-loading');
+});
+
+$(document).bind('pagechange', function(e, data) {
+  var last_scroll_pos, pageID;
+  pageID = data.toPage.attr('data-url');
+  last_scroll_pos = userconfig.getItem("last-scroll-pos-" + pageID);
+  if (last_scroll_pos && $(window).scrollTop() !== last_scroll_pos) {
+    return $('html, body').scrollTop(last_scroll_pos);
+  }
 });
 
 $(document).on('click', '.external-link', function() {
@@ -107,6 +117,14 @@ $(document).on('click', '.external-link', function() {
 $(window).resize(function() {
   $('.ui-header').width($(window).width());
   return $('.ui-footer').width($(window).width());
+});
+
+$(window).bind('scrollstop', function() {
+  var pageID;
+  pageID = $.mobile.activePage.attr('id');
+  if (pageID !== 'event') {
+    return userconfig.setItem('last-scroll-pos-' + pageID, $(window).scrollTop());
+  }
 });
 
 app = new App();

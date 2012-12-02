@@ -46,13 +46,14 @@ class App
       # set active tab if current day is available event day
       if helper.formatDate(new Date(), 'yyyy-mm-dd') == date
         dayTab2Load = pageHref
-        $(document).ready ->
-          $('#event-back').attr('href', dayTab2Load)
-          $.mobile.changePage dayTab2Load
+
+      scheduleView.initialize(dayNode)
 
     if not dayTab2Load
-      $('#event-back').attr('href', '#personalSchedule')
       personalScheduleView.initialize()
+    else
+      $(document).ready ->
+        $.mobile.changePage dayTab2Load
 
 
 # prepare schedule xml
@@ -70,25 +71,18 @@ $(document).bind 'pagebeforechange', (e, data) ->
   return if not parsedUrl.filename == 'index.html'
 
   $('body').addClass('ui-loading')
+  $('a.tab').removeClass('ui-btn-active')
 
   if /^#schedule#/.test(parsedUrl.hash)
-    $('li[data-day-index] .link').removeClass('ui-btn-active')
-
     # determine corresponding dayNode
-    dayNode = $(programXML.find('day[index=' + parsedUrl.hash.split('#')[2] + ']:first'))
-    scheduleView.initialize(dayNode, data.option)
+    parsedUrlHash = parsedUrl.hash.split('#')
+    dayNode = $(programXML.find('day[index=' + parsedUrlHash[2] + ']:first'))
 
-    # set back link for event
-    $('#event-back').attr('href', parsedUrl.href)
-    e.preventDefault()
+    page_link = "#schedule#" + parsedUrlHash[2]
+    $('body').attr('data-last-active-page', page_link)
 
   else if /^#personalSchedule$/.test(parsedUrl.hash)
-    $('li[data-day-index] .link').removeClass('ui-btn-active')
-
-    # set back link for event
-    $('#event-back').attr('href', parsedUrl.href)
-    personalScheduleView.initialize()
-    e.preventDefault()
+    $('body').attr('data-last-active-page', parsedUrl.hash)
 
   # #event# <day-index> # <room-name> # <event-id>
   # 0  1         2            3            4
@@ -103,7 +97,17 @@ $(document).bind 'pagebeforechange', (e, data) ->
     eventView.initialize(eventNode, data.option)
     e.preventDefault()
 
+  last_active_page = $('body').attr('data-last-active-page')
+  if last_active_page
+    $("a.tab[href='#{last_active_page}']").addClass('ui-btn-active')
+
   $('body').removeClass('ui-loading')
+
+$(document).bind 'pagechange', (e, data) ->
+  pageID = data.toPage.attr('data-url')
+  last_scroll_pos = userconfig.getItem("last-scroll-pos-" + pageID)
+  if last_scroll_pos and $(window).scrollTop() != last_scroll_pos
+    $('html, body').scrollTop(last_scroll_pos)
 
 # open external links in child browser
 $(document).on 'click', '.external-link', ->
@@ -114,5 +118,11 @@ $(document).on 'click', '.external-link', ->
 $(window).resize ->
   $('.ui-header').width $(window).width()
   $('.ui-footer').width $(window).width()
+
+# remember scroll pos
+$(window).bind 'scrollstop', ->
+  pageID = $.mobile.activePage.attr('id')
+  if pageID != 'event'
+    userconfig.setItem('last-scroll-pos-' + pageID, $(window).scrollTop())
 
 app = new App()

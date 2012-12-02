@@ -58,6 +58,6 @@ class PersonalScheduleView
       listView.append(_listViewLiElementTpl)
 
     listView.listview('refresh')
-    $.mobile.changePage(@page)
+
 
 personalScheduleView = new PersonalScheduleView()
