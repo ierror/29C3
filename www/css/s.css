@@ -16,6 +16,13 @@ a { text-decoration: none; }
 
 .twitter-tweet { white-space: normal; font-size: small; }
 
+.ui-page {
+    -webkit-backface-visibility: hidden !important;
+}
+
+.header {position:fixed;z-index:10;top:0;width:100%}
+.footer {position:fixed;z-index:10;bottom:0;width:100%}
+
 .ui-li-has-thumb .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li-has-thumb { min-height: 48px; padding-left: 60px; padding-top: 0px; }
 
 /*

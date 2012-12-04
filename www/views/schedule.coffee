@@ -42,6 +42,10 @@ scheduleView =
 
         $('.timeslot-'+eventNode.find('start:first').text().replace(':', ''), page).append(td)
 
+        td.click ->
+          window.location = $(@).find('a:first').attr('href')
+          return false
+
       $('body').append(page)
 
 
