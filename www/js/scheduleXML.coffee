@@ -24,6 +24,7 @@ class ScheduleXMLLoader
           userconfig.setItem('scheduleXMLLastUpdate', currentTimestamp)
           alert 'Successfully updated schedule.xml from '+config.programXMLUrl
       catch e
+        alert e
 
   getXMLTree: ->
     xmlTree = undefined
