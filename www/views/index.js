@@ -47,9 +47,11 @@ App = (function() {
       scheduleView.initialize(dayNode);
     }
     if (!dayTab2Load) {
+      $('#event-back').attr('href', '#personalSchedule');
       return personalScheduleView.initialize();
     } else {
       return $(document).ready(function() {
+        $('#event-back').attr('href', dayTab2Load);
         return $.mobile.changePage(dayTab2Load);
       });
     }
@@ -83,10 +85,10 @@ $(document).bind('pagebeforechange', function(e, data) {
     dayNode = $(programXML.find('day[index=' + parsedUrlHash[2] + ']:first'));
     page_link = "#schedule#" + parsedUrlHash[2];
     $('body').attr('data-last-active-page', page_link);
-    $('#event-back').attr('data-rel', 'back').attr('href', '');
+    $('#event-back').attr('href', page_link);
   } else if (/^#personalSchedule$/.test(parsedUrl.hash)) {
     $('body').attr('data-last-active-page', parsedUrl.hash);
-    $('#event-back').attr('data-rel', '').attr('href', '#personalSchedule');
+    $('#event-back').attr('href', '#personalSchedule');
     personalScheduleView.initialize();
     e.preventDefault();
   } else if (/^#event#[0-9]+#.*#[0-9]+$/.test(parsedUrl.hash)) {
