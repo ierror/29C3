@@ -33,7 +33,7 @@ scheduleView = {
         rowspan = durationHours * 4 + durationMinutes / 15;
         eventID = eventNode.attr('id');
         eventHref = '#event#' + escape(dayIndex) + '#' + escape(roomName) + '#' + escape(eventID);
-        td = $(("<td id='event-" + eventID + "' style='background-color: #d3d3d3;' rowspan='" + rowspan + "'><a href='" + eventHref + "'> ") + eventNode.find('title:first').text() + '</a></td>').attr('data-is-event-cell', 1);
+        td = $(("<td id='event-" + eventID + "' class='event-cell' rowspan='" + rowspan + "'><a href='" + eventHref + "'> ") + eventNode.find('title:first').text() + '</a></td>').attr('data-is-event-cell', 1);
         if (personalSchedule.db.contains(eventID)) {
           td.addClass('event-attend');
         }

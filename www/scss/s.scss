@@ -43,4 +43,24 @@ a {
 .header {position:fixed;z-index:10;top:0;width:100%}
 .footer {position:fixed;z-index:10;bottom:0;width:100%}
 
-@import "_jquery-mobile.scss";
+@import "_jquery-mobile_29c3.scss";
+
+.event-cell {
+  background-color: $yellow;
+  padding: 4px;
+  vertical-align: top;
+}
+
+.ui-body-c {
+  .event-cell a {
+    display: block;
+    color: $black;
+    width: 100%;
+    height: 100%;
+  }
+
+  .event-cell.event-attend {
+    background-color: $magenta;
+  }
+
+}
