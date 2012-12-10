@@ -30,7 +30,7 @@ ScheduleXMLLoader = (function() {
           return alert('Successfully updated schedule.xml from ' + config.programXMLUrl);
         });
       } catch (e) {
-        return alert(e);
+
       }
     }
   };
