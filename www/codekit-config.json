@@ -136,6 +136,7 @@
       "initialSize" : 489604,
       "fileType" : 8192
     },
+<<<<<<< HEAD
     "\/res\/screen\/android_hdpi_portrait.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -147,6 +148,8 @@
       "initialSize" : 222148,
       "fileType" : 8192
     },
+=======
+>>>>>>> development
     "\/scss\/_jquery-mobile.scss" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -170,6 +173,20 @@
       "outputAbbreviatedPath" : "\/lib\/js\/cordova-2.1.0-Android-ck.js",
       "fileType" : 64
     },
+<<<<<<< HEAD
+=======
+    "\/res\/screen\/android_hdpi_portrait.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/res\/screen\/android_hdpi_portrait.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/res\/screen\/android_hdpi_portrait.png",
+      "initialSize" : 222148,
+      "fileType" : 8192
+    },
+>>>>>>> development
     "\/res\/screen\/android_ldpi_portrait.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -429,6 +446,18 @@
       "outputAbbreviatedPath" : "\/lib\/js\/oauth-ck.js",
       "fileType" : 64
     },
+<<<<<<< HEAD
+=======
+    "\/css\/s.css" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/css\/s.css",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 16
+    },
+>>>>>>> development
     "\/res\/icon\/cordova_32.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -440,6 +469,7 @@
       "initialSize" : 2843,
       "fileType" : 8192
     },
+<<<<<<< HEAD
     "\/css\/s.css" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -449,6 +479,8 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
     },
+=======
+>>>>>>> development
     "\/index.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -603,6 +635,7 @@
       "initialSize" : 3611,
       "fileType" : 8192
     },
+<<<<<<< HEAD
     "\/scss\/_jquery-mobile_29c3.scss" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -615,6 +648,8 @@
       "fileType" : 4,
       "debugStyle" : 0
     },
+=======
+>>>>>>> development
     "\/childbrowser\/icon_close.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
