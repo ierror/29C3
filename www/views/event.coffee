@@ -57,7 +57,7 @@ class Event
         else
           eventText = eventField.text()
 
-        # <links> handling
+      # <links> handling
       else
         # if there is a <ul> element defined within the target element,
         # fill it by li elements
@@ -100,16 +100,6 @@ class Event
     else
       attendCheckbox.removeAttr('checked').checkboxradio('refresh')
       attendCheckbox.parent().find('.ui-btn-text:first').html(attendCheckbox.attr('data-event-attend-text'))
-
-    # notes field
-    configKey = "notes-event-#{eventID}"
-    notesElm = $('.notes:first', @page)
-    notesElm.attr('data-event-id', eventID)
-    notesElm.val(userconfig.getItem(configKey, ''))
-    notesElm.keydown ->
-      userconfig.setItem(configKey, $(@).val())
-    notesElm.blur ->
-      userconfig.setItem(configKey, $(@).val())
 
     $.mobile.changePage(@page)
 
