@@ -319,7 +319,6 @@
 }
 
 .ui-btn-up-c {
-  border: 1px solid $black /*{c-bup-border}*/;
   background: $black /*{c-bup-background-color}*/;
   font-weight: bold;
   color: #ffffff /*{c-bup-color}*/;
@@ -755,64 +754,6 @@ only screen and (min-resolution: 240dpi) {
 
 /* Button corner classes
 -----------------------------------------------------------------------------------------------------------*/
-
-.ui-btn-corner-tl {
-  -moz-border-radius-topleft: 0.1em /*{global-radii-buttons}*/;
-  -webkit-border-top-left-radius: 0.1em /*{global-radii-buttons}*/;
-  border-top-left-radius: 0.1em /*{global-radii-buttons}*/;
-}
-.ui-btn-corner-tr {
-  -moz-border-radius-topright: 0.1em /*{global-radii-buttons}*/;
-  -webkit-border-top-right-radius: 0.1em /*{global-radii-buttons}*/;
-  border-top-right-radius: 0.1em /*{global-radii-buttons}*/;
-}
-.ui-btn-corner-bl {
-  -moz-border-radius-bottomleft: 0.1em /*{global-radii-buttons}*/;
-  -webkit-border-bottom-left-radius: 0.1em /*{global-radii-buttons}*/;
-  border-bottom-left-radius: 0.1em /*{global-radii-buttons}*/;
-}
-.ui-btn-corner-br {
-  -moz-border-radius-bottomright: 0.1em /*{global-radii-buttons}*/;
-  -webkit-border-bottom-right-radius: 0.1em /*{global-radii-buttons}*/;
-  border-bottom-right-radius: 0.1em /*{global-radii-buttons}*/;
-}
-.ui-btn-corner-top {
-  -moz-border-radius-topleft: 0.1em /*{global-radii-buttons}*/;
-  -webkit-border-top-left-radius: 0.1em /*{global-radii-buttons}*/;
-  border-top-left-radius: 0.1em /*{global-radii-buttons}*/;
-  -moz-border-radius-topright: 0.1em /*{global-radii-buttons}*/;
-  -webkit-border-top-right-radius: 0.1em /*{global-radii-buttons}*/;
-  border-top-right-radius: 0.1em /*{global-radii-buttons}*/;
-}
-.ui-btn-corner-bottom {
-  -moz-border-radius-bottomleft: 0.1em /*{global-radii-buttons}*/;
-  -webkit-border-bottom-left-radius: 0.1em /*{global-radii-buttons}*/;
-  border-bottom-left-radius: 0.1em /*{global-radii-buttons}*/;
-  -moz-border-radius-bottomright: 0.1em /*{global-radii-buttons}*/;
-  -webkit-border-bottom-right-radius: 0.1em /*{global-radii-buttons}*/;
-  border-bottom-right-radius: 0.1em /*{global-radii-buttons}*/;
-}
-.ui-btn-corner-right {
-  -moz-border-radius-topright: 0.1em /*{global-radii-buttons}*/;
-  -webkit-border-top-right-radius: 0.1em /*{global-radii-buttons}*/;
-  border-top-right-radius: 0.1em /*{global-radii-buttons}*/;
-  -moz-border-radius-bottomright: 0.1em /*{global-radii-buttons}*/;
-  -webkit-border-bottom-right-radius: 0.1em /*{global-radii-buttons}*/;
-  border-bottom-right-radius: 0.1em /*{global-radii-buttons}*/;
-}
-.ui-btn-corner-left {
-  -moz-border-radius-topleft: 0.1em /*{global-radii-buttons}*/;
-  -webkit-border-top-left-radius: 0.1em /*{global-radii-buttons}*/;
-  border-top-left-radius: 0.1em /*{global-radii-buttons}*/;
-  -moz-border-radius-bottomleft: 0.1em /*{global-radii-buttons}*/;
-  -webkit-border-bottom-left-radius: 0.1em /*{global-radii-buttons}*/;
-  border-bottom-left-radius: 0.1em /*{global-radii-buttons}*/;
-}
-.ui-btn-corner-all {
-  -moz-border-radius: 0.1em /*{global-radii-buttons}*/;
-  -webkit-border-radius: 0.1em /*{global-radii-buttons}*/;
-  border-radius: 0.1em /*{global-radii-buttons}*/;
-}
 
 /* radius clip workaround for cleaning up corner trapping */
 .ui-corner-tl,

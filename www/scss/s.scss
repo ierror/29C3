@@ -48,15 +48,40 @@ a {
 }
 
 .ui-body-c {
-  .event-cell a {
-    display: block;
-    color: $black;
-    width: 100%;
-    height: 100%;
+  .event-cell {
+    a,
+    a:hover,
+    a:visited {
+      display: block;
+      color: $black;
+      width: 100%;
+      height: 100%;
+    }
   }
 
   .event-cell.event-attend {
-    background-color: $magenta;
+    background-color: $green;
   }
 
+}
+
+.ui-navbar .ui-btn-active {
+  color: $black;
+}
+
+.ui-checkbox {
+  .ui-btn-icon-left .ui-btn-inner {
+  }
+  .ui-btn-up-c {
+    background: $yellow;
+    border: none;
+    font-weight: normal;
+    color: $black;
+  }
+  &.attended {
+    .ui-btn-up-c,
+    .ui-btn-up-c:hover {
+      background: $green;
+    }
+  }
 }

@@ -158,7 +158,7 @@ a { text-decoration: none; }
 
 .ui-body-c .ui-link:active { color: #2489ce; }
 
-.ui-btn-up-c { border: 1px solid #000532; background: #000532; font-weight: bold; color: white; }
+.ui-btn-up-c { background: #000532; font-weight: bold; color: white; }
 
 .ui-btn-up-c:visited, .ui-btn-up-c a.ui-link-inherit { color: white; }
 
@@ -337,24 +337,6 @@ a.ui-link-inherit { text-decoration: none !important; }
 
 /* Button corner classes
 -----------------------------------------------------------------------------------------------------------*/
-.ui-btn-corner-tl { -moz-border-radius-topleft: 0.1em; -webkit-border-top-left-radius: 0.1em; border-top-left-radius: 0.1em; }
-
-.ui-btn-corner-tr { -moz-border-radius-topright: 0.1em; -webkit-border-top-right-radius: 0.1em; border-top-right-radius: 0.1em; }
-
-.ui-btn-corner-bl { -moz-border-radius-bottomleft: 0.1em; -webkit-border-bottom-left-radius: 0.1em; border-bottom-left-radius: 0.1em; }
-
-.ui-btn-corner-br { -moz-border-radius-bottomright: 0.1em; -webkit-border-bottom-right-radius: 0.1em; border-bottom-right-radius: 0.1em; }
-
-.ui-btn-corner-top { -moz-border-radius-topleft: 0.1em; -webkit-border-top-left-radius: 0.1em; border-top-left-radius: 0.1em; -moz-border-radius-topright: 0.1em; -webkit-border-top-right-radius: 0.1em; border-top-right-radius: 0.1em; }
-
-.ui-btn-corner-bottom { -moz-border-radius-bottomleft: 0.1em; -webkit-border-bottom-left-radius: 0.1em; border-bottom-left-radius: 0.1em; -moz-border-radius-bottomright: 0.1em; -webkit-border-bottom-right-radius: 0.1em; border-bottom-right-radius: 0.1em; }
-
-.ui-btn-corner-right { -moz-border-radius-topright: 0.1em; -webkit-border-top-right-radius: 0.1em; border-top-right-radius: 0.1em; -moz-border-radius-bottomright: 0.1em; -webkit-border-bottom-right-radius: 0.1em; border-bottom-right-radius: 0.1em; }
-
-.ui-btn-corner-left { -moz-border-radius-topleft: 0.1em; -webkit-border-top-left-radius: 0.1em; border-top-left-radius: 0.1em; -moz-border-radius-bottomleft: 0.1em; -webkit-border-bottom-left-radius: 0.1em; border-bottom-left-radius: 0.1em; }
-
-.ui-btn-corner-all { -moz-border-radius: 0.1em; -webkit-border-radius: 0.1em; border-radius: 0.1em; }
-
 /* radius clip workaround for cleaning up corner trapping */
 .ui-corner-tl, .ui-corner-tr, .ui-corner-bl, .ui-corner-br, .ui-corner-top, .ui-corner-bottom, .ui-corner-right, .ui-corner-left, .ui-corner-all, .ui-btn-corner-tl, .ui-btn-corner-tr, .ui-btn-corner-bl, .ui-btn-corner-br, .ui-btn-corner-top, .ui-btn-corner-bottom, .ui-btn-corner-right, .ui-btn-corner-left, .ui-btn-corner-all { -webkit-background-clip: padding-box; -moz-background-clip: padding; background-clip: padding-box; }
 
@@ -1384,5 +1366,10 @@ span.ui-slider-label-b { z-index: 0; right: 0; text-indent: 1.5em; }
 
 .event-cell { background-color: #f79433; padding: 4px; vertical-align: top; }
 
-.ui-body-c .event-cell a { display: block; color: #000532; width: 100%; height: 100%; }
-.ui-body-c .event-cell.event-attend { background-color: #ed1a3b; }
+.ui-body-c .event-cell a, .ui-body-c .event-cell a:hover, .ui-body-c .event-cell a:visited { display: block; color: #000532; width: 100%; height: 100%; }
+.ui-body-c .event-cell.event-attend { background-color: #00b26b; }
+
+.ui-navbar .ui-btn-active { color: #000532; }
+
+.ui-checkbox .ui-btn-up-c { background: #f79433; border: none; font-weight: normal; color: #000532; }
+.ui-checkbox.attended .ui-btn-up-c, .ui-checkbox.attended .ui-btn-up-c:hover { background: #00b26b; }

@@ -79,11 +79,13 @@ Event = (function() {
       if (!self.attr('checked')) {
         self.removeAttr('checked').checkboxradio('refresh');
         self.parent().find('.ui-btn-text:first').html(self.attr('data-event-attend-text'));
+        self.parent().toggleClass('attended');
         $("#event-" + eventID).removeClass('event-attend');
         return personalSchedule.db.remove(eventID);
       } else {
         self.attr('checked', 'checked').checkboxradio('refresh');
         self.parent().find('.ui-btn-text:first').html(self.attr('data-event-dontattend-text'));
+        self.parent().toggleClass('attended');
         $("#event-" + eventID).addClass('event-attend');
         return personalSchedule.db.push(eventID);
       }
