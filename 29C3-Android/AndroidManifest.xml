@@ -20,11 +20,11 @@
 
     <application
         android:icon="@drawable/ic_launcher"
-        android:label="29C3"
+        android:label="29C3 TT"
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="29C3" 
+            android:label="29C3 TT"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,7 +32,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>            
         </activity>
-		<activity android:name="com.phonegap.DroidGap" android:label="29C3">
+		<activity android:name="com.phonegap.DroidGap" android:label="29C3 TT">
 			<intent-filter>
 			</intent-filter>
 		</activity>
