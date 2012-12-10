@@ -14,8 +14,6 @@ a { text-decoration: none; }
 
 .tpl { display: none; }
 
-.event-attend { text-decoration: underline; }
-
 .twitter-tweet { white-space: normal; font-size: small; }
 
 .ui-li-has-thumb .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li-has-thumb { min-height: 48px; padding-left: 60px; padding-top: 0px; }
@@ -50,13 +48,13 @@ a { text-decoration: none; }
 
 .ui-bar-a a.ui-link:active { color: #2489ce; }
 
-.ui-bar-a, .ui-bar-a input, .ui-bar-a select, .ui-bar-a textarea, .ui-bar-a button { font-family: Source Code Pro; }
+.ui-bar-a, .ui-bar-a input, .ui-bar-a select, .ui-bar-a textarea, .ui-bar-a button { font-family: SourceCodePro; }
 
 .ui-body-a, .ui-overlay-a { border: 1px solid #010319; color: white; background: #000532; }
 
 .ui-overlay-a { background-image: none; border-width: 0; }
 
-.ui-body-a, .ui-body-a input, .ui-body-a select, .ui-body-a textarea, .ui-body-a button { font-family: Source Code Pro; }
+.ui-body-a, .ui-body-a input, .ui-body-a select, .ui-body-a textarea, .ui-body-a button { font-family: SourceCodePro; }
 
 .ui-body-a .ui-link-inherit { color: white; }
 
@@ -80,7 +78,7 @@ a { text-decoration: none; }
 
 .ui-btn-down-a:visited, .ui-btn-down-a:hover, .ui-btn-down-a a.ui-link-inherit { color: #000532; }
 
-.ui-btn-up-a, .ui-btn-hover-a, .ui-btn-down-a { font-family: Source Code Pro; text-decoration: none; }
+.ui-btn-up-a, .ui-btn-hover-a, .ui-btn-down-a { font-family: SourceCodePro; text-decoration: none; }
 
 /* B
 -----------------------------------------------------------------------------------------------------------*/
@@ -96,13 +94,13 @@ a { text-decoration: none; }
 
 .ui-bar-b a.ui-link:active { color: #2489ce; }
 
-.ui-bar-b, .ui-bar-b input, .ui-bar-b select, .ui-bar-b textarea, .ui-bar-b button { font-family: Source Code Pro; }
+.ui-bar-b, .ui-bar-b input, .ui-bar-b select, .ui-bar-b textarea, .ui-bar-b button { font-family: SourceCodePro; }
 
 .ui-body-b, .ui-overlay-b { border: 1px solid #010319; color: white; background: #000532; }
 
 .ui-overlay-b { background-image: none; border-width: 0; }
 
-.ui-body-b, .ui-body-b input, .ui-body-b select, .ui-body-b textarea, .ui-body-b button { font-family: Source Code Pro; }
+.ui-body-b, .ui-body-b input, .ui-body-b select, .ui-body-b textarea, .ui-body-b button { font-family: SourceCodePro; }
 
 .ui-body-b .ui-link-inherit { color: white; }
 
@@ -126,7 +124,7 @@ a { text-decoration: none; }
 
 .ui-btn-down-b:visited, .ui-btn-down-b:hover, .ui-btn-down-b a.ui-link-inherit { color: #000532; }
 
-.ui-btn-up-b, .ui-btn-hover-b, .ui-btn-down-b { font-family: Source Code Pro; text-decoration: none; }
+.ui-btn-up-b, .ui-btn-hover-b, .ui-btn-down-b { font-family: SourceCodePro; text-decoration: none; }
 
 /* C
 -----------------------------------------------------------------------------------------------------------*/
@@ -142,13 +140,13 @@ a { text-decoration: none; }
 
 .ui-bar-c a.ui-link:active { color: #2489ce; }
 
-.ui-bar-c, .ui-bar-c input, .ui-bar-c select, .ui-bar-c textarea, .ui-bar-c button { font-family: Source Code Pro; }
+.ui-bar-c, .ui-bar-c input, .ui-bar-c select, .ui-bar-c textarea, .ui-bar-c button { font-family: SourceCodePro; }
 
 .ui-body-c, .ui-overlay-c { border: 1px solid #010319; color: white; background: #000532; }
 
 .ui-overlay-c { background-image: none; border-width: 0; }
 
-.ui-body-c, .ui-body-c input, .ui-body-c select, .ui-body-c textarea, .ui-body-c button { font-family: Source Code Pro; }
+.ui-body-c, .ui-body-c input, .ui-body-c select, .ui-body-c textarea, .ui-body-c button { font-family: SourceCodePro; }
 
 .ui-body-c .ui-link-inherit { color: white; }
 
@@ -172,7 +170,7 @@ a { text-decoration: none; }
 
 .ui-btn-down-c:visited, .ui-btn-down-c:hover, .ui-btn-down-c a.ui-link-inherit { color: #000532; }
 
-.ui-btn-up-c, .ui-btn-hover-c, .ui-btn-down-c { font-family: Source Code Pro; text-decoration: none; }
+.ui-btn-up-c, .ui-btn-hover-c, .ui-btn-down-c { font-family: SourceCodePro; text-decoration: none; }
 
 /* D
 -----------------------------------------------------------------------------------------------------------*/
@@ -188,13 +186,13 @@ a { text-decoration: none; }
 
 .ui-bar-d a.ui-link:active { color: #2489ce; }
 
-.ui-bar-d, .ui-bar-d input, .ui-bar-d select, .ui-bar-d textarea, .ui-bar-d button { font-family: Source Code Pro; }
+.ui-bar-d, .ui-bar-d input, .ui-bar-d select, .ui-bar-d textarea, .ui-bar-d button { font-family: SourceCodePro; }
 
 .ui-body-d, .ui-overlay-d { border: 1px solid #010319; color: white; background: #000532; }
 
 .ui-overlay-d { background-image: none; border-width: 0; }
 
-.ui-body-d, .ui-body-d input, .ui-body-d select, .ui-body-d textarea, .ui-body-d button { font-family: Source Code Pro; }
+.ui-body-d, .ui-body-d input, .ui-body-d select, .ui-body-d textarea, .ui-body-d button { font-family: SourceCodePro; }
 
 .ui-body-d .ui-link-inherit { color: white; }
 
@@ -218,7 +216,7 @@ a { text-decoration: none; }
 
 .ui-btn-down-d:visited, .ui-btn-down-d:hover, .ui-btn-down-d a.ui-link-inherit { color: #000532; }
 
-.ui-btn-up-d, .ui-btn-hover-d, .ui-btn-down-d { font-family: Source Code Pro; text-decoration: none; }
+.ui-btn-up-d, .ui-btn-hover-d, .ui-btn-down-d { font-family: SourceCodePro; text-decoration: none; }
 
 /* Structure */
 /* links within "buttons" 
@@ -227,7 +225,7 @@ a.ui-link-inherit { text-decoration: none !important; }
 
 /* Active class used as the "on" state across all themes
 -----------------------------------------------------------------------------------------------------------*/
-.ui-btn-active { border: 1px solid #f79433; background: #f79433; font-weight: bold; color: white; cursor: pointer; text-decoration: none; font-family: Source Code Pro; }
+.ui-btn-active { border: 1px solid #f79433; background: #f79433; font-weight: bold; color: white; cursor: pointer; text-decoration: none; font-family: SourceCodePro; }
 
 .ui-btn-active:visited, .ui-btn-active:hover, .ui-btn-active a.ui-link-inherit { color: white; }
 
