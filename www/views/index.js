@@ -83,8 +83,12 @@ $(document).bind('pagebeforechange', function(e, data) {
     dayNode = $(programXML.find('day[index=' + parsedUrlHash[2] + ']:first'));
     page_link = "#schedule#" + parsedUrlHash[2];
     $('body').attr('data-last-active-page', page_link);
+    $('#event-back').attr('data-rel', 'back').attr('href', '');
   } else if (/^#personalSchedule$/.test(parsedUrl.hash)) {
     $('body').attr('data-last-active-page', parsedUrl.hash);
+    $('#event-back').attr('data-rel', '').attr('href', '#personalSchedule');
+    personalScheduleView.initialize();
+    e.preventDefault();
   } else if (/^#event#[0-9]+#.*#[0-9]+$/.test(parsedUrl.hash)) {
     parsedUrlHash = parsedUrl.hash.split('#');
     dayNode = $(programXML.find('day[index=' + unescape(parsedUrlHash[2]) + ']:first'));
@@ -100,12 +104,15 @@ $(document).bind('pagebeforechange', function(e, data) {
   return $('body').removeClass('ui-loading');
 });
 
-$(document).bind('pagechange', function(e, data) {
-  var last_scroll_pos, pageID;
-  pageID = data.toPage.attr('data-url');
+$('div[data-role="page"]').live('pageshow', function() {
+  var last_scroll_pos, page, pageID;
+  page = $(this);
+  pageID = page.attr('id');
   last_scroll_pos = userconfig.getItem("last-scroll-pos-" + pageID);
   if (last_scroll_pos && $(window).scrollTop() !== last_scroll_pos) {
-    return $('html, body').scrollTop(last_scroll_pos);
+    return $('html, body').animate({
+      scrollTop: last_scroll_pos
+    }, 'fast');
   }
 });
 
@@ -126,5 +133,7 @@ $(window).bind('scrollstop', function() {
     return userconfig.setItem('last-scroll-pos-' + pageID, $(window).scrollTop());
   }
 });
+
+$.mobile.defaultPageTransition = 'none';
 
 app = new App();

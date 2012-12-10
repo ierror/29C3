@@ -38,6 +38,10 @@ scheduleView = {
           td.addClass('event-attend');
         }
         $('.timeslot-' + eventNode.find('start:first').text().replace(':', ''), page).append(td);
+        td.click(function() {
+          window.location = $(this).find('a:first').attr('href');
+          return false;
+        });
       }
       _results.push($('body').append(page));
     }

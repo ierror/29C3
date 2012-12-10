@@ -80,14 +80,12 @@ Event = (function() {
         self.removeAttr('checked').checkboxradio('refresh');
         self.parent().find('.ui-btn-text:first').html(self.attr('data-event-attend-text'));
         $("#event-" + eventID).removeClass('event-attend');
-        personalSchedule.db.remove(eventID);
-        return personalScheduleView.initialize();
+        return personalSchedule.db.remove(eventID);
       } else {
         self.attr('checked', 'checked').checkboxradio('refresh');
         self.parent().find('.ui-btn-text:first').html(self.attr('data-event-dontattend-text'));
         $("#event-" + eventID).addClass('event-attend');
-        personalSchedule.db.push(eventID);
-        return personalScheduleView.initialize();
+        return personalSchedule.db.push(eventID);
       }
     });
     if (personalSchedule.db.contains(eventID)) {

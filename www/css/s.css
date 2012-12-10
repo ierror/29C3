@@ -18,6 +18,12 @@ a { text-decoration: none; }
 
 .ui-li-has-thumb .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li-has-thumb { min-height: 48px; padding-left: 60px; padding-top: 0px; }
 
+.ui-page { -webkit-backface-visibility: hidden !important; }
+
+.header { position: fixed; z-index: 10; top: 0; width: 100%; }
+
+.footer { position: fixed; z-index: 10; bottom: 0; width: 100%; }
+
 /*
 * jQuery Mobile Framework Git Build: SHA1: 4db80a84ac443e4037a3b90a6f92dc2c6872f45c <> Date: Wed Aug 1 18:05:42 2012 +0200
 * http://jquerymobile.com
