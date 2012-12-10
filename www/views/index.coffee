@@ -80,9 +80,13 @@ $(document).bind 'pagebeforechange', (e, data) ->
 
     page_link = "#schedule#" + parsedUrlHash[2]
     $('body').attr('data-last-active-page', page_link)
+    $('#event-back').attr('data-rel', 'back').attr('href', '')
 
   else if /^#personalSchedule$/.test(parsedUrl.hash)
     $('body').attr('data-last-active-page', parsedUrl.hash)
+    $('#event-back').attr('data-rel', '').attr('href', '#personalSchedule')
+    personalScheduleView.initialize()
+    e.preventDefault()
 
   # #event# <day-index> # <room-name> # <event-id>
   # 0  1         2            3            4
@@ -103,11 +107,12 @@ $(document).bind 'pagebeforechange', (e, data) ->
 
   $('body').removeClass('ui-loading')
 
-$(document).bind 'pagechange', (e, data) ->
-  pageID = data.toPage.attr('data-url')
-  last_scroll_pos = userconfig.getItem("last-scroll-pos-" + pageID)
+$('div[data-role="page"]').live 'pageshow', ->
+  page = $(@)
+  pageID = page.attr('id')
+  last_scroll_pos = userconfig.getItem("last-scroll-pos-#{pageID}")
   if last_scroll_pos and $(window).scrollTop() != last_scroll_pos
-    $('html, body').scrollTop(last_scroll_pos)
+    $('html, body').animate({ scrollTop: last_scroll_pos }, 'fast')
 
 # open external links in child browser
 $(document).on 'click', '.external-link', ->
@@ -124,5 +129,7 @@ $(window).bind 'scrollstop', ->
   pageID = $.mobile.activePage.attr('id')
   if pageID != 'event'
     userconfig.setItem('last-scroll-pos-' + pageID, $(window).scrollTop())
+
+$.mobile.defaultPageTransition = 'none'
 
 app = new App()

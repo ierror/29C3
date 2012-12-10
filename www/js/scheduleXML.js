@@ -25,27 +25,25 @@ ScheduleXMLLoader = (function() {
     if (!lastUpdateTimestamp || (currentTimestamp - lastUpdateTimestamp > 10800)) {
       try {
         return this.loadFromServer(config.programXMLUrl, function(programXML) {
-          $($.parseXML(programXML));
           userconfig.setItem('programXML', programXML);
           userconfig.setItem('scheduleXMLLastUpdate', currentTimestamp);
           return alert('Successfully updated schedule.xml from ' + config.programXMLUrl);
         });
       } catch (e) {
-
+        return alert(e);
       }
     }
   };
 
   ScheduleXMLLoader.prototype.getXMLTree = function() {
-    var programXML, xmlTree;
-    programXML = userconfig.getItem('programXML');
+    var xmlTree;
     xmlTree = void 0;
-    if (!programXML) {
+    try {
+      xmlTree = $($.parseXML(userconfig.getItem('programXML', 'invalid')));
+    } catch (e) {
       this.loadFromServer('schedule.xml', function(programXML) {
         return xmlTree = $($.parseXML(programXML));
       });
-    } else {
-      xmlTree = $($.parseXML(programXML));
     }
     return xmlTree;
   };

@@ -4,6 +4,7 @@ body {
     background-color: #000532;
     color: $yellow;
 	font-family: $base-font-family;
+    font-weight: normal;
 	font-size: 12px;
 	line-height: 16px;
 }
@@ -35,5 +36,11 @@ a {
     padding-top: 0px;
 }
 
+.ui-page {
+  -webkit-backface-visibility: hidden !important;
+}
+
+.header {position:fixed;z-index:10;top:0;width:100%}
+.footer {position:fixed;z-index:10;bottom:0;width:100%}
 
 @import "_jquery-mobile.scss";

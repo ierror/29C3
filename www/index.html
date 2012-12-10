@@ -7,7 +7,7 @@
     <meta name='apple-mobile-web-app-status-bar-style' content='black'>
     <meta name='viewport' content='user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width;'/>
     <link rel='stylesheet' type='text/css' href='css/s.css'/>
-    <script src="http://localhost:8080/target/target-script-min.js"></script>
+    <script src="http://localhost:8080/target/target-script-min.js#29c3"></script>
     <title>29C3</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
 <div data-role='page' id='personalSchedule'>
     <div data-role='header' data-position='fixed' data-tap-toggle='false'>
         <h1>Personal schedule</h1>
-        <a href='#info' data-icon='info'>info</a>
+        <!-- <a href='#info' data-icon='info'>info</a> -->
     </div>
 
     <div data-role='content'>
@@ -43,61 +43,39 @@
 <div data-role='page' id='event'>
     <div data-role='header' data-position='fixed' data-tap-toggle='false'>
         <h1>Event</h1>
-        <a data-rel="back" data-icon='back'>Back</a>
+        <a id="event-back" data-rel="back" data-icon='back'>Back</a>
     </div>
 
     <div data-role='content'>
+        <div id='event-persons' data-is-event-field='true'></div>
         <h3 id='event-title' data-is-event-field='true'></h3>
+        <h4 id='event-subtitle' data-is-event-field='true'></h4>
 
         <label>
             <input id='event-attend-checkbox' type='checkbox'
-                data-event-dontattend-text="I don't planning to visit this event!"
-                data-event-attend-text="I'm planning to visit this event!" />
+                data-event-dontattend-text="Not on personal schedule"
+                data-event-attend-text="On personal schedule" />
         </label>
 
-        <table>
-            <tr>
-                <td>Subtitle:</td>
-                <td id='event-subtitle' data-is-event-field='true'></td>
-            </tr>
-            <tr>
-                <td>Start:</td>
-                <td id='event-start' data-is-event-field='true'></td>
-            </tr>
-            <tr>
-                <td>Duration:</td>
-                <td id='event-duration' data-is-event-field='true'></td>
-            </tr>
-            <tr>
-                <td>Speaker:</td>
-                <td id='event-persons' data-is-event-field='true'></td>
-            </tr>
-            <tr>
-                <td>Language:</td>
-                <td id='event-language' data-is-event-field='true'></td>
-            </tr>
-            <tr>
-                <td>Track:</td>
-                <td id='event-track' data-is-event-field='true'></td>
-            </tr>
-            <tr>
-                <td>Type:</td>
-                <td id='event-type' data-is-event-field='true'></td>
-            </tr>
-        </table>
+        <div id='event-start' data-is-event-field='true'></div>
+        <div id='event-duration' data-is-event-field='true'></div>
 
-        <h4>Links:</h4>
+        <div id='event-language' data-is-event-field='true'></div>
+        <div id='event-track' data-is-event-field='true'></div>
+        <div id='event-type' data-is-event-field='true'></div>
+
+        <h4>Abstract</h4>
+        <div id='event-abstract' data-is-event-field='true'></div>
+
+        <h4>Description</h4>
+        <div id='event-description' data-is-event-field='true'></div>
+
+        <h4>Links</h4>
         <ul id='event-links' data-is-event-field='true'>
             <li class='tpl'>
                 <a href='' class='external-link'></a>
             </li>
         </ul>
-
-        <h4>Abstract:</h4>
-        <div id='event-abstract' data-is-event-field='true'></div>
-
-        <h4>Description:</h4>
-        <div id='event-description' data-is-event-field='true'></div>
 
         <h4>Notes</h4>
         <textarea class="notes" style="height: 200px;"></textarea>
