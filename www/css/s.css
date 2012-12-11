@@ -1190,7 +1190,7 @@ textarea.ui-input-text { height: 50px; -webkit-transition: height 200ms linear; 
 
 .ui-input-search .ui-input-clear-hidden { display: none; }
 
-input.ui-mini, .ui-mini input, textarea.ui-mini { font-size: 14px; }
+input.ui-mini, .ui-mini input, textarea.ui-mini { font-size: 12px; }
 
 textarea.ui-mini { height: 45px; }
 
@@ -1218,7 +1218,7 @@ ol.ui-listview, ol.ui-listview .ui-li-divider { counter-reset: listnumbering; }
 
 .ui-li-static { background-image: none; }
 
-.ui-li-divider { padding: .5em 15px; font-size: 14px; font-weight: bold; }
+.ui-li-divider { padding: .5em 15px; font-size: 12px; font-weight: bold; }
 
 ol.ui-listview .ui-link-inherit:before, ol.ui-listview .ui-li-static:before, .ui-li-dec { font-size: .8em; display: inline-block; padding-right: .3em; font-weight: normal; counter-increment: listnumbering; content: counter(listnumbering) ". "; }
 
@@ -1308,7 +1308,7 @@ label.ui-slider { font-size: 12px; line-height: 1.4; font-weight: normal; margin
 
 input.ui-slider-input, .ui-field-contain input.ui-slider-input { display: inline-block; width: 50px; background-image: none; padding: .4em; margin: .5em 0; line-height: 1.4; font-size: 12px; outline: 0; }
 
-input.ui-slider-input.ui-mini, .ui-field-contain input.ui-slider-input.ui-mini { width: 45px; margin: .25em 0; font-size: 14px; }
+input.ui-slider-input.ui-mini, .ui-field-contain input.ui-slider-input.ui-mini { width: 45px; margin: .25em 0; font-size: 12px; }
 
 .ui-field-contain input.ui-slider-input { margin: 0; }
 
@@ -1352,7 +1352,7 @@ div.ui-slider-switch.ui-slider-mini a.ui-slider-handle .ui-btn-inner { height: 3
 
 span.ui-slider-label { position: absolute; text-align: center; width: 100%; overflow: hidden; font-size: 12px; top: 0; line-height: 2; min-height: 100%; border-width: 0; white-space: nowrap; }
 
-.ui-slider-mini span.ui-slider-label { font-size: 14px; }
+.ui-slider-mini span.ui-slider-label { font-size: 12px; }
 
 span.ui-slider-label-a { z-index: 1; left: 0; text-indent: -1.5em; }
 
@@ -1367,6 +1367,8 @@ span.ui-slider-label-b { z-index: 0; right: 0; text-indent: 1.5em; }
 
 .ui-navbar .ui-btn-active { color: #000532; }
 
+.ui-checkbox .ui-btn-icon-left .ui-btn-inner { border: none; padding-left: 10px; }
+.ui-checkbox .ui-btn-icon-left .ui-btn-inner .ui-icon { display: none; }
 .ui-checkbox .ui-btn-up-c { background: #f79433; border: none; font-weight: normal; color: #000532; }
 .ui-checkbox.attended .ui-btn-up-c, .ui-checkbox.attended .ui-btn-up-c:hover { background: #00b26b; }
 
@@ -1375,3 +1377,7 @@ span.ui-slider-label-b { z-index: 0; right: 0; text-indent: 1.5em; }
 
 .ui-header .ui-btn, .ui-header .ui-btn-inner { border: none; color: #f79433; text-decoration: underline; padding-left: 0; }
 .ui-header .ui-btn-inner .ui-icon { display: none; }
+
+h3 { font-size: 12px; font-weight: bolder; }
+
+#event-links { margin-left: 0; padding-left: 12px; }
