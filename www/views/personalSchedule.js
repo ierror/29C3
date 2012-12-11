@@ -14,10 +14,11 @@ PersonalScheduleView = (function() {
   };
 
   PersonalScheduleView.prototype.initialize = function(eventNode, options) {
-    var contentDiv, date, dateSplitted, dayNode, event, eventDateKey, eventID, eventsSorted, headerContent, lastHeaderContent, listView, listViewLiElementTpl, listViewLiHeaderTpl, roomNode, start, _i, _j, _len, _len1, _listViewLiElementTpl, _listViewLiElementTplLink, _listViewLiHeaderTpl, _ref, _ref1;
+    var contentDiv, counter, date, dateSplitted, dayNode, event, eventDateKey, eventID, eventsSorted, headerContent, lastHeaderContent, listView, listViewLiElementTpl, listViewLiHeaderTpl, roomNode, start, start_fetched, _i, _j, _len, _len1, _listViewLiElementTpl, _listViewLiElementTplLink, _listViewLiHeaderTpl, _ref, _ref1;
     this.page = $('#personalSchedule');
     this._resetLayout();
     eventsSorted = {};
+    counter = 0;
     _ref = personalSchedule.db.getData();
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       eventID = _ref[_i];
@@ -25,20 +26,22 @@ PersonalScheduleView = (function() {
       roomNode = event.parent();
       dayNode = roomNode.parent();
       date = dayNode.attr('date');
+      start_fetched = event.find('start:first').text();
       if (!date) {
         continue;
       }
       dateSplitted = date.split('-');
-      start = parseFloat(event.find('start:first').text().replace(':', '.'));
+      start = parseFloat(start_fetched.replace(':', '.'));
       if (parseInt(start) < 11) {
         start = start + 24;
       }
-      eventsSorted[date + start + event.attr('id')] = {
+      eventsSorted[date + start * 100 + counter] = {
         title: event.find('title:first').text(),
         href: '#event#' + escape(dayNode.attr('index')) + '#' + escape(roomNode.attr('name')) + '#' + escape(eventID),
-        start: event.find('start:first').text(),
+        start: start_fetched,
         dayForUI: parseInt(dateSplitted[2]) + '. ' + helper.i18nDateFormats.monthNames[parseInt(dateSplitted[1]) - 1]
       };
+      counter = counter + 1;
     }
     contentDiv = $('div[data-role=content]:first', this.page);
     listView = $('ul[data-role=listview]:first', contentDiv);
