@@ -58,7 +58,7 @@ class PersonalScheduleView
       _listViewLiElementTplLink = _listViewLiElementTpl.find('a:first')
       _listViewLiElementTplLink.attr('href', event.href)
       _listViewLiElementTplLink.html(
-        event.start + ': ' + event.title
+        event.start + ' ' + event.title
       )
 
       listView.append(_listViewLiElementTpl)

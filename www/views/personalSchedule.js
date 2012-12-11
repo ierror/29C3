@@ -62,7 +62,7 @@ PersonalScheduleView = (function() {
       _listViewLiElementTpl = listViewLiElementTpl.clone().removeClass('tpl');
       _listViewLiElementTplLink = _listViewLiElementTpl.find('a:first');
       _listViewLiElementTplLink.attr('href', event.href);
-      _listViewLiElementTplLink.html(event.start + ': ' + event.title);
+      _listViewLiElementTplLink.html(event.start + ' ' + event.title);
       listView.append(_listViewLiElementTpl);
     }
     listView.listview('refresh');
