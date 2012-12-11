@@ -72,6 +72,13 @@ a {
 
 .ui-checkbox {
   .ui-btn-icon-left .ui-btn-inner {
+    border: none;
+    padding-left: 10px;
+
+    .ui-icon {
+      display: none;
+    }
+
   }
   .ui-btn-up-c {
     background: $yellow;
@@ -109,4 +116,14 @@ a {
   .ui-btn-inner .ui-icon {
     display: none;
   }
+}
+
+h3 {
+  font-size: 12px;
+  font-weight: bolder;
+}
+
+#event-links {
+  margin-left: 0;
+  padding-left: 12px;
 }
