@@ -1381,3 +1381,7 @@ span.ui-slider-label-b { z-index: 0; right: 0; text-indent: 1.5em; }
 h3 { font-size: 12px; font-weight: bolder; }
 
 #event-links { margin-left: 0; padding-left: 12px; }
+
+.ui-footer-fixed { height: 44px; }
+
+.ui-navbar ul, .ui-navbar ul li, .ui-navbar ul li a { height: 44px; line-height: 32px; }
