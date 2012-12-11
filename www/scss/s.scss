@@ -59,6 +59,7 @@ a {
     }
   }
 
+
   .event-cell.event-attend {
     background-color: $green;
   }
@@ -83,5 +84,29 @@ a {
     .ui-btn-up-c:hover {
       background: $green;
     }
+  }
+}
+
+#personalSchedule {
+  .ui-icon {
+    display: none;
+  }
+  .ui-btn-inner.ui-li {
+    border-style: dashed;
+  }
+}
+
+.ui-header {
+
+  .ui-btn,
+  .ui-btn-inner {
+    border: none;
+    color: $yellow;
+    text-decoration: underline;
+    padding-left: 0;
+  }
+
+  .ui-btn-inner .ui-icon {
+    display: none;
   }
 }
