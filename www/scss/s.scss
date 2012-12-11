@@ -127,3 +127,15 @@ h3 {
   margin-left: 0;
   padding-left: 12px;
 }
+
+.ui-footer-fixed {
+  height: 44px;
+}
+.ui-navbar {
+  ul,
+  ul li,
+  ul li a {
+    height: 44px;
+    line-height: 32px;
+  }
+}
