@@ -49,6 +49,12 @@
 		9898812015EBF7BF004FACD8 /* ChildBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9898811C15EBF7BF004FACD8 /* ChildBrowserViewController.m */; };
 		9898812115EBF7BF004FACD8 /* ChildBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9898811D15EBF7BF004FACD8 /* ChildBrowserViewController.xib */; };
 		AA6060D1163D5F16003A71EB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6060D0163D5F16003A71EB /* Default-568h@2x.png */; };
+		AA923A4C1677D6C500FB1834 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = AA923A4B1677D6C500FB1834 /* Default.png */; };
+		AA923A4E1677D6E900FB1834 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA923A4D1677D6E900FB1834 /* Default@2x.png */; };
+		AA923A501677D71A00FB1834 /* cordova_ios_57.png in Resources */ = {isa = PBXBuildFile; fileRef = AA923A4F1677D71A00FB1834 /* cordova_ios_57.png */; };
+		AA923A521677D72E00FB1834 /* cordova_ios_114.png in Resources */ = {isa = PBXBuildFile; fileRef = AA923A511677D72E00FB1834 /* cordova_ios_114.png */; };
+		AA923A541677D74200FB1834 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = AA923A531677D74200FB1834 /* Default-Portrait~ipad.png */; };
+		AA923A561677D75600FB1834 /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = AA923A551677D75600FB1834 /* Default-Portrait@2x~ipad.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +127,12 @@
 		9898811D15EBF7BF004FACD8 /* ChildBrowserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChildBrowserViewController.xib; sourceTree = "<group>"; };
 		98EEDB8E15D97BFD00B0F8DB /* schedule.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = schedule.xml; path = www/schedule.xml; sourceTree = "<group>"; };
 		AA6060D0163D5F16003A71EB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		AA923A4B1677D6C500FB1834 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		AA923A4D1677D6E900FB1834 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		AA923A4F1677D71A00FB1834 /* cordova_ios_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cordova_ios_57.png; sourceTree = "<group>"; };
+		AA923A511677D72E00FB1834 /* cordova_ios_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cordova_ios_114.png; sourceTree = "<group>"; };
+		AA923A531677D74200FB1834 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		AA923A551677D75600FB1834 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +201,12 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				AA923A551677D75600FB1834 /* Default-Portrait@2x~ipad.png */,
+				AA923A531677D74200FB1834 /* Default-Portrait~ipad.png */,
+				AA923A511677D72E00FB1834 /* cordova_ios_114.png */,
+				AA923A4F1677D71A00FB1834 /* cordova_ios_57.png */,
+				AA923A4D1677D6E900FB1834 /* Default@2x.png */,
+				AA923A4B1677D6C500FB1834 /* Default.png */,
 				AA6060D0163D5F16003A71EB /* Default-568h@2x.png */,
 				98EEDB8E15D97BFD00B0F8DB /* schedule.xml */,
 				301BF56E109A69640062928A /* www */,
@@ -411,6 +429,12 @@
 				9898811E15EBF7BF004FACD8 /* ChildBrowser.bundle in Resources */,
 				9898812115EBF7BF004FACD8 /* ChildBrowserViewController.xib in Resources */,
 				AA6060D1163D5F16003A71EB /* Default-568h@2x.png in Resources */,
+				AA923A4C1677D6C500FB1834 /* Default.png in Resources */,
+				AA923A4E1677D6E900FB1834 /* Default@2x.png in Resources */,
+				AA923A501677D71A00FB1834 /* cordova_ios_57.png in Resources */,
+				AA923A521677D72E00FB1834 /* cordova_ios_114.png in Resources */,
+				AA923A541677D74200FB1834 /* Default-Portrait~ipad.png in Resources */,
+				AA923A561677D75600FB1834 /* Default-Portrait@2x~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
