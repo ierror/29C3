@@ -50,8 +50,9 @@ class App
       scheduleView.initialize(dayNode)
 
     if not dayTab2Load
-      $('#event-back').attr('href', '#personalSchedule')
-      personalScheduleView.initialize()
+      $(document).ready ->
+        $('#event-back').attr('href', '#personalSchedule')
+        personalScheduleView.initialize()
     else
       $(document).ready ->
         $('#event-back').attr('href', dayTab2Load)

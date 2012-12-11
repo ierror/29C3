@@ -47,8 +47,10 @@ App = (function() {
       scheduleView.initialize(dayNode);
     }
     if (!dayTab2Load) {
-      $('#event-back').attr('href', '#personalSchedule');
-      return personalScheduleView.initialize();
+      return $(document).ready(function() {
+        $('#event-back').attr('href', '#personalSchedule');
+        return personalScheduleView.initialize();
+      });
     } else {
       return $(document).ready(function() {
         $('#event-back').attr('href', dayTab2Load);
