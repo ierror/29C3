@@ -65,6 +65,13 @@ class PersonalScheduleView
 
     listView.listview('refresh')
 
+    if counter > 0
+      $('#personalSchedule-placeholder').hide()
+      $('#personalSchedule-entries').show()
+    else
+      $('#personalSchedule-placeholder').show()
+      $('#personalSchedule-entries').hide()
+
     $.mobile.changePage(@page)
 
 
