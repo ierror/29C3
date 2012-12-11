@@ -23,6 +23,21 @@ class Event
 
     eventID = eventNode.attr('id')
 
+    # calculate end time
+    start_time = eventNode.find('start:first').text()
+    start_splitted = start_time.split(':')
+    duration_splitted = eventNode.find('duration:first').text().split(':')
+    end_minute = parseInt(start_splitted[1]) + parseInt(duration_splitted[1])
+    end_hour = 0
+    if end_minute >= 60
+      end_hour = 1
+      end_minute = end_minute - 60
+    end_hour = parseInt(start_splitted[0]) + parseInt(duration_splitted[0]) + end_hour
+    if end_hour >= 24
+      end_hour = end_hour - 24
+    end_time = helper.pad(end_hour, 2) + ':' + helper.pad(end_minute, 2)
+    @_setField($('#event-start-end'), start_time + ' - ' + end_time)
+
     for eventField in eventNode.children()
       fieldName = eventField.tagName
       eventField = $(eventField)
@@ -42,7 +57,7 @@ class Event
         else
           eventText = eventField.text()
 
-        # <links> handling
+      # <links> handling
       else
         # if there is a <ul> element defined within the target element,
         # fill it by li elements
@@ -85,16 +100,6 @@ class Event
     else
       attendCheckbox.removeAttr('checked').checkboxradio('refresh')
       attendCheckbox.parent().find('.ui-btn-text:first').html(attendCheckbox.attr('data-event-attend-text'))
-
-    # notes field
-    configKey = "notes-event-#{eventID}"
-    notesElm = $('.notes:first', @page)
-    notesElm.attr('data-event-id', eventID)
-    notesElm.val(userconfig.getItem(configKey, ''))
-    notesElm.keydown ->
-      userconfig.setItem(configKey, $(@).val())
-    notesElm.blur ->
-      userconfig.setItem(configKey, $(@).val())
 
     $.mobile.changePage(@page)
 

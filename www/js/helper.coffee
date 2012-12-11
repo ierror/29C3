@@ -138,4 +138,9 @@ class Helper
       vars[hash[0]] = hash[1]
     vars
 
+  pad:  (num, size) ->
+    s = num + ''
+    s = '0' + s  while s.length < size
+    s
+
 helper = new Helper()

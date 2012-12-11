@@ -24,11 +24,26 @@ Event = (function() {
   };
 
   Event.prototype.initialize = function(eventNode, options) {
-    var attendCheckbox, attendStatusChanged, childField, childFieldRound, children, configKey, event, eventField, eventID, eventText, fieldName, liTpl, notesElm, targetElement, _i, _j, _k, _len, _len1, _len2, _liTpl, _liTplLink, _ref, _ref1, _ref2;
+    var attendCheckbox, attendStatusChanged, childField, childFieldRound, children, duration_splitted, end_hour, end_minute, end_time, event, eventField, eventID, eventText, fieldName, liTpl, start_splitted, start_time, targetElement, _i, _j, _k, _len, _len1, _len2, _liTpl, _liTplLink, _ref, _ref1, _ref2;
     event = this;
     this.page = $('#event');
     this._resetLayout();
     eventID = eventNode.attr('id');
+    start_time = eventNode.find('start:first').text();
+    start_splitted = start_time.split(':');
+    duration_splitted = eventNode.find('duration:first').text().split(':');
+    end_minute = parseInt(start_splitted[1]) + parseInt(duration_splitted[1]);
+    end_hour = 0;
+    if (end_minute >= 60) {
+      end_hour = 1;
+      end_minute = end_minute - 60;
+    }
+    end_hour = parseInt(start_splitted[0]) + parseInt(duration_splitted[0]) + end_hour;
+    if (end_hour >= 24) {
+      end_hour = end_hour - 24;
+    }
+    end_time = helper.pad(end_hour, 2) + ':' + helper.pad(end_minute, 2);
+    this._setField($('#event-start-end'), start_time + ' - ' + end_time);
     _ref = eventNode.children();
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       eventField = _ref[_i];
@@ -97,16 +112,6 @@ Event = (function() {
       attendCheckbox.removeAttr('checked').checkboxradio('refresh');
       attendCheckbox.parent().find('.ui-btn-text:first').html(attendCheckbox.attr('data-event-attend-text'));
     }
-    configKey = "notes-event-" + eventID;
-    notesElm = $('.notes:first', this.page);
-    notesElm.attr('data-event-id', eventID);
-    notesElm.val(userconfig.getItem(configKey, ''));
-    notesElm.keydown(function() {
-      return userconfig.setItem(configKey, $(this).val());
-    });
-    notesElm.blur(function() {
-      return userconfig.setItem(configKey, $(this).val());
-    });
     return $.mobile.changePage(this.page);
   };
 

@@ -50,9 +50,11 @@ class App
       scheduleView.initialize(dayNode)
 
     if not dayTab2Load
+      $('#event-back').attr('href', '#personalSchedule')
       personalScheduleView.initialize()
     else
       $(document).ready ->
+        $('#event-back').attr('href', dayTab2Load)
         $.mobile.changePage dayTab2Load
 
 
@@ -80,11 +82,11 @@ $(document).bind 'pagebeforechange', (e, data) ->
 
     page_link = "#schedule#" + parsedUrlHash[2]
     $('body').attr('data-last-active-page', page_link)
-    $('#event-back').attr('data-rel', 'back').attr('href', '')
+    $('#event-back').attr('href', page_link)
 
   else if /^#personalSchedule$/.test(parsedUrl.hash)
     $('body').attr('data-last-active-page', parsedUrl.hash)
-    $('#event-back').attr('data-rel', '').attr('href', '#personalSchedule')
+    $('#event-back').attr('href', '#personalSchedule')
     personalScheduleView.initialize()
     e.preventDefault()
 

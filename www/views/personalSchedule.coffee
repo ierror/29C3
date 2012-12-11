@@ -16,6 +16,9 @@ class PersonalScheduleView
       dayNode = roomNode.parent()
       date = dayNode.attr('date')
 
+      # ignore invalid events
+      continue if not date
+
       dateSplitted = date.split('-')
 
       start = parseFloat(event.find('start:first').text().replace(':', '.'))

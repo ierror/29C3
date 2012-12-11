@@ -25,6 +25,9 @@ PersonalScheduleView = (function() {
       roomNode = event.parent();
       dayNode = roomNode.parent();
       date = dayNode.attr('date');
+      if (!date) {
+        continue;
+      }
       dateSplitted = date.split('-');
       start = parseFloat(event.find('start:first').text().replace(':', '.'));
       if (parseInt(start) < 11) {
