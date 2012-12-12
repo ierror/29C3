@@ -26,13 +26,13 @@
     </div>
 
     <div id="personalSchedule-placeholder" data-role='content'>
-        nix da, hau was rein!
+        Add the events you'd like to visit to your personal schedule.
     </div>
 
     <div data-role='footer' data-position='fixed' data-tap-toggle='false'>
         <div data-role='navbar'>
             <ul class='tabs'>
-                <li>
+                <li class="my-schedule active">
                     <a class='tab ui-btn-active ui-state-persist link' href='#personalSchedule' data-prefetch='true'>
                         TT
                     </a>
@@ -64,8 +64,8 @@
             Room: <span id='event-room' data-is-event-field='true'></span>
         </div>
 
-        <div id="event-attend-yes" class="event-attend" style="display: None;">[<span class="true">x</span>] <span class="label">On personal schedule</span></div>
-        <div id="event-attend-no" class="event-attend" style="display: None;">[&nbsp;] <span class="label">On personal schedule</span></div>
+        <div id="event-attend-yes" class="event-attend-button" style="display: None;">[<span class="true">x</span>] <span class="label">On personal schedule</span></div>
+        <div id="event-attend-no" class="event-attend-button" style="display: None;">[&nbsp;] <span class="label">On personal schedule</span></div>
 
         <h4>Abstract</h4>
         <div id='event-abstract' data-is-event-field='true'></div>
@@ -298,7 +298,7 @@
     <div data-role='footer' data-position='fixed' data-tap-toggle='false'>
         <div data-role='navbar'>
             <ul class='tabs'>
-                <li>
+                <li class="my-schedule">
                     <a class='link tab' href='#personalSchedule' data-prefetch='true'>
                         TT
                     </a>

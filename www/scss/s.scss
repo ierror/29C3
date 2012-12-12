@@ -140,7 +140,7 @@ h3 {
   }
 }
 
-div.event-attend {
+.event-attend-button {
   color: $yellow;
   font-weight: bold;
   padding: 12px 0 6px;
@@ -153,4 +153,16 @@ div.event-attend {
     font-weight: bolder;
   }
 }
-//id="event-attend-yes" class=""
+/*
+.ui-block-a.my-schedule {
+  a {
+    color: $green;
+
+    &.ui-btn-active {
+      // color: $black;
+    }
+    &.active {
+      background-color: $green;
+    }
+  }
+}*/
