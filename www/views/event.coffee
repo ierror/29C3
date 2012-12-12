@@ -73,35 +73,25 @@ class Event
 
       @_setField(targetElement, eventText)
 
-    attendCheckbox = $('#event-attend-checkbox').checkboxradio()
-    attendCheckbox.attr('data-event-id', eventID)
-
-    attendStatusChanged = false
-    attendCheckbox.bind 'change', (event, ui) ->
+    $('.event-attend').click ->
       self = $(@)
-      attendStatusChanged = true
-      eventID = self.attr('data-event-id')
-      if not self.attr('checked')
-        self.removeAttr('checked').checkboxradio('refresh')
-        self.parent().find('.ui-btn-text:first').html(self.attr('data-event-attend-text'))
-        self.parent().removeClass('attended')
+      if self.attr('id') == 'event-attend-yes'
         $("#event-#{eventID}").removeClass('event-attend')
+        $('#event-attend-no').show()
+        $('#event-attend-yes').hide()
         personalSchedule.db.remove(eventID)
       else
-        self.attr('checked', 'checked').checkboxradio('refresh')
-        self.parent().find('.ui-btn-text:first').html(self.attr('data-event-dontattend-text'))
-        self.parent().addClass('attended')
         $("#event-#{eventID}").addClass('event-attend')
+        $('#event-attend-yes').show()
+        $('#event-attend-no').hide()
         personalSchedule.db.push(eventID)
 
     if personalSchedule.db.contains(eventID)
-      attendCheckbox.attr('checked', 'checked').checkboxradio('refresh')
-      attendCheckbox.parent().addClass('attended')
-      attendCheckbox.parent().find('.ui-btn-text:first').html(attendCheckbox.attr('data-event-dontattend-text'))
+      $('#event-attend-yes').show()
+      $('#event-attend-no').hide()
     else
-      attendCheckbox.removeAttr('checked').checkboxradio('refresh')
-      attendCheckbox.parent().removeClass('attended')
-      attendCheckbox.parent().find('.ui-btn-text:first').html(attendCheckbox.attr('data-event-attend-text'))
+      $('#event-attend-no').show()
+      $('#event-attend-yes').hide()
 
     $.mobile.changePage(@page)
 
