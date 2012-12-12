@@ -51,6 +51,7 @@
 		9898812115EBF7BF004FACD8 /* ChildBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9898811D15EBF7BF004FACD8 /* ChildBrowserViewController.xib */; };
 		98AB755E16791E4900A74C86 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 98AB755D16791E4900A74C86 /* icon.png */; };
 		98AB756016791E4F00A74C86 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98AB755F16791E4F00A74C86 /* icon@2x.png */; };
+		AADF8FC116792CCE00BEE93E /* icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AADF8FC016792CCE00BEE93E /* icon-72@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		98AB755D16791E4900A74C86 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		98AB755F16791E4F00A74C86 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		98EEDB8E15D97BFD00B0F8DB /* schedule.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = schedule.xml; path = www/schedule.xml; sourceTree = "<group>"; };
+		AADF8FC016792CCE00BEE93E /* icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				AADF8FC016792CCE00BEE93E /* icon-72@2x.png */,
 				98AB755F16791E4F00A74C86 /* icon@2x.png */,
 				98AB755D16791E4900A74C86 /* icon.png */,
 				983BD08816791C9500ED5225 /* Default-568h@2x.png */,
@@ -419,6 +422,7 @@
 				983BD08916791C9500ED5225 /* Default-568h@2x.png in Resources */,
 				98AB755E16791E4900A74C86 /* icon.png in Resources */,
 				98AB756016791E4F00A74C86 /* icon@2x.png in Resources */,
+				AADF8FC116792CCE00BEE93E /* icon-72@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
