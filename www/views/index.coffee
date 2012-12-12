@@ -24,7 +24,7 @@ class App
 
       # 2012-12-27 => 27. Dec
       dateSplitted = date.split('-')
-      dayNode.dayForUI = parseInt(dateSplitted[2]) + '. ' + helper.i18nDateFormats.monthNames[parseInt(dateSplitted[1]) - 1]
+      dayNode.dayForUI = dateSplitted[2] + '.'
 
       dayTab = $('.tabs li:first').clone()
       dayIndex = dayNode.attr('index')

@@ -28,7 +28,7 @@ App = (function() {
       dayNode = $(dayNode);
       date = dayNode.attr('date');
       dateSplitted = date.split('-');
-      dayNode.dayForUI = parseInt(dateSplitted[2]) + '. ' + helper.i18nDateFormats.monthNames[parseInt(dateSplitted[1]) - 1];
+      dayNode.dayForUI = dateSplitted[2] + '.';
       dayTab = $('.tabs li:first').clone();
       dayIndex = dayNode.attr('index');
       dayTab.attr({
