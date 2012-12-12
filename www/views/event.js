@@ -24,7 +24,7 @@ Event = (function() {
   };
 
   Event.prototype.initialize = function(eventNode, options) {
-    var attendCheckbox, attendStatusChanged, childField, childFieldRound, children, duration_splitted, end_hour, end_minute, end_time, event, eventField, eventID, eventText, fieldName, liTpl, start_splitted, start_time, targetElement, _i, _j, _k, _len, _len1, _len2, _liTpl, _liTplLink, _ref, _ref1, _ref2;
+    var childField, childFieldRound, children, duration_splitted, end_hour, end_minute, end_time, event, eventField, eventID, eventText, fieldName, liTpl, start_splitted, start_time, targetElement, _i, _j, _k, _len, _len1, _len2, _liTpl, _liTplLink, _ref, _ref1, _ref2;
     event = this;
     this.page = $('#event');
     this._resetLayout();
@@ -83,36 +83,27 @@ Event = (function() {
       }
       this._setField(targetElement, eventText);
     }
-    attendCheckbox = $('#event-attend-checkbox').checkboxradio();
-    attendCheckbox.attr('data-event-id', eventID);
-    attendStatusChanged = false;
-    attendCheckbox.bind('change', function(event, ui) {
+    $('.event-attend').click(function() {
       var self;
       self = $(this);
-      attendStatusChanged = true;
-      eventID = self.attr('data-event-id');
-      if (!self.attr('checked')) {
-        self.removeAttr('checked').checkboxradio('refresh');
-        self.parent().find('.ui-btn-text:first').html(self.attr('data-event-attend-text'));
-        self.parent().removeClass('attended');
+      if (self.attr('id') === 'event-attend-yes') {
         $("#event-" + eventID).removeClass('event-attend');
+        $('#event-attend-no').show();
+        $('#event-attend-yes').hide();
         return personalSchedule.db.remove(eventID);
       } else {
-        self.attr('checked', 'checked').checkboxradio('refresh');
-        self.parent().find('.ui-btn-text:first').html(self.attr('data-event-dontattend-text'));
-        self.parent().addClass('attended');
         $("#event-" + eventID).addClass('event-attend');
+        $('#event-attend-yes').show();
+        $('#event-attend-no').hide();
         return personalSchedule.db.push(eventID);
       }
     });
     if (personalSchedule.db.contains(eventID)) {
-      attendCheckbox.attr('checked', 'checked').checkboxradio('refresh');
-      attendCheckbox.parent().addClass('attended');
-      attendCheckbox.parent().find('.ui-btn-text:first').html(attendCheckbox.attr('data-event-dontattend-text'));
+      $('#event-attend-yes').show();
+      $('#event-attend-no').hide();
     } else {
-      attendCheckbox.removeAttr('checked').checkboxradio('refresh');
-      attendCheckbox.parent().removeClass('attended');
-      attendCheckbox.parent().find('.ui-btn-text:first').html(attendCheckbox.attr('data-event-attend-text'));
+      $('#event-attend-no').show();
+      $('#event-attend-yes').hide();
     }
     return $.mobile.changePage(this.page);
   };
