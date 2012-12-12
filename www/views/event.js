@@ -83,8 +83,9 @@ Event = (function() {
       }
       this._setField(targetElement, eventText);
     }
-    $('.event-attend').click(function() {
+    $('.event-attend-button').click(function() {
       var self;
+      alert('click');
       self = $(this);
       if (self.attr('id') === 'event-attend-yes') {
         $("#event-" + eventID).removeClass('event-attend');

@@ -73,7 +73,8 @@ class Event
 
       @_setField(targetElement, eventText)
 
-    $('.event-attend').click ->
+    $('.event-attend-button').click ->
+      alert 'click'
       self = $(@)
       if self.attr('id') == 'event-attend-yes'
         $("#event-#{eventID}").removeClass('event-attend')
