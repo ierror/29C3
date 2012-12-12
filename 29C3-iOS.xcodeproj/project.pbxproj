@@ -44,21 +44,13 @@
 		30E1352710E2C1420031B30D /* Cordova.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30E1352610E2C1420031B30D /* Cordova.plist */; };
 		30E5649213A7FCAF007403D8 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30E5649113A7FCAF007403D8 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		982C65311602841B008B7518 /* CanOpenURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 982C65301602841B008B7518 /* CanOpenURL.m */; };
-		9872BB8516790AAD00E74950 /* cordova_ios_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 9872BB8416790AAD00E74950 /* cordova_ios_114.png */; };
-		9872BB8916790AF900E74950 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9872BB8616790AF900E74950 /* Default-568h@2x.png */; };
-		9872BB8A16790AF900E74950 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9872BB8716790AF900E74950 /* Default.png */; };
-		9872BB8B16790AF900E74950 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9872BB8816790AF900E74950 /* Default@2x.png */; };
+		983BD08916791C9500ED5225 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 983BD08816791C9500ED5225 /* Default-568h@2x.png */; };
 		9898811E15EBF7BF004FACD8 /* ChildBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9898811815EBF7BF004FACD8 /* ChildBrowser.bundle */; };
 		9898811F15EBF7BF004FACD8 /* ChildBrowserCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 9898811A15EBF7BF004FACD8 /* ChildBrowserCommand.m */; };
 		9898812015EBF7BF004FACD8 /* ChildBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9898811C15EBF7BF004FACD8 /* ChildBrowserViewController.m */; };
 		9898812115EBF7BF004FACD8 /* ChildBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9898811D15EBF7BF004FACD8 /* ChildBrowserViewController.xib */; };
-		AA6060D1163D5F16003A71EB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6060D0163D5F16003A71EB /* Default-568h@2x.png */; };
-		AA923A4C1677D6C500FB1834 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = AA923A4B1677D6C500FB1834 /* Default.png */; };
-		AA923A4E1677D6E900FB1834 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA923A4D1677D6E900FB1834 /* Default@2x.png */; };
-		AA923A501677D71A00FB1834 /* cordova_ios_57.png in Resources */ = {isa = PBXBuildFile; fileRef = AA923A4F1677D71A00FB1834 /* cordova_ios_57.png */; };
-		AA923A521677D72E00FB1834 /* cordova_ios_114.png in Resources */ = {isa = PBXBuildFile; fileRef = AA923A511677D72E00FB1834 /* cordova_ios_114.png */; };
-		AA923A541677D74200FB1834 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = AA923A531677D74200FB1834 /* Default-Portrait~ipad.png */; };
-		AA923A561677D75600FB1834 /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = AA923A551677D75600FB1834 /* Default-Portrait@2x~ipad.png */; };
+		98AB755E16791E4900A74C86 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 98AB755D16791E4900A74C86 /* icon.png */; };
+		98AB756016791E4F00A74C86 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98AB755F16791E4F00A74C86 /* icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,31 +115,16 @@
 		8D1107310486CEB800E47090 /* 29C3-iOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "29C3-iOS-Info.plist"; path = "../29C3-iOS-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		982C652F1602841B008B7518 /* CanOpenURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanOpenURL.h; sourceTree = "<group>"; };
 		982C65301602841B008B7518 /* CanOpenURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanOpenURL.m; sourceTree = "<group>"; };
-		9872BB8416790AAD00E74950 /* cordova_ios_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cordova_ios_114.png; sourceTree = "<group>"; };
-		9872BB8616790AF900E74950 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		9872BB8716790AF900E74950 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		9872BB8816790AF900E74950 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		9875A9961677EC0900436B0B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		9875A9971677EC0900436B0B /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
-		9875A9981677EC0900436B0B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		9875A9991677EC0900436B0B /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
-		9875A99A1677EC0900436B0B /* cordova_ios_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cordova_ios_57.png; sourceTree = "<group>"; };
-		9875A99B1677EC0900436B0B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		9875A99C1677EC0900436B0B /* cordova_ios_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cordova_ios_114.png; sourceTree = "<group>"; };
+		983BD08816791C9500ED5225 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9898811815EBF7BF004FACD8 /* ChildBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ChildBrowser.bundle; sourceTree = "<group>"; };
 		9898811915EBF7BF004FACD8 /* ChildBrowserCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildBrowserCommand.h; sourceTree = "<group>"; };
 		9898811A15EBF7BF004FACD8 /* ChildBrowserCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildBrowserCommand.m; sourceTree = "<group>"; };
 		9898811B15EBF7BF004FACD8 /* ChildBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildBrowserViewController.h; sourceTree = "<group>"; };
 		9898811C15EBF7BF004FACD8 /* ChildBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildBrowserViewController.m; sourceTree = "<group>"; };
 		9898811D15EBF7BF004FACD8 /* ChildBrowserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChildBrowserViewController.xib; sourceTree = "<group>"; };
+		98AB755D16791E4900A74C86 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		98AB755F16791E4F00A74C86 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		98EEDB8E15D97BFD00B0F8DB /* schedule.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = schedule.xml; path = www/schedule.xml; sourceTree = "<group>"; };
-		AA6060D0163D5F16003A71EB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		AA923A4B1677D6C500FB1834 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		AA923A4D1677D6E900FB1834 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		AA923A4F1677D71A00FB1834 /* cordova_ios_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cordova_ios_57.png; sourceTree = "<group>"; };
-		AA923A511677D72E00FB1834 /* cordova_ios_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cordova_ios_114.png; sourceTree = "<group>"; };
-		AA923A531677D74200FB1834 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
-		AA923A551677D75600FB1834 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,24 +193,9 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				9872BB8616790AF900E74950 /* Default-568h@2x.png */,
-				9872BB8716790AF900E74950 /* Default.png */,
-				9872BB8816790AF900E74950 /* Default@2x.png */,
-				9872BB8416790AAD00E74950 /* cordova_ios_114.png */,
-				9875A9961677EC0900436B0B /* Default-568h@2x.png */,
-				9875A9971677EC0900436B0B /* Default-Portrait@2x~ipad.png */,
-				9875A9981677EC0900436B0B /* Default@2x.png */,
-				9875A9991677EC0900436B0B /* Default-Portrait~ipad.png */,
-				9875A99A1677EC0900436B0B /* cordova_ios_57.png */,
-				9875A99B1677EC0900436B0B /* Default.png */,
-				9875A99C1677EC0900436B0B /* cordova_ios_114.png */,
-				AA923A551677D75600FB1834 /* Default-Portrait@2x~ipad.png */,
-				AA923A531677D74200FB1834 /* Default-Portrait~ipad.png */,
-				AA923A511677D72E00FB1834 /* cordova_ios_114.png */,
-				AA923A4F1677D71A00FB1834 /* cordova_ios_57.png */,
-				AA923A4D1677D6E900FB1834 /* Default@2x.png */,
-				AA923A4B1677D6C500FB1834 /* Default.png */,
-				AA6060D0163D5F16003A71EB /* Default-568h@2x.png */,
+				98AB755F16791E4F00A74C86 /* icon@2x.png */,
+				98AB755D16791E4900A74C86 /* icon.png */,
+				983BD08816791C9500ED5225 /* Default-568h@2x.png */,
 				98EEDB8E15D97BFD00B0F8DB /* schedule.xml */,
 				301BF56E109A69640062928A /* www */,
 				301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */,
@@ -434,13 +396,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA6060D1163D5F16003A71EB /* Default-568h@2x.png in Resources */,
-				AA923A561677D75600FB1834 /* Default-Portrait@2x~ipad.png in Resources */,
-				AA923A4E1677D6E900FB1834 /* Default@2x.png in Resources */,
-				AA923A541677D74200FB1834 /* Default-Portrait~ipad.png in Resources */,
-				AA923A501677D71A00FB1834 /* cordova_ios_57.png in Resources */,
-				AA923A4C1677D6C500FB1834 /* Default.png in Resources */,
-				AA923A521677D72E00FB1834 /* cordova_ios_114.png in Resources */,
 				301BF570109A69640062928A /* www in Resources */,
 				3053AC6F109B7857006FCFE7 /* VERSION in Resources */,
 				30E1352710E2C1420031B30D /* Cordova.plist in Resources */,
@@ -461,10 +416,9 @@
 				3088BBC2154F3926009F9C59 /* Default~iphone.png in Resources */,
 				9898811E15EBF7BF004FACD8 /* ChildBrowser.bundle in Resources */,
 				9898812115EBF7BF004FACD8 /* ChildBrowserViewController.xib in Resources */,
-				9872BB8516790AAD00E74950 /* cordova_ios_114.png in Resources */,
-				9872BB8916790AF900E74950 /* Default-568h@2x.png in Resources */,
-				9872BB8A16790AF900E74950 /* Default.png in Resources */,
-				9872BB8B16790AF900E74950 /* Default@2x.png in Resources */,
+				983BD08916791C9500ED5225 /* Default-568h@2x.png in Resources */,
+				98AB755E16791E4900A74C86 /* icon.png in Resources */,
+				98AB756016791E4F00A74C86 /* icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
