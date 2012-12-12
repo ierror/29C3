@@ -12,7 +12,7 @@ Event = (function() {
   };
 
   Event.prototype._resetLayout = function() {
-    return $('[data-is-event-field=true]', this.page).each(function() {
+    $('[data-is-event-field=true]', this.page).each(function() {
       var eventElement;
       eventElement = $(this);
       if (eventElement.find('.tpl').length) {
@@ -21,6 +21,7 @@ Event = (function() {
         return eventElement.html('');
       }
     });
+    return $('.event-attend-button').unbind('click');
   };
 
   Event.prototype.initialize = function(eventNode, options) {
@@ -85,26 +86,26 @@ Event = (function() {
     }
     $('.event-attend-button').click(function() {
       var self;
-      alert('click');
       self = $(this);
       if (self.attr('id') === 'event-attend-yes') {
         $("#event-" + eventID).removeClass('event-attend');
-        $('#event-attend-no').show();
-        $('#event-attend-yes').hide();
-        return personalSchedule.db.remove(eventID);
+        $('#event-attend-no').css('display', 'block');
+        $('#event-attend-yes').css('display', 'none');
+        personalSchedule.db.remove(eventID);
       } else {
         $("#event-" + eventID).addClass('event-attend');
-        $('#event-attend-yes').show();
-        $('#event-attend-no').hide();
-        return personalSchedule.db.push(eventID);
+        $('#event-attend-yes').css('display', 'block');
+        $('#event-attend-no').css('display', 'none');
+        personalSchedule.db.push(eventID);
       }
+      return false;
     });
     if (personalSchedule.db.contains(eventID)) {
-      $('#event-attend-yes').show();
-      $('#event-attend-no').hide();
+      $('#event-attend-yes').css('display', 'block');
+      $('#event-attend-no').css('display', 'none');
     } else {
-      $('#event-attend-no').show();
-      $('#event-attend-yes').hide();
+      $('#event-attend-no').css('display', 'block');
+      $('#event-attend-yes').css('display', 'none');
     }
     return $.mobile.changePage(this.page);
   };

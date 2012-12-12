@@ -15,6 +15,8 @@ class Event
       else
         eventElement.html('')
 
+    $('.event-attend-button').unbind('click')
+
   initialize: (eventNode, options) ->
     event = @
 
@@ -74,25 +76,25 @@ class Event
       @_setField(targetElement, eventText)
 
     $('.event-attend-button').click ->
-      alert 'click'
       self = $(@)
       if self.attr('id') == 'event-attend-yes'
         $("#event-#{eventID}").removeClass('event-attend')
-        $('#event-attend-no').show()
-        $('#event-attend-yes').hide()
+        $('#event-attend-no').css('display', 'block')
+        $('#event-attend-yes').css('display', 'none')
         personalSchedule.db.remove(eventID)
       else
         $("#event-#{eventID}").addClass('event-attend')
-        $('#event-attend-yes').show()
-        $('#event-attend-no').hide()
+        $('#event-attend-yes').css('display', 'block')
+        $('#event-attend-no').css('display', 'none')
         personalSchedule.db.push(eventID)
+      false
 
     if personalSchedule.db.contains(eventID)
-      $('#event-attend-yes').show()
-      $('#event-attend-no').hide()
+      $('#event-attend-yes').css('display', 'block')
+      $('#event-attend-no').css('display', 'none')
     else
-      $('#event-attend-no').show()
-      $('#event-attend-yes').hide()
+      $('#event-attend-no').css('display', 'block')
+      $('#event-attend-yes').css('display', 'none')
 
     $.mobile.changePage(@page)
 
