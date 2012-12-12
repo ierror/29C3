@@ -139,3 +139,18 @@ h3 {
     line-height: 32px;
   }
 }
+
+.event-attend {
+  color: $yellow;
+  font-weight: bold;
+  padding: 12px 0 6px;
+
+  .label {
+    text-decoration: underline;
+  }
+  .true {
+    color: $green;
+    font-weight: bolder;
+  }
+}
+//id="event-attend-yes" class=""

@@ -1385,3 +1385,7 @@ h3 { font-size: 12px; font-weight: bolder; }
 .ui-footer-fixed { height: 44px; }
 
 .ui-navbar ul, .ui-navbar ul li, .ui-navbar ul li a { height: 44px; line-height: 32px; }
+
+.event-attend { color: #f79433; font-weight: bold; padding: 12px 0 6px; }
+.event-attend .label { text-decoration: underline; }
+.event-attend .true { color: #00b26b; font-weight: bolder; }
