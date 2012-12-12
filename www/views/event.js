@@ -43,7 +43,7 @@ Event = (function() {
       end_hour = end_hour - 24;
     }
     end_time = helper.pad(end_hour, 2) + ':' + helper.pad(end_minute, 2);
-    this._setField($('#event-start-end'), start_time + ' - ' + end_time);
+    this._setField($('#event-start-end'), 'Day ' + eventNode.parent().parent().attr('index') + ' | ' + start_time + ' - ' + end_time);
     _ref = eventNode.children();
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       eventField = _ref[_i];

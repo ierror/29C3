@@ -36,7 +36,7 @@ class Event
     if end_hour >= 24
       end_hour = end_hour - 24
     end_time = helper.pad(end_hour, 2) + ':' + helper.pad(end_minute, 2)
-    @_setField($('#event-start-end'), start_time + ' - ' + end_time)
+    @_setField($('#event-start-end'), 'Day ' + eventNode.parent().parent().attr('index') + ' | ' + start_time + ' - ' + end_time)
 
     for eventField in eventNode.children()
       fieldName = eventField.tagName
