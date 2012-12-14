@@ -7,7 +7,6 @@
     <meta name='apple-mobile-web-app-status-bar-style' content='black'>
     <meta name='viewport' content='user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width;'/>
     <link rel='stylesheet' type='text/css' href='css/s.css'/>
-    <script src="http://localhost:8080/target/target-script-min.js#29c3"></script>
     <title>29C3</title>
 </head>
 <body>
@@ -19,19 +18,23 @@
         <!-- <a href='#info' data-icon='info'>info</a> -->
     </div>
 
-    <div data-role='content'>
+    <div id="personalSchedule-entries" data-role='content' style="display: none;">
         <li class='tpl header' data-role='list-divider'><a ></a></li>
         <li class='tpl element'><a ></a></li>
 
         <ul data-role='listview'></ul>
     </div>
 
+    <div id="personalSchedule-placeholder" data-role='content'>
+        Add the events you'd like to visit to your personal schedule.
+    </div>
+
     <div data-role='footer' data-position='fixed' data-tap-toggle='false'>
         <div data-role='navbar'>
             <ul class='tabs'>
-                <li>
+                <li class="my-schedule active">
                     <a class='tab ui-btn-active ui-state-persist link' href='#personalSchedule' data-prefetch='true'>
-                        Schedule
+                        TT
                     </a>
                 </li>
             </ul>
@@ -43,7 +46,7 @@
 <div data-role='page' id='event'>
     <div data-role='header' data-position='fixed' data-tap-toggle='false'>
         <h1>Event</h1>
-        <a id="event-back" data-rel="back" data-icon='back'>Back</a>
+        <a id="event-back" data-icon='back'>&lt; Back</a>
     </div>
 
     <div data-role='content'>
@@ -51,18 +54,18 @@
         <h3 id='event-title' data-is-event-field='true'></h3>
         <h4 id='event-subtitle' data-is-event-field='true'></h4>
 
-        <label>
-            <input id='event-attend-checkbox' type='checkbox'
-                data-event-dontattend-text="Not on personal schedule"
-                data-event-attend-text="On personal schedule" />
-        </label>
+        <div>
+            <span id='event-start-end' data-is-event-field='true'></span>
+        </div>
+        <div>
+            Language: <span id='event-language' data-is-event-field='true'></span>
+        </div>
+        <div>
+            Room: <span id='event-room' data-is-event-field='true'></span>
+        </div>
 
-        <div id='event-start' data-is-event-field='true'></div>
-        <div id='event-duration' data-is-event-field='true'></div>
-
-        <div id='event-language' data-is-event-field='true'></div>
-        <div id='event-track' data-is-event-field='true'></div>
-        <div id='event-type' data-is-event-field='true'></div>
+        <div id="event-attend-yes" class="event-attend-button" style="display: None;">[<span class="true">x</span>] <span class="label">On personal schedule</span></div>
+        <div id="event-attend-no" class="event-attend-button" style="display: None;">[&nbsp;] <span class="label">On personal schedule</span></div>
 
         <h4>Abstract</h4>
         <div id='event-abstract' data-is-event-field='true'></div>
@@ -76,15 +79,12 @@
                 <a href='' class='external-link'></a>
             </li>
         </ul>
-
-        <h4>Notes</h4>
-        <textarea class="notes" style="height: 200px;"></textarea>
     </div>
 </div>
 
 <!-- schedule -->
 <div class='tpl'>
-    <td id='event-cell-tpl' style='background-color: #d3d3d3;' data-is-event-cell='1'>
+    <td id='event-cell-tpl' class="event-cell" data-is-event-cell='1'>
         <a></a>
     </td>
 </div>
@@ -298,28 +298,15 @@
     <div data-role='footer' data-position='fixed' data-tap-toggle='false'>
         <div data-role='navbar'>
             <ul class='tabs'>
-                <li>
+                <li class="my-schedule">
                     <a class='link tab' href='#personalSchedule' data-prefetch='true'>
-                        Schedule
+                        TT
                     </a>
                 </li>
             </ul>
         </div>
     </div>
 </div>
-
-<!-- Info -->
-<div data-role='page' id='info' data-add-back-btn='true'>
-    <div data-role='header' data-position='fixed' data-tap-toggle='false'>
-        <h1></h1>
-    </div>
-
-    <div data-role='content'>
-        <div class='content-primary'>
-        </div>
-    </div>
-</div>
-
 
 <script type='text/javascript' src='lib/js/jquery-1.8.0.js'></script>
 <script type='text/javascript' src='config.js'></script>

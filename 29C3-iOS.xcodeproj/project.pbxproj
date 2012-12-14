@@ -44,11 +44,14 @@
 		30E1352710E2C1420031B30D /* Cordova.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30E1352610E2C1420031B30D /* Cordova.plist */; };
 		30E5649213A7FCAF007403D8 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30E5649113A7FCAF007403D8 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		982C65311602841B008B7518 /* CanOpenURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 982C65301602841B008B7518 /* CanOpenURL.m */; };
+		983BD08916791C9500ED5225 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 983BD08816791C9500ED5225 /* Default-568h@2x.png */; };
 		9898811E15EBF7BF004FACD8 /* ChildBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9898811815EBF7BF004FACD8 /* ChildBrowser.bundle */; };
 		9898811F15EBF7BF004FACD8 /* ChildBrowserCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 9898811A15EBF7BF004FACD8 /* ChildBrowserCommand.m */; };
 		9898812015EBF7BF004FACD8 /* ChildBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9898811C15EBF7BF004FACD8 /* ChildBrowserViewController.m */; };
 		9898812115EBF7BF004FACD8 /* ChildBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9898811D15EBF7BF004FACD8 /* ChildBrowserViewController.xib */; };
-		AA6060D1163D5F16003A71EB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6060D0163D5F16003A71EB /* Default-568h@2x.png */; };
+		98AB755E16791E4900A74C86 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 98AB755D16791E4900A74C86 /* icon.png */; };
+		98AB756016791E4F00A74C86 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98AB755F16791E4F00A74C86 /* icon@2x.png */; };
+		AADF8FC116792CCE00BEE93E /* icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AADF8FC016792CCE00BEE93E /* icon-72@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,14 +116,17 @@
 		8D1107310486CEB800E47090 /* 29C3-iOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "29C3-iOS-Info.plist"; path = "../29C3-iOS-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		982C652F1602841B008B7518 /* CanOpenURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanOpenURL.h; sourceTree = "<group>"; };
 		982C65301602841B008B7518 /* CanOpenURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanOpenURL.m; sourceTree = "<group>"; };
+		983BD08816791C9500ED5225 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9898811815EBF7BF004FACD8 /* ChildBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ChildBrowser.bundle; sourceTree = "<group>"; };
 		9898811915EBF7BF004FACD8 /* ChildBrowserCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildBrowserCommand.h; sourceTree = "<group>"; };
 		9898811A15EBF7BF004FACD8 /* ChildBrowserCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildBrowserCommand.m; sourceTree = "<group>"; };
 		9898811B15EBF7BF004FACD8 /* ChildBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildBrowserViewController.h; sourceTree = "<group>"; };
 		9898811C15EBF7BF004FACD8 /* ChildBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildBrowserViewController.m; sourceTree = "<group>"; };
 		9898811D15EBF7BF004FACD8 /* ChildBrowserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChildBrowserViewController.xib; sourceTree = "<group>"; };
+		98AB755D16791E4900A74C86 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		98AB755F16791E4F00A74C86 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		98EEDB8E15D97BFD00B0F8DB /* schedule.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = schedule.xml; path = www/schedule.xml; sourceTree = "<group>"; };
-		AA6060D0163D5F16003A71EB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		AADF8FC016792CCE00BEE93E /* icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,7 +195,10 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				AA6060D0163D5F16003A71EB /* Default-568h@2x.png */,
+				AADF8FC016792CCE00BEE93E /* icon-72@2x.png */,
+				98AB755F16791E4F00A74C86 /* icon@2x.png */,
+				98AB755D16791E4900A74C86 /* icon.png */,
+				983BD08816791C9500ED5225 /* Default-568h@2x.png */,
 				98EEDB8E15D97BFD00B0F8DB /* schedule.xml */,
 				301BF56E109A69640062928A /* www */,
 				301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */,
@@ -410,7 +419,10 @@
 				3088BBC2154F3926009F9C59 /* Default~iphone.png in Resources */,
 				9898811E15EBF7BF004FACD8 /* ChildBrowser.bundle in Resources */,
 				9898812115EBF7BF004FACD8 /* ChildBrowserViewController.xib in Resources */,
-				AA6060D1163D5F16003A71EB /* Default-568h@2x.png in Resources */,
+				983BD08916791C9500ED5225 /* Default-568h@2x.png in Resources */,
+				98AB755E16791E4900A74C86 /* icon.png in Resources */,
+				98AB756016791E4F00A74C86 /* icon@2x.png in Resources */,
+				AADF8FC116792CCE00BEE93E /* icon-72@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

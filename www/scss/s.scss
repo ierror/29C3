@@ -1,10 +1,16 @@
 @import "_base.scss";
 
 body {
+    background-color: #000532;
+    color: $yellow;
 	font-family: $base-font-family;
     font-weight: normal;
 	font-size: 12px;
 	line-height: 16px;
+}
+
+.ui-page {
+    background-color: $black;
 }
 
 a {
@@ -13,10 +19,6 @@ a {
 
 .tpl {
     display: none;
-}
-
-.event-attend {
-    text-decoration: underline;
 }
 
 .twitter-tweet {
@@ -37,4 +39,130 @@ a {
 .header {position:fixed;z-index:10;top:0;width:100%}
 .footer {position:fixed;z-index:10;bottom:0;width:100%}
 
-@import "_jquery-mobile.scss";
+@import "_jquery-mobile_29c3.scss";
+
+.event-cell {
+  background-color: $yellow;
+  padding: 4px;
+  vertical-align: top;
+}
+
+.ui-body-c {
+  .event-cell {
+    a,
+    a:hover,
+    a:visited {
+      display: block;
+      color: $black;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+
+  .event-cell.event-attend {
+    background-color: $green;
+  }
+
+}
+
+.ui-navbar .ui-btn-active {
+  color: $black;
+}
+
+.ui-checkbox {
+  .ui-btn-icon-left .ui-btn-inner {
+    border: none;
+    padding-left: 10px;
+
+    .ui-icon {
+      display: none;
+    }
+
+  }
+  .ui-btn-up-c {
+    background: $yellow;
+    border: none;
+    font-weight: normal;
+    color: $black;
+  }
+  &.attended {
+    .ui-btn-up-c,
+    .ui-btn-up-c:hover {
+      background: $green;
+    }
+  }
+}
+
+#personalSchedule {
+  .ui-icon {
+    display: none;
+  }
+  .ui-btn-inner.ui-li {
+    border-style: dashed;
+  }
+}
+
+.ui-header {
+
+  .ui-btn,
+  .ui-btn-inner {
+    border: none;
+    color: $yellow;
+    text-decoration: underline;
+    padding-left: 0;
+  }
+
+  .ui-btn-inner .ui-icon {
+    display: none;
+  }
+}
+
+h3 {
+  font-size: 12px;
+  font-weight: bolder;
+}
+
+#event-links {
+  margin-left: 0;
+  padding-left: 12px;
+}
+
+.ui-footer-fixed {
+  height: 44px;
+}
+.ui-navbar {
+  ul,
+  ul li,
+  ul li a {
+    height: 44px;
+    line-height: 32px;
+  }
+}
+
+.event-attend-button {
+  color: $yellow;
+  font-weight: bold;
+  padding: 12px 0 6px;
+
+  .label {
+    text-decoration: underline;
+  }
+  .true {
+    color: $green;
+    font-weight: bolder;
+  }
+}
+/*
+.ui-block-a.my-schedule {
+  a {
+    color: $green;
+
+    &.ui-btn-active {
+      // color: $black;
+    }
+    &.active {
+      background-color: $green;
+    }
+  }
+}*/
