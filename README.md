@@ -1,4 +1,4 @@
-# 29C3 schedule
+# 29C3 Timetable
 
 ## Binaries
 
