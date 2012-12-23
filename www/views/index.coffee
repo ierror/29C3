@@ -1,62 +1,68 @@
-class App
-  constructor: ->
-    document.addEventListener('deviceready', @deviceready(), false)
+ua = navigator.userAgent
+platform =
+  ios: ua.match(/(iPhone|iPod|iPad)/)
+  android: ua.match(/Android/)
 
-  deviceready: ->
-    ua = navigator.userAgent
-    platform =
-      ios: ua.match(/(iPhone|iPod|iPad)/)
-      android: ua.match(/Android/)
+if platform.android
+  document.write "<script src=\"lib/js/cordova-2.1.0-Android.js\"></script>"
+  document.write "<script src=\"lib/js/ChildBrowser-Android.js\"></script>"
+else if platform.ios
+  document.write "<script src=\"lib/js/cordova-2.1.0-iOS.js\"></script>"
+  document.write "<script src=\"lib/js/ChildBrowser-iOS.js\"></script>"
 
-    if platform.android
-      document.write "<script src=\"lib/js/cordova-2.1.0-Android.js\"></script>"
-      document.write "<script src=\"lib/js/ChildBrowser-Android.js\"></script>"
-    else if platform.ios
-      document.write "<script src=\"lib/js/cordova-2.1.0-iOS.js\"></script>"
-      document.write "<script src=\"lib/js/ChildBrowser-iOS.js\"></script>"
-
-
-    # build day tabs
-    dayTab2Load = undefined
-    for dayNode in programXML.find('day')
-      dayNode = $(dayNode)
-      date = dayNode.attr('date')
-
-      # 2012-12-27 => 27. Dec
-      dateSplitted = date.split('-')
-      dayNode.dayForUI = dateSplitted[2] + '.'
-
-      dayTab = $('.tabs li:first').clone()
-      dayIndex = dayNode.attr('index')
-      dayTab.attr(
-        'data-day-index': dayIndex
-      )
-
-      pageHref = "#schedule##{dayIndex}"
-
-      # add schedule link to tab button
-      a = dayTab.find('a:first')
-      a.attr('href', pageHref)
-      a.html(dayNode.dayForUI)
-      a.removeClass('ui-btn-active')
-      a.removeClass('ui-state-persist')
-
-      $('.tabs').append($('<div />').append(dayTab.show()).html())
-
-      # set active tab if current day is available event day
-      if helper.formatDate(new Date(), 'yyyy-mm-dd') == date
-        dayTab2Load = pageHref
-
-      scheduleView.initialize(dayNode)
-
-    if not dayTab2Load
-      $(document).ready ->
-        $('#event-back').attr('href', '#personalSchedule')
-        personalScheduleView.initialize()
+deviceready = ->
+  document.addEventListener('backbutton', ->
+    $('a.tab').removeClass('ui-btn-active')
+    if $.mobile.activePage.data('url') != 'event'
+      history.back()
     else
-      $(document).ready ->
-        $('#event-back').attr('href', dayTab2Load)
-        $.mobile.changePage dayTab2Load
+      personalScheduleView.initialize()
+      $('#event-back').click()
+  , false)
+
+
+init = ->
+  # build day tabs
+  dayTab2Load = undefined
+  for dayNode in programXML.find('day')
+    dayNode = $(dayNode)
+    date = dayNode.attr('date')
+
+    # 2012-12-27 => 27. Dec
+    dateSplitted = date.split('-')
+    dayNode.dayForUI = dateSplitted[2] + '.'
+
+    dayTab = $('.tabs li:first').clone()
+    dayIndex = dayNode.attr('index')
+    dayTab.attr(
+      'data-day-index': dayIndex
+    )
+
+    pageHref = "#schedule##{dayIndex}"
+
+    # add schedule link to tab button
+    a = dayTab.find('a:first')
+    a.attr('href', pageHref)
+    a.html(dayNode.dayForUI)
+    a.removeClass('ui-btn-active')
+    a.removeClass('ui-state-persist')
+
+    $('.tabs').append($('<div />').append(dayTab.show()).html())
+
+    # set active tab if current day is available event day
+    if helper.formatDate(new Date(), 'yyyy-mm-dd') == date
+      dayTab2Load = pageHref
+
+    scheduleView.initialize(dayNode)
+
+  if not dayTab2Load
+    $(document).ready ->
+      $('#event-back').attr('href', '#personalSchedule')
+      personalScheduleView.initialize()
+  else
+    $(document).ready ->
+      $('#event-back').attr('href', dayTab2Load)
+      $.mobile.changePage dayTab2Load
 
 
 # prepare schedule xml
@@ -66,7 +72,17 @@ programXML = xmlLoader.getXMLTree()
 
 personalSchedule = new PersonalSchedule()
 
+if platform.android or platform.ios
+  $ ->
+    document.addEventListener('deviceready', deviceready, true)
+else
+  deviceready()
+
+init()
+
 # dynamic page content
+last_page = undefined
+current_page = undefined
 $(document).bind 'pagebeforechange', (e, data) ->
   return if typeof data.toPage != 'string'
 
@@ -75,6 +91,7 @@ $(document).bind 'pagebeforechange', (e, data) ->
 
   $('body').addClass('ui-loading')
   $('a.tab').removeClass('ui-btn-active')
+  last_page = parsedUrl.hash
 
   if /^#schedule#/.test(parsedUrl.hash)
     # determine corresponding dayNode
@@ -94,6 +111,7 @@ $(document).bind 'pagebeforechange', (e, data) ->
   # #event# <day-index> # <room-name> # <event-id>
   # 0  1         2            3            4
   else if /^#event#[0-9]+#.*#[0-9]+$/.test(parsedUrl.hash)
+    $('body').attr('data-last-active-page', parsedUrl.hash)
     # determine corresponding event
     parsedUrlHash = parsedUrl.hash.split('#')
 
@@ -134,5 +152,3 @@ $(window).bind 'scrollstop', ->
     userconfig.setItem('last-scroll-pos-' + pageID, $(window).scrollTop())
 
 $.mobile.defaultPageTransition = 'none'
-
-app = new App()
